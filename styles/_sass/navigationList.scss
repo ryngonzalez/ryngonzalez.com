@@ -1,0 +1,23 @@
+.navigationList {
+  margin-bottom: 3.5em;
+}
+
+.navigationItem {
+  display: inline-block;
+  margin-right: 1rem;
+  font-size: 1.5em;
+  padding-bottom: 4px;
+  border-bottom: 4px solid transparent;
+  
+  &.is-selected {
+    border-color: #eee;
+  }
+
+  &:hover {
+    border-color: #ccc;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}

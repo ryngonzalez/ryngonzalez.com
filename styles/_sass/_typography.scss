@@ -1,0 +1,82 @@
+html {
+  font-family: 'franklin-gothic-urw', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-size: 100%;
+  line-height: 1.1;
+  font-weight: 400;
+  color: #000;
+}
+
+@media (max-width: 900px) {
+  html { font-size: 93.75%; }
+}
+
+@media (max-width: 400px) {
+  html { font-size: 81.25%; }
+}
+
+// Headers
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote {
+  font-family: 'grad', 'Georgia', 'serif';
+  margin-bottom: 2rem;
+}
+
+h1 { font-size: 2.25em;  }
+h2 { font-size: 2em;     }
+h3 { font-size: 1.625em;  }
+h4 { font-size: 1.5em;   }
+h5 { font-size: 1.25em;  }
+h6 { font-size: 1.125em; }
+
+h1 {
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.375rem;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+li { font-size: 1em; }
+pre { font-size: 0.8em; }
+
+a {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: 600;
+}
+
+blockquote {
+  font-size: 2em;
+  line-height: 2.5rem;
+  text-align: center;
+  font-style: italic;
+
+  &:before, &:after {
+    display: inline;
+  }
+  &:before {
+    content: '“'
+  }
+  &:after {
+    content: '”'
+  }
+}

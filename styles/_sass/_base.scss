@@ -1,0 +1,27 @@
+html {
+  border: solid 2em #eee;
+  padding: 2em;
+  padding-bottom: 4em;
+  background: url(/images/pattern.png);
+  background-size: 240px;
+  position: relative;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    border-width: 1em;
+    padding: 1em;
+    padding-bottom: 4em;
+  }
+}
+
+
+img {
+  max-width: 100%;
+  margin-bottom: 2em;
+}

@@ -1,0 +1,17 @@
+---
+layout: default
+title: Blog
+---
+
+<div class="Blog">
+  <ul class="Blog-posts">
+    {% for post in site.posts %}
+      <li class="Blog-post">
+        <h3 clas="Blog-post-title">
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </h3>
+        <span class="Blog-post-date">{{ post.date | date_to_string }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

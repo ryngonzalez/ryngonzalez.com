@@ -1,23 +1,21 @@
 ---
 layout: default
 ---
+<div class="Info">
+  
+  <div class="Info-sidebar">
+    <img class="Info-profile" src="/images/profile.png">
+  </div>
 
-<div class="home">
+  <div class="Info-content">
+    <h1>Hi. I'm Ryan Gonzalez.</h1>
 
-  <h1 class="page-heading">Posts</h1>
+    <p>I'm a <strong>designer</strong> and <strong>engineer</strong> who enjoys wading in the space between those two disciplines.</p>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <p>For the last year and a half I’ve been working as lead designer and engineer at <a href="/work/fetchnotes" class="fetchnotes-link">Fetchnotes</a> building iOS and web applications for collaboration and productivity in ye olde Boston.</p>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+    <p>Previously, I spent a summer designing and developing at <a href="/work/fuzzco" class="fuzzco-link">Fuzzco</a> in b-e-a-utiful Charleston, South Carolina.</p>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+    <p>I'm <strong>@{{site.twitter_username}}</strong> everywhere. Check out some design-y things at <a href="https://dribbble.com/{{site.dribbble_username}}">Dribbble</a>, code doodles and open source projects on <a href="https://github.com/{{site.github_username}}">GitHub</a>, and banterings on <a href="https://twitter.com/{{site.twitter_username}}">Twitter</a>. Let’s be internet friends!</p>
+  </div>
 </div>

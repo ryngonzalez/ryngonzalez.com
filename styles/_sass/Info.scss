@@ -1,0 +1,48 @@
+.Info {
+  display: flex;
+}
+
+.Info-profile {
+  width: 144px;
+  height: 144px;
+  border: 0.5em solid #eee;
+  margin-bottom: 2em;
+}
+
+.Info-sidebar {
+  @extend %clearfix;
+  flex: 0 0 auto;
+  margin-right: 2em;
+  height: 100%;
+  float: left;
+}
+
+.Info-content {
+
+}
+
+@media screen and (max-width: 800px) {
+  .Info {
+    display: block;
+  }
+
+
+  .Info h1 {
+    font-size: 1.75em;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .Info-sidebar {
+    float: none;
+    margin-bottom: 3em;
+    text-align: center;
+  }
+
+  .Info-profile {
+    width: 72px;
+    height: auto;
+    margin: 0 auto;
+  }
+}

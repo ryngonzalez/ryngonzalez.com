@@ -1,0 +1,16 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/ryan/Desktop/Playground/ryngonzalez.com"
+		}
+	],
+  "settings":
+    {
+      "Jekyll":
+        {
+            "posts_path": "/Users/ryan/Desktop/Playground/ryngonzalez.com/blog/_posts",
+            "drafts_path": "/Users/ryan/Desktop/Playground/ryngonzalez.com/blog/_drafts"
+        }
+    }
+}

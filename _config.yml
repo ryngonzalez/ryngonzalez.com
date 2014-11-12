@@ -11,6 +11,7 @@ dribbble_username: ryngonzalez
 
 # Build settings
 markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
 
 # Jekyll configuration
 sass:

@@ -7,10 +7,10 @@ title: Blog
   <ul class="Blog-posts">
     {% for post in site.posts %}
       <li class="Blog-post">
-        <h3 clas="Blog-post-title">
+        <h3 class="Blog-post-title">
           <a href="{{ post.url }}">{{ post.title }}</a>
         </h3>
-        <span class="Blog-post-date">{{ post.date | date_to_string }}</span>
+        <time class="Blog-post-date">{{ post.date | date_to_string }}</time>
       </li>
     {% endfor %}
   </ul>

@@ -10,7 +10,7 @@ tumblr_url: http://makethingswell.tumblr.com/post/19460302114/business-owners-do
 >
 > But this way of thinking replaces the point of the machine’s activity with a diagnostic test of how well it is performing. Normally, one senses whether one is performing skillfully. A basketball player does not need to count baskets to know whether the team as a whole is in flow. Saying that the point of business is to produce profit is like saying that the whole point of playing basketball is to make as many baskets as possible. One could make many more baskets by having no opponent.
 >
->The game and styles of playing the game are what matter because they produce identities people care about. Likewise, a business develops an identity by providing a product or a service to people. To do that it needs capital, and it needs to make a profit, but no more than it needs to have competent employees or customers or any other thing that enables production to take place. None of this is the goal of the activity.
+>The game and styles of playing the game are what matter because they produce identities people care about. Likewise, a business develops an identity by providing a product or a service to people. To do that it needs capital, and it needs to make a profit, but no more than it needs to have competent employees or customers or any other thing that enables production to take place. None of this is the goal of the activity. 
 >
 > The goal is to kick ass.
 

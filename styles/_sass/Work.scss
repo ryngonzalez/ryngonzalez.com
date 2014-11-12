@@ -1,3 +1,12 @@
+.Work {
+  @extend %flex;
+}
+
+.Work-links {
+  @include flex(1, 0, auto);
+  margin-right: 3rem;
+}
+
 .Work-link {
   margin-bottom: 2rem;
   h1 {
@@ -6,5 +15,90 @@
 
   time {
     color: #666;
+  }
+}
+
+.Work-grid {
+  @extend %flex;
+}
+
+.Work-grid-item {
+  @include flex(1, 1, 50%);
+  &:hover .Work-grid-info {
+    opacity: 1;
+  }
+}
+
+.Work-grid-itemLink {
+  position: relative;
+  display: block;
+  &:hover {
+    .Work-grid-title {
+      text-decoration: underline;
+    }
+    text-decoration: none;
+  }
+}
+
+.Work-grid-image {
+  height: auto;
+  margin: 0;
+}
+.Work-grid-info {
+  transition: opacity 200ms ease-in-out;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255,255,255,0.95);
+  position: absolute;
+  padding: 1em;
+  top: 0;
+  left: 0;
+}
+
+.Work-grid-title {
+  font-size: 1.25em;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.Work-grid-excerpt {
+  font-size: 1em;
+  line-height: 1.25em;
+  font-weight: 300;
+  color: #666;
+  a:hover & {
+    text-decoration: none !important;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .Work {
+    display: block;
+  }
+  
+  .Work-grid {
+    display: block;
+  }
+
+  .Work-grid-image {
+    margin-bottom: 1rem;
+  }
+
+  .Work-grid-item {
+    // display: 
+  }
+
+  .Work-grid-info {
+    background: rgba(255,255,255,0.95);
+    position: relative;
+    opacity: 1;
+    padding: 0;
+  }
+
+}
+@media screen and (max-width: 800px) {
+  .Work-grid-itemLink {
+    flex-flow: row wrap;
   }
 }

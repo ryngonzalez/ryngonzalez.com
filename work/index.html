@@ -16,4 +16,19 @@ layout: default
       <time>February 2012 - August 2012</time>
     </li>
   </ul>
+  <ul class="Work-grid">
+    {% for item in site.work %}
+    {% if item.published %}
+    <li class="Work-grid-item">
+      <a class="Work-grid-itemLink" href="{{item.url}}">
+        <img class="Work-grid-image" src="/images/{{item.image}}" alt="">
+        <div class="Work-grid-info">
+          <span class="Work-grid-title">{{item.title}}</span>
+          <p class="Work-grid-excerpt">{{item.excerpt}}</p>
+        </div>
+      </a>
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
 </div>

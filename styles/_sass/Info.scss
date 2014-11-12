@@ -1,9 +1,5 @@
 .Info {
-  display: flex;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  @extend %flex;
 }
 
 .Info-profile {
@@ -15,10 +11,7 @@
 
 .Info-sidebar {
   @extend %clearfix;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+  @include flex(0, 0, auto);
   margin-right: 2em;
   height: 100%;
   float: left;

@@ -36,9 +36,6 @@
   position: relative;
   display: block;
   &:hover {
-    .Work-grid-title {
-      text-decoration: underline;
-    }
     text-decoration: none;
   }
 }
@@ -61,6 +58,7 @@
 
 .Work-grid-title {
   font-size: 1.25em;
+  line-height: 1.375rem;
   margin-bottom: 1rem;
   display: inline-block;
 }

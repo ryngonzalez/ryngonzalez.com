@@ -1,8 +1,9 @@
 ---
-title: MHacks
+title: Michigan Hackers
 layout: work-item
-image: mhacks@2x.png
-published: true
-date: September 2013 - November 2013
-excerpt: ! Designing the branding for the world's largest student hackathon.
+image: michigan-hackers@2x.png
+published: false
+date: '2013-03-01T12:00:00-00:00'
+when: March 2013
+excerpt: ! Running the branding, doing illustrations, and working as design lead for the Michigan Hackers community.
 ---

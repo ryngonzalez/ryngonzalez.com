@@ -17,7 +17,8 @@ layout: default
     </li>
   </ul>
   <ul class="Work-grid">
-    {% for item in site.work %}
+    {% assign items = site.work | sort: 'date' %}
+    {% for item in items reversed %}
     {% if item.published %}
     <li class="Work-grid-item">
       <a class="Work-grid-itemLink" href="{{item.url}}">

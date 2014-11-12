@@ -1,8 +1,8 @@
 ---
 title: Working in unison
-layout: post
+layout: work-item
 image: fetchnotes-apps@2x.png
 published: true
 date: December 2013
-excerpt: Working with another engineer on the team to build a web app from scratch in 21 days.
+excerpt: How to build a web app from scratch with code reuse, all in 21 days.
 ---

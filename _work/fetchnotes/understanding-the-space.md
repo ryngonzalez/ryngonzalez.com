@@ -1,5 +1,5 @@
 ---
 title: Understanding the space
-layout: post
+layout: work-item
 excerpt: Beginnings, and exploration into personal productivity software
 ---

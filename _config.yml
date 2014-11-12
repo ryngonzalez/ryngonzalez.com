@@ -25,6 +25,3 @@ collections:
     output: true
     directory: ./work
     permalink: /work/:path/
-
-gems:
-  - octopress-autoprefixer

@@ -22,7 +22,16 @@ body {
 
 
 img,
-video {
+video,
+iframe {
   max-width: 100%;
   margin-bottom: 2em;
+}
+
+hr {
+  margin: 4rem auto;
+  border: none;
+  background: #ccc;
+  height: 1px;
+  width: 40%;
 }

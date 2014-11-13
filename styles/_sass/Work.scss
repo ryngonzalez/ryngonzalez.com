@@ -95,3 +95,41 @@
     display: block;
   }
 }
+
+.WorkItem-header {
+  margin-bottom: 2rem;
+}  
+.WorkItem-title {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+.WorkItem-title,
+.WorkItem-visit {
+  display: inline-block;
+  vertical-align: middle;
+}
+.WorkItem-visit {
+  color: black;
+  margin-left: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 0.25rem;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  line-height: 0.875rem;
+  &:hover {
+    background: #eee;
+    text-decoration: none;
+  }
+  &:active {
+    background: #ccc;
+    border: 1px solid #aaa;
+  }
+}
+
+.WorkItem-timestamp {
+  margin-top: 1.5rem;
+  font-size: 1.25rem;
+  color: #666;
+}

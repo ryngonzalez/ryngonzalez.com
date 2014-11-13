@@ -1,6 +1,18 @@
 ---
-layout: post
+layout: default
 ---
+<header class="WorkItem-header">
+  <h1 class="WorkItem-title">
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  </h1>
+  <div class="WorkItem-timestamp">
+    <time>{{page.when}}</time>
+    {% if page.site %}
+    <a href="{{page.site}}" class="WorkItem-visit">Visit the site</a>
+    {% endif %}
+  </div>
+</header>
+
 <p>{{page.excerpt}}</p>
 <img src="/images/{{page.image}}" alt="">
 

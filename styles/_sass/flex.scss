@@ -1,0 +1,30 @@
+.flex {
+  @extend %flex;
+}
+
+.flex-2 {
+  @extend .flex;
+  > * {
+    @include flex(0, 1, 50%);
+    margin-right: 1em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  .flex-2 {
+    > * {
+      margin: 0 auto 2rem;
+      &:last-child {
+        margin: 0 auto 2rem;
+      }
+    }
+  }
+
+  .flex {
+    display: block;
+  }
+}

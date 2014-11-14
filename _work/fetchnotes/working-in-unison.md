@@ -6,6 +6,7 @@ published: true
 date: '2013-12-01T12:00:00-00:00'
 when: December 2013
 site: http://fetchnotes.com
+for: Fetchnotes
 excerpt: Building a web app from scratch with code reuse, all in 21 days.
 ---
 

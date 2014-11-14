@@ -6,6 +6,7 @@ published: true
 date: '2013-11-21T12:00:00-00:00'
 when: November 2013
 excerpt: ! Communicating our value, through designing and building a marketing website with beautiful animations and illustrations.
+for: Fetchnotes
 site: http://fetchnotes.com
 ---
 

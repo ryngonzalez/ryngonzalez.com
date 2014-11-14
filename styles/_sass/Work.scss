@@ -133,3 +133,17 @@
   font-size: 1.25rem;
   color: #666;
 }
+
+.WorkItem-content {
+  ul {
+    color: #333;
+    list-style-type: disc;
+    font-size: 1.375rem;
+    line-height: 2rem;
+    padding-left: 2em;
+  }
+
+  li {
+    margin-top: 1rem;
+  }
+}

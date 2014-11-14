@@ -5,6 +5,7 @@ image: fetchnotes-branding@2x.png
 published: true
 date: '2013-09-01T12:00:00-00:00'
 when: September 2013 - November 2013
+for: Fetchnotes
 excerpt: ! Working with a design team to rebrand and define what the company represents.
 ---
 

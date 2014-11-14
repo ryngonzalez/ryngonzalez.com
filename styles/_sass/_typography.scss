@@ -86,3 +86,12 @@ blockquote {
     line-height: inherit;
   }
 }
+
+code {
+  font-family: "Input Mono", monaco;
+  font-size: 0.75em;
+  padding: 0.25em 0.5em;
+  color: #F54750;
+  background: #eee;
+  border-radius: 0.25em;
+}

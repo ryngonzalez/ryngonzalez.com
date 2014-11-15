@@ -9,7 +9,7 @@ for: Fetchnotes
 excerpt: ! Iterating, prototyping, and building to create a great mobile experience.
 ---
 
-Designing a comprehensive visual style, designing new features, and adapting old features for a new context was the first challenge I undertook while at Fetchnotes, and helped shape my understanding on designing for a mobile experience. Throughout the process, I used Sketch and prototypes (in the form of in progress production code or wholely separate codebases) to guide and iterate on designs.
+Designing a comprehensive visual style, designing new features, and adapting old features for a new context was the first challenge I undertook while at Fetchnotes, and helped shape my understanding on designing for a mobile experience. Throughout the process, I used Sketch and prototypes (in the form of in progress production code or entirely separate codebases) to guide and iterate on designs.
 
 ## Early concepts
 
@@ -25,7 +25,7 @@ It was all too dark, too literal, with too much space devoted to unnecessary vis
 
 All the work presented here was designed in the hallowed days of May 2013, about a month before WWDC2013 blew up the expectations and design language of old and replaced it with the philosophy we all now know so well with iOS 7.
 
-I made a very conscious effort to understand the visual style of that iOS 6 world, and produced concepts that tried to expand that style with a (still in-progress) Fetchnotes identity. As something to be used by others, I made sure to take note and explain all the details thoroughly: layouting, spacing, and all the states necessary to represent particular UI elements were communicated through these Sketch files and through design reviews I presented.
+I made a very conscious effort to understand the visual style of that iOS 6 world, and produced concepts that tried to expand that style with a (still in-progress) Fetchnotes identity. As something to be used by others, I made sure to take note and explain all the details thoroughly: layout, spacing, and all the states necessary to represent particular UI elements were communicated through these Sketch files and through design reviews I presented.
 
 ![](/images/DachshundComponents.png)
 
@@ -41,7 +41,7 @@ I produced and drew all the iconography in these concepts and in the final produ
 
 ![](/images/DachshundIconography.png)
 
-I set up onboarding flows on a canvas that I could show to others.
+I set up on boarding flows on a canvas that I could show to others.
 
 ![](/images/DachshundOnboarding.png)
 
@@ -70,11 +70,11 @@ And out of all this, we found a system of feedback (in the form of tag tokens ab
 
 ## Quickly changing course with iOS 7
 
-iOS 7 was a large, rapid change, and I had to lead our design in a different direction after it's our announcement. I took a large design system, built with the assumptions and visual style of iOS 6 and examined how it all needed to change. Over the course of a week, I had rethough the visual language, reconsidered some iOS 7 incongruent animations and gestures, and got the ship back on course.
+iOS 7 was a large, rapid change, and I had to lead our design in a different direction after it's our announcement. I took a large design system, built with the assumptions and visual style of iOS 6 and examined how it all needed to change. Over the course of a week, I had rethought the visual language, reconsidered some iOS 7 incongruent animations and gestures, and got the ship back on course.
 
 ## Final production
 
-To me, design isn't something that ends when you leave Sketch; it grows and changes as you're building and arhictecting a system, and adapts to shifting changes along the way. Throughout building Fetchnotes for iOS, I made sure the design was adapting as it needed to knew constraints, new challenges, and was in a position to be real and shippable.
+To me, design isn't something that ends when you leave Sketch; it grows and changes as you're building and architecting a system, and adapts to shifting changes along the way. Throughout building Fetchnotes for iOS, I made sure the design was adapting as it needed to knew constraints, new challenges, and was in a position to be real and shippable.
 
 Below are some videos of the final app in use.
 
@@ -118,9 +118,9 @@ I art directed our graphic design intern to design a film strip that I could ani
   <iframe src="//player.vimeo.com/video/111774425" height="532" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 </div>
 
-### Simple, compelling onboarding
+### Simple, compelling on boarding
 
-We wanted to make onboarding an area where we could teach more of the benefits of our system, while also making it easy to login as an existing user, or create an account as a new one:
+We wanted to make on boarding an area where we could teach more of the benefits of our system, while also making it easy to login as an existing user, or create an account as a new one:
 
 <iframe src="//player.vimeo.com/video/111774419" height="532" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 

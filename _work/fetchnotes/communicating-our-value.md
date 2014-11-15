@@ -28,4 +28,4 @@ For a better look at the animations and structure in higher quality, check this 
 
 ## Easy access
 
-![](/images/text-link.png) We made it really simple to download to whichever version you needed for the mobile platform (iOS or Android) that you use. Removing the barriers to getting the app on-device was a big point of emphasis, because only once the app is downloaded can it even be truly evaluated. Designing and buliding the infrastructure needed to send easy download links to your phone via text message was one way we tried to solve that problem.
+![](/images/text-link.png) We made it really simple to download to whichever version you needed for the mobile platform (iOS or Android) that you use. Removing the barriers to getting the app on-device was a big point of emphasis, because only once the app is downloaded can it even be truly evaluated. Designing and building the infrastructure needed to send easy download links to your phone via text message was one way we tried to solve that problem.

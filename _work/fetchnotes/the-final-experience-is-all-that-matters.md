@@ -17,7 +17,7 @@ We built our mobile applications on the [Trigger.io](http://trigger.io) platform
 
 ## Don't break the illusion
 
-As an application built on web technologies, we put a premium on replicating the level of experience someone gets with a native app. We wanted the fluidity, the iconographic language, the layout, the attention to detail, and the gestures to all be present and executed to a T, with the same standards that all-native Cocoa applications strive to achieve. We wanted to build an app that accurately tracked your touches, responded seemlessly, and did the work necessary to maintain the illusion of a fully native iOS app.
+As an application built on web technologies, we put a premium on replicating the level of experience someone gets with a native app. We wanted the fluidity, the iconographic language, the layout, the attention to detail, and the gestures to all be present and executed to a T, with the same standards that all-native Cocoa applications strive to achieve. We wanted to build an app that accurately tracked your touches, responded seamlessly, and did the work necessary to maintain the illusion of a fully native iOS app.
 
 This was certainly the hardest challenge we faced, but we managed it, learned a lot in the process, and produced what I think it still the best web-stack iOS app around.
 
@@ -27,7 +27,7 @@ Building the hamburger-menu/sidebar for the app was something definitely aided b
 
 <iframe src="//player.vimeo.com/video/111774682" height="532" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-In the end, we were able to build a sidebar menu that tracked touches reponsively, used springy animations (hand-rolled CSS easing functions), and never dropped frames. 
+In the end, we were able to build a sidebar menu that tracked touches responsively, used springy animations (hand-rolled CSS easing functions), and never dropped frames. 
 
 ## Swiping
 

@@ -28,7 +28,7 @@ After getting versions out on a fast-clip, I took those designs to CSS and HTML,
 ![](/images/webapp-concept-3.png)
 ↑ I took a forward looking step to incorporate new in-progress features into the conceptualization of the web app, to make sure the choices being made then could be flexible enough for the new work to come, like reminders and saved lists.
 
-After doing a quick succesion of iterations to find the core of what we needed to build, I rendezvouz'd with my engineering partner, and we sat down to build and ship this. While I had been designing, he had been adapting mobile WebSQL code for use in the browser, and after that core model code was written, we collaborated on building out the page controllers and components. 
+After doing a quick succession of iterations to find the core of what we needed to build, I rendezvoused with my engineering partner, and we sat down to build and ship this. While I had been designing, he had been adapting mobile WebSQL code for use in the browser, and after that core model code was written, we collaborated on building out the page controllers and components. 
 
 ---
 

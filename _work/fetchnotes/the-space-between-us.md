@@ -24,7 +24,7 @@ Immediately, I had honed in on the concept of these shared spaces as cards, and 
 
 I wanted to extend the design language present in Fetchnotes to a new paradigm of _places_ where you could put something and have it available for others in real time, where you could keep _notes_ (of text, checklists, images, files) and have them viewable and editable for others in that shared space. So, I spent a lot of time in Sketch and Quartz Composer trying to design novel interactions, while also making it simple to jump between spaces and work together with a small group. I wanted to see if my card metaphor could work was a real interaction.
 
-<iframe src="//player.vimeo.com/video/111897983" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src="//player.vimeo.com/video/111909802" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ## Digging in
 

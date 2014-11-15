@@ -22,6 +22,10 @@ The best way to demonstrate this to you is to show a <a href="http://www.usertes
 
 <iframe src="//player.vimeo.com/video/111701279" style="max-width: 100%;" width="900" height="549" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
+For a better look at the animations and structure in higher quality, check this out:
+
+<iframe src="//player.vimeo.com/video/111807800" width="900" height="545" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 ## Easy access
 
 ![](/images/text-link.png) We made it really simple to download to whichever version you needed for the mobile platform (iOS or Android) that you use. Removing the barriers to getting the app on-device was a big point of emphasis, because only once the app is downloaded can it even be truly evaluated. Designing and buliding the infrastructure needed to send easy download links to your phone via text message was one way we tried to solve that problem.

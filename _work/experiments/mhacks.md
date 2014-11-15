@@ -55,4 +55,4 @@ It's wonderful seeing something you helped start grow to become even better. For
 ![](/images/mhacks-poster.jpg)
 ![](/images/mhacks-hall.jpg)
 
-The logo, in another variation, is still used today.
+The logo, in another variation, is still used today. You can see more photos from all the events at their [Facebook page](https://www.facebook.com/MHacksHackathon/photos_stream).

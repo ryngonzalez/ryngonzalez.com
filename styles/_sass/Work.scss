@@ -56,10 +56,17 @@
   left: 0;
 }
 
+.Work-grid-meta {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #999;
+  text-transform: uppercase;
+}
+
 .Work-grid-title {
   font-size: 1.25em;
   line-height: 1.375rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   display: inline-block;
 }
 
@@ -68,6 +75,7 @@
   line-height: 1.25em;
   font-weight: 300;
   color: #666;
+  margin-bottom: 0.5rem;
   a:hover & {
     text-decoration: none !important;
   }
@@ -101,7 +109,7 @@
 }  
 .WorkItem-title {
   margin: 0;
-  line-height: 1.5em;
+  line-height: 1.25em;
 }
 
 .WorkItem-title,
@@ -118,6 +126,16 @@
   text-transform: uppercase;
   font-size: 0.875rem;
   line-height: 0.875rem;
+  @media screen and (max-width: 500px) {
+    margin-left: 0;
+    display: block;
+    margin-top: 1em;
+    font-size: 1.5rem;
+    text-transform: none;
+    text-align: center;
+  }
+
+
   &:hover {
     background: #eee;
     text-decoration: none;
@@ -132,6 +150,14 @@
   margin-top: 1.5rem;
   font-size: 1.25rem;
   color: #666;
+  @media screen and (max-width: 500px) {
+    time {
+      display: block;
+      margin-top: 0.75rem;
+      color: #aaa;
+    }
+  }
+
 }
 
 .WorkItem-content {

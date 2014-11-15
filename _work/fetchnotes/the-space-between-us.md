@@ -7,7 +7,7 @@ date: '2014-03-01T12:00:00-00:00'
 when: March 2014 - November 2014
 site: http://alpha.thready.com
 for: Fetchnotes
-excerpt: ! Learning from Fetchnotes, and building Thready to make collaboration as simple as making a notebook.
+excerpt: ! Learning from Fetchnotes, and building Thready to make collaboration as simple as sharing a notebook.
 ---
 
 I worked on an overhaul of the sharing paradigm in Fetchnotes. Worked heavily in OmniGraffle, Quartz Composer and Sketch to identify approaches and design the mobile application experience of shared notebooks, and the implications of having shared a space where people can collaborate together on notes. 

@@ -47,4 +47,4 @@ One of the things I got to do on occasion was work on illustrations for the app:
 
 ## Iconography
 
-All iconography in the app was drawn either in Sketch or Illustrator.
+All iconography in the app was drawn by me, either in Sketch or Illustrator.

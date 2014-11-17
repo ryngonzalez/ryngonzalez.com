@@ -29,7 +29,7 @@ blockquote {
 h1 { font-size: 2.25em;  }
 h2 { font-size: 2em;     }
 h3 { font-size: 1.625em;  }
-h4 { font-size: 1.5em;   }
+h4 { font-size: 1.375em; font-family: "grad-sc-osf", 'grad', 'Georgia', 'serif'; }
 h5 { font-size: 1.25em;  }
 h6 { font-size: 1.125em; }
 
@@ -44,8 +44,9 @@ p {
   color: #333;
 }
 
+ul { margin-bottom: 2rem; }
 li { font-size: 1em; }
-pre { font-size: 0.8em; }
+// pre { font-size: 0.8em; }
 
 a {
   color: inherit;
@@ -94,4 +95,18 @@ code {
   color: #F54750;
   background: #eee;
   border-radius: 0.25em;
+}
+
+pre {
+  code {
+    max-width: 100%;
+    overflow-x: scroll;
+    background: #fafafa;
+    color: #333;
+    font-size: 1rem;
+    display: block;
+    padding: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+  }
 }

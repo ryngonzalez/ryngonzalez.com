@@ -1,8 +1,12 @@
 ---
 layout: default
 ---
-<h1>
-  <a href="{{ page.url }}">{{ page.title }}</a>
-</h1>
+<div class="Post">
+  <h1 class="Post-title">
+    <a class="Post-title-link" href="{{ page.url }}">{{ page.title }}</a>
+  </h1>
 
-{{content}}
+  <div class="Post-content">
+    {{content}}
+  </div>
+</div>

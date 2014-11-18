@@ -74,7 +74,7 @@ iOS 7 was a large, rapid change, and I had to lead our design in a different dir
 
 ## Final production
 
-To me, design isn't something that ends when you leave Sketch; it grows and changes as you're building and architecting a system, and adapts to shifting changes along the way. Throughout building Fetchnotes for iOS, I made sure the design was adapting as it needed to knew constraints, new challenges, and was in a position to be real and shippable.
+To me, design isn't something that ends when you leave Sketch; it grows and changes as you're building and architecting a system, and adapts to shifting changes along the way. Throughout building Fetchnotes for iOS, I made sure the design was adapting as it needed to new constraints, new challenges, and was in a position to be real and shippable.
 
 Below are some videos of the final app in use.
 

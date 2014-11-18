@@ -16,10 +16,12 @@ I've been working with a friend to build another language built on top of JavaSc
 
 I'm going to take a stab at taking you through the language and its features by implementing some familiar algorithms and data structures.
 
+Check out algorithms immediately below, or jump to [data structures](#data-structures).
+
 ## Algorithms
 
-* Fibonacci
-* Merge Sort
+* [Fibonacci](#fibonacci)
+* [Merge Sort](#merge-sort)
 
 ### Fibonacci
 
@@ -27,17 +29,17 @@ One of the simplest in the book. Takes in `n: Integer` and returns the fibonacci
 
 #### Recursive version
 
-{% highlight javascript %}
+{% highlight swift %}
 
-// Given n number in the fibonacci sequence, calculate it
+# Given n number in the fibonacci sequence, calculate it
 var fibonacci = func (n: Integer) -> Integer {
   
-  // If the number is 1 or 0, we've hit the bottom of the trough
+  # If the number is 1 or 0, we've hit the bottom of the trough
   if n == 1 || n == 0 {
     return n
   }
   
-  // Recurse down
+  # Recurse down
   return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
@@ -45,15 +47,15 @@ var fibonacci = func (n: Integer) -> Integer {
 
 #### Iterative version
 
-{% highlight javascript %}
+{% highlight swift %}
 
-// The only syntax available to create a function
+# The only syntax available to create a function
 let fibonacci = func (n: Integer) -> Integer {
 
-  // Explicity typed variables
+  # Explicity typed variables
   var current: Int = 0, next: Int = 1, future: Int = 1
 
-  // Looping
+  # Looping
   for var i = 0; i < n; i++ {
     current = next
     next    = future
@@ -73,7 +75,7 @@ A merge sort works by:
 * Dividing the unsorted array into `n` subarrays, each containing a single element.
 * Repeatedly merge subarrays to produce new sorted subarrays until there is only 1 subarray remaining. This will be the sorted array.
 
-{% highlight javascript %}
+{% highlight swift %}
 
 let mergeSort = func (arr: Array<Any>, low: Integer, high: Integer) {
   if !arr.length || low < high {
@@ -94,7 +96,7 @@ let merge = func (arr: Array<Any>,
                   compare: (Any, Any) -> Boolean
                   ) -> {
   
-  // Copy array
+  # Copy array
   var clone: Array<Any> = arr.slice(0)
 
   var left: Integer = low, 
@@ -120,3 +122,61 @@ let merge = func (arr: Array<Any>,
 {% endhighlight %}
 
 ## Data Structures
+
+* [Linked List](#linked-list)
+* [Double Linked List](#double-linked-list)
+
+### Linked List
+
+{% highlight swift %}
+
+class Node {
+  var next: Node
+  var data: Any
+  
+  # Autobind ivar with constructor
+  init(this.data) -> {}
+
+  # Convenience method for creating a new node on the list
+  init(ancestor: Node, data: Any) -> {
+    ancestor.next = this
+    this.data = data
+  }
+
+}
+
+class LinkedList {
+  var head: Node
+  var tail: Node
+  var length: Integer = 0
+
+  # Start off the linked list with some data
+  init(data: Any) -> {
+    let node = new Node(data)
+    this.add(node)
+  }
+
+  # Add node to the end of the linked list
+  # node can be the head of an existing linked list
+  add(node: Node) -> {
+    if !this.head {
+      this.head = node
+      this.tail = node
+    }
+
+    # Add to tail, replace tail
+    this.tail.next = node
+    this.tail = node
+    
+    this.length += 1
+  }
+
+  # Multiple function declarations with different parameter signatures
+  add(data: Any) -> {
+    var node = new Node(data)
+    this.add(node)
+  }
+
+}
+
+{% endhighlight %}

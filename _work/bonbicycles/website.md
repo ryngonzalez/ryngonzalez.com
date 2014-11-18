@@ -7,7 +7,7 @@ date: '2012-12-01T12:00:00-00:00'
 when: July 2012 - June 2014
 for: Bon Bicycles
 site: http://bonbicycles.com
-excerpt: ! Designed and built a marketing website for a bicycle rental service that was built to provide cash flow to an orphanage in Haiti.
+excerpt: ! Designed and built a marketing website (after doing branding) for a bicycle rental service that was built to provide support to orphanages in Haiti.
 ---
 
 I worked with Adam Kurtz of Bon Bicycles to plan, design, and develop their marketing website.

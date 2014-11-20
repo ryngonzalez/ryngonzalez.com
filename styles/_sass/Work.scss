@@ -20,6 +20,8 @@
 
 .Work-grid {
   @extend %flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
   flex-flow: row wrap;
 }
 

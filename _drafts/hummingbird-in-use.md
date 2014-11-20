@@ -4,7 +4,7 @@ layout: post
 
 _This is a post about an upcoming experimental programming language. Syntax, semantics, and language features subject to change. Last updated November 15, 2014._
 
-The past five years have featured a Cambrian explosion of emerging programming languages. Systems languages like Rust have aimed to replace insecure infrastructure written in memory-unsafe languages like C. Languages like Swift and Go have aimed to juggle the power and speed of low level languages while also trying to introduce the niceities and features previously available only in the so-called 'scripting languages' of yore like Ruby, Python and JavaScript. One niche that that has had considerable change over these last few years is programming with JavaScript on the server or browser. Languages built on top of the JavaScript VM have flourished: ClojureScript, CoffeeScript, TypeScript, Dart, AtScript, and many other variations have gained footholds in the developer community. The
+The past five years have featured a Cambrian explosion of emerging programming languages. Systems languages like Rust have aimed to replace insecure infrastructure written in memory-unsafe languages like C. Languages like Swift and Go have aimed to juggle the power and speed of low level languages while also trying to introduce the niceties and features previously available only in the so-called 'scripting languages' of yore like Ruby, Python and JavaScript. One niche that that has had considerable change over these last few years is programming with JavaScript on the server or browser. Languages built on top of the JavaScript VM have flourished: ClojureScript, CoffeeScript, TypeScript, Dart, AtScript, and many other variations have gained footholds in the developer community. The
 
 I've been working with a friend to build another language built on top of JavaScript, one that takes features from TypeScript, AtScript, and CoffeeScript with clear, simple syntax and a robust standard library. It has these goals (as written by Dirk):
 
@@ -33,12 +33,12 @@ One of the simplest in the book. Takes in `n: Integer` and returns the fibonacci
 
 # Given n number in the fibonacci sequence, calculate it
 var fibonacci = func (n: Integer) -> Integer {
-  
+
   # If the number is 1 or 0, we've hit the bottom of the trough
   if n == 1 || n == 0 {
     return n
   }
-  
+
   # Recurse down
   return fibonacci(n - 1) + fibonacci(n - 2)
 }
@@ -89,18 +89,18 @@ let mergeSort = func (arr: Array<Any>, low: Integer, high: Integer) {
   merge(arr, low, mid, high)
 }
 
-let merge = func (arr: Array<Any>, 
-                  low: Integer, 
-                  mid: Integer, 
-                  high: Integer, 
+let merge = func (arr: Array<Any>,
+                  low: Integer,
+                  mid: Integer,
+                  high: Integer,
                   compare: (Any, Any) -> Boolean
                   ) -> {
-  
+
   # Copy array
   var clone: Array<Any> = arr.slice(0)
 
-  var left: Integer = low, 
-      right: Integer = mid + 1, 
+  var left: Integer = low,
+      right: Integer = mid + 1,
       currentIndex: Integer = 0
 
   while left < mid && right < high {
@@ -133,7 +133,7 @@ let merge = func (arr: Array<Any>,
 class Node {
   var next: Node
   var data: Any
-  
+
   # Autobind ivar with constructor
   init(this.data) -> {}
 
@@ -167,7 +167,7 @@ class LinkedList {
     # Add to tail, replace tail
     this.tail.next = node
     this.tail = node
-    
+
     this.length += 1
   }
 

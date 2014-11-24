@@ -41,7 +41,7 @@ Once I had a drawn all these screens and had a general direction and a clear des
 
 ![](/images/SpacesMap.png)
 
-I even created a clickable InVision prototype to get a sense of how it would feel on device (open on you iOS device to get the full experience!). 
+I even created a clickable InVision prototype to get a sense of how it would feel on device (open on your iOS device to get the full experience!). 
 
 <iframe width="396" height="834" src="//invis.io/NV1P62B73" frameborder="0" allowfullscreen></iframe>
 

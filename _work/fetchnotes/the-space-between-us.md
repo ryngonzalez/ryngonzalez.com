@@ -37,7 +37,7 @@ In May, once my work on reminders was wrapping up, I started digging down and pr
 
 ## Understanding how it all fits together
 
-Once I had a drawn all these screens and had a general direction and a clear design on how Fetchnotes could be rebuilt with this new sharing and organizational paradigm, I built a comprehensive map of how the app would be structured. I made it clear enough if you were a third party to jump in and understand how everything flows together. You can see the image below, or check out the OmniGraffle file [itself](https://www.dropbox.com/sh/obhfpt7ifabinld/AACBGfcNq7ilf6is5NXqR96ba?dl=0).
+Once I had a drawn all these screens and had a general direction and a clear design on how Fetchnotes could be rebuilt with this new sharing and organizational paradigm, I built a comprehensive map of how the app would be structured. I made it clear enough if you were a third party to jump in and understand how everything flows together. You can see the image below, or check out the OmniGraffle file [itself](https://www.dropbox.com/sh/l0sy0jd1e9h340d/AAB7aduYNEFXSNU1FWNPamXxa?dl=0).
 
 ![](/images/SpacesMap.png)
 

@@ -70,7 +70,7 @@ And out of all this, we found a system of feedback (in the form of tag tokens ab
 
 ## Quickly changing course with iOS 7
 
-iOS 7 was a large, rapid change, and I had to lead our design in a different direction after it's our announcement. I took a large design system, built with the assumptions and visual style of iOS 6 and examined how it all needed to change. Over the course of a week, I had rethought the visual language, reconsidered some iOS 7 incongruent animations and gestures, and got the ship back on course.
+iOS 7 was a large, rapid change, and I had to lead our design in a different direction after it's announcement. I took a large design system, built with the assumptions and visual style of iOS 6 and examined how it all needed to change. Over the course of a week, I had rethought the visual language, reconsidered some iOS 7 incongruent animations and gestures, and got the ship back on course.
 
 ## Final production
 

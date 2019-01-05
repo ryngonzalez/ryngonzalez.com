@@ -22,7 +22,7 @@ So, while resting at a hotel in rural Pennsylvania during the drive up from Sout
 
 I tried imagining what the logo could be done with motion applied from the outset, and built a little prototype to test the idea (click rerun to see the animation):
 
-<p data-height="400" data-theme-id="0" data-slug-hash="pLEyH" data-default-tab="result" data-user="rmg7344" class='codepen'>See the Pen <a href='http://codepen.io/rmg7344/pen/pLEyH/'>pLEyH</a> by Ryan Gonzalez (<a href='http://codepen.io/rmg7344'>@rmg7344</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="400" data-theme-id="0" data-slug-hash="pLEyH" data-default-tab="result" data-user="rmg7344" class='codepen'>See the Pen <a href='http://codepen.io/rmg7344/pen/pLEyH/'>pLEyH</a> by Kathryn Gonzalez (<a href='http://codepen.io/rmg7344'>@rmg7344</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 I wanted to do something simple, easily used and applied by other designers elsewhere, so I scrapped that idea (but made sure to keep it in the back of my mind to apply later). The mark also had to be recognizable enough to identify with the university, while also having a personality of it's own. So, I made it striking and simple:

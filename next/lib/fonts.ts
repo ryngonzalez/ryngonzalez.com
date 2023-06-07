@@ -1,8 +1,8 @@
-import { JetBrains_Mono as FontMono, DM_Sans as FontSans, DM_Serif_Display as FontSerif } from "next/font/google"
+import { JetBrains_Mono as FontMono, Inter as FontSans, DM_Serif_Display as FontSerif } from "next/font/google"
 
 export const fontSans = FontSans({
   subsets: ["latin"],
-  weight: "400",
+  weight: "variable",
   variable: "--font-sans",
 })
 

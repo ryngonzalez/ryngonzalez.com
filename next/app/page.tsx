@@ -7,16 +7,21 @@ import Image from "next/image"
 
 function IndexPage() {
   return (
-    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10 m-auto max-w-[840px]">
-      <div className="flex flex-col items-start gap-2 leading-loose">
-        <Image src="/Headshot-transformed.jpeg" width={200} height={200} className="rounded-full mb-6" alt="Image of Kathryn Gonzalez" />
-        <h1 className="text-3xl font-medium md:text-4xl">
-          <span className="font-extrabold">Independent Design and Engineering Director.</span>
-          <span> I help companies build products with systems, design engineering, and strategic craft.</span>
+    <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10 m-auto max-w-3xl mt-16">
+      <div className="flex flex-col items-start gap-6 leading-loose">
+        <Image src="/Headshot-transformed.jpeg" width={128} height={128} className="rounded-full" alt="Image of Kathryn Gonzalez" />
+        <h1 className="text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-br from-gray-400 to-gray-900">
+          <span className="">Kathryn Gonzalez</span> — Independent Design and Engineering Director.
         </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground">
-          I spent 8 years building and leading the design infrastructure org (design systems, design engineering, prototyping, accessibility) at DoorDash after starting as their first designer and frontend engineer. Now, I'm currently in the middle of a long break.
-        </p>
+        <h2 className="text-2xl md:text-3xl">I help companies build products with systems, design engineering, and strategic craft.</h2>
+        <div className="max-w-[700px] text-lg md:text-xl leading-relaxed text-muted-foreground flex flex-col items-start gap-6">
+          <p>
+            I spent 8 years building and leading the design infrastructure org (design systems, design engineering, prototyping, accessibility) at DoorDash after starting as their first designer and frontend engineer. Now, I'm currently in the middle of a long break.
+          </p>
+          <p>
+            P.S. — I'm also an <span className="text-primary">angel investor</span> and advisor to early-stage startups.
+          </p>
+        </div>
       </div>
       <div className="flex gap-4">
         <Link

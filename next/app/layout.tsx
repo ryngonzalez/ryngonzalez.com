@@ -14,9 +14,7 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  themeColor: [
-    { color: "black" },
-  ],
+  themeColor: [{ color: "black" }],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -37,13 +35,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
           className={cn(
             "min-h-screen max-h-screen bg-background font-sans antialiased",
             fontSans.variable,
-            fontSerif.variable,
+            fontSerif.variable
           )}
         >
-          <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
+          <ThemeProvider
+            attribute="class"
+            enableSystem={false}
+            defaultTheme="dark"
+          >
             <div className="relative flex min-h-screen flex-col">
               <div className="flex-1">{children}</div>
-              <footer className="pb-4 md:pb-8 text-muted-foreground text-sm max-w-3xl m-auto container">Kathryn Gonzalez - {(new Date()).getFullYear()}</footer>
+              <footer className="pb-4 md:pb-8 text-muted-foreground text-sm max-w-3xl m-auto container">
+                &copy; Kathryn Gonzalez - {new Date().getFullYear()}
+              </footer>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

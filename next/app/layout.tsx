@@ -41,7 +41,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             fontSerif.variable,
           )}
         >
-          <ThemeProvider attribute="class" enableSystem>
+          <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
             <div className="relative flex min-h-screen flex-col">
               <div className="flex-1">{children}</div>
               <footer className="p-8 text-muted-foreground text-sm max-w-3xl m-auto container">Kathryn Gonzalez - {(new Date()).getFullYear()}</footer>

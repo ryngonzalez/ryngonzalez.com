@@ -10,7 +10,7 @@ import { Gradient } from "./gradient-mesh-lib";
 
 function GradientMesh() {
   const style = {
-    "--gradient-color-1": "#334155",
+    "--gradient-color-1": "#182536",
     "--gradient-color-2": "#1e293b",
     "--gradient-color-3": "#0f172a",
     "--gradient-color-4": "#020617",

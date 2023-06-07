@@ -8,7 +8,7 @@ import { Icons } from "@/components/icons"
 
 function IndexPage() {
   return (
-    <section className="container grid items-center gap-10 pb-6 md:pb08 pt-6 md:py-10 m-auto max-w-3xl mt-16">
+    <section className="container flex flex-col items-start gap-10 pb-4 md:pb-8 pt-6 md:py-10 m-auto max-w-3xl mt-16">
       <GradientMesh />
       <div className="flex flex-col items-start gap-6 leading-loose">
         <Image
@@ -34,24 +34,34 @@ function IndexPage() {
             </span>{" "}
             in 2015 as their first designer and frontend engineer. I then spent
             8 years building and leading the design infrastructure org (design
-            systems, design engineering, prototyping, accessibility). Now, I'm
-            currently in the middle of a long break.
+            systems, design engineering, prototyping, accessibility) after designing their Consumer, Merchant, and Dasher products.
           </p>
+          <p>Now, I'm
+            currently in the middle of a long break.</p>
           <p>
             P.S. — I'm also an{" "}
-            <span className="text-primary cursor-money hover:text-green-500">
+            <span className="text-primary cursor-money hover:text-green-500 transition-colors duration-300">
               angel investor
             </span>{" "}
             and advisor to early-stage startups.
           </p>
         </div>
       </div>
-      <div className="flex gap-4">
+      <div className="grid content-start grid-cols-2 md:grid-cols-4 gap-4">
+        <Link
+          target="_blank"
+          rel="noreferrer"
+          href={siteConfig.links.email}
+          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
+        >
+          <Icons.mail className="h-5 w-5 stroke-current" />
+          Email
+        </Link>
         <Link
           target="_blank"
           rel="noreferrer"
           href={siteConfig.links.twitter}
-          className={`flex gap-2 ${buttonVariants({ variant: "outline" })}`}
+          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
         >
           <Icons.twitter className="h-5 w-5 fill-current" />
           Twitter
@@ -60,7 +70,7 @@ function IndexPage() {
           target="_blank"
           rel="noreferrer"
           href={siteConfig.links.github}
-          className={`flex gap-2 ${buttonVariants({ variant: "outline" })}`}
+          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
         >
           <Icons.gitHub className="h-5 w-5 fill-current" />
           GitHub
@@ -69,9 +79,9 @@ function IndexPage() {
           target="_blank"
           rel="noreferrer"
           href={siteConfig.links.linkedin}
-          className={`flex gap-2 ${buttonVariants({ variant: "outline" })}`}
+          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
         >
-          <Icons.linkedin className="h-5 w-5 fill-current" />
+          <Icons.linkedin className="h-5 w-5 stroke-current" />
           LinkedIn
         </Link>
       </div>

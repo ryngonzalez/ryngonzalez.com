@@ -11,6 +11,7 @@ export const siteConfig = {
     },
   ],
   links: {
+    email: "mailto:kathrynmichellegonzalez@gmail.com",
     twitter: "https://twitter.com/ryngonzalez",
     github: "https://github.com/ryngonalez",
     linkedin: "https://www.linkedin.com/in/ryngonzalez/",

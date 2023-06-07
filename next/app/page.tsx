@@ -8,7 +8,7 @@ import { Icons } from "@/components/icons"
 
 function IndexPage() {
   return (
-    <section className="container grid items-center gap-10 pb-8 pt-6 md:py-10 m-auto max-w-3xl mt-16">
+    <section className="container grid items-center gap-10 pb-6 md:pb08 pt-6 md:py-10 m-auto max-w-3xl mt-16">
       <GradientMesh />
       <div className="flex flex-col items-start gap-6 leading-loose">
         <Image

@@ -36,7 +36,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <head />
         <body
           className={cn(
-            "min-h-screen bg-background font-sans antialiased",
+            "min-h-screen max-h-screen bg-background font-sans antialiased",
             fontSans.variable,
             fontSerif.variable,
           )}
@@ -44,7 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <ThemeProvider attribute="class" enableSystem={false} defaultTheme="dark">
             <div className="relative flex min-h-screen flex-col">
               <div className="flex-1">{children}</div>
-              <footer className="p-8 text-muted-foreground text-sm max-w-3xl m-auto container">Kathryn Gonzalez - {(new Date()).getFullYear()}</footer>
+              <footer className="pb-6 md:pb-8 text-muted-foreground text-sm max-w-3xl m-auto container">Kathryn Gonzalez - {(new Date()).getFullYear()}</footer>
             </div>
             <TailwindIndicator />
           </ThemeProvider>

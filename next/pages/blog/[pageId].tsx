@@ -22,6 +22,9 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     props: {
       recordMap,
     },
+    // we will attempt to re-generate the page:
+    // - when a request comes in
+    // - at most once every 10 seconds
     revalidate: 10,
   }
 }

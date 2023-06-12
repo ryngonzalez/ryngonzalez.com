@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GetStaticPropsContext } from "next"
+import { GetStaticPaths, GetStaticPropsContext } from "next"
 import { ExtendedRecordMap } from "notion-types"
 import { getAllPagesInSpace } from "notion-utils"
 import { defaultMapPageUrl } from "react-notion-x"
@@ -26,15 +26,13 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   }
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   if (isDev) {
     return {
       paths: [],
       fallback: true,
     }
   }
-
-  const mapPageUrl = defaultMapPageUrl(rootNotionPageId)
 
   // This crawls all public pages starting from the given root page in order
   // for next.js to pre-generate all pages via static site generation (SSG).
@@ -50,8 +48,10 @@ export async function getStaticPaths() {
   )
 
   const paths = Object.keys(pages)
-    .map((pageId) => `/blog/${mapPageUrl(pageId)}`)
-    .filter((path) => path && path === "/blog/")
+    .map((pageId) => ({ params: { pageId: pageId } }))
+    .filter((path) => path)
+
+  console.log(pages, paths)
 
   return {
     paths,

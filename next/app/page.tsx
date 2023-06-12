@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
@@ -6,6 +5,7 @@ import { buttonVariants } from "@/components/ui/button"
 import Avatar from "@/components/avatar"
 import GradientMesh from "@/components/gradient-mesh"
 import { Icons } from "@/components/icons"
+import { SiteHeader } from "@/components/site-header"
 
 function IndexPage() {
   return (

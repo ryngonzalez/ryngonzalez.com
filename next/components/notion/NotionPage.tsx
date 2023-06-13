@@ -107,7 +107,7 @@ export const NotionPage = ({
   }
 
   const title = getPageTitle(recordMap)
-  console.log(title, recordMap)
+  // console.log(title, recordMap)
 
   // useful for debugging from the dev console
   if (typeof window !== "undefined") {
@@ -118,9 +118,8 @@ export const NotionPage = ({
     g.block = block
   }
 
-  const socialDescription = "React Notion X Demo"
-  const socialImage =
-    "https://react-notion-x-demo.transitivebullsh.it/social.jpg"
+  const socialDescription = `Kathryn Gonzalez - Blog - ${title}`
+  const socialImage = `/api/og?title=${encodeURIComponent(title)}`
 
   return (
     <>
@@ -146,7 +145,7 @@ export const NotionPage = ({
         <title>{title}</title>
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
-        <meta name="twitter:creator" content="@transitive_bs" />
+        <meta name="twitter:creator" content="@ryngonzalez" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ErrorBoundary fallback={<div>Something went wrong</div>}>

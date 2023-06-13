@@ -54,8 +54,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     .map((pageId) => ({ params: { pageId: pageId } }))
     .filter((path) => path)
 
-  console.log(pages, paths)
-
   return {
     paths,
     fallback: true,

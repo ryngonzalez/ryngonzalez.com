@@ -14,7 +14,7 @@ export function SiteHeader() {
           </span>
         </Link>
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-2">
             {(siteConfig.mainNav as NavItem[])?.map(
               (item, index) =>
                 item.href && (
@@ -22,7 +22,7 @@ export function SiteHeader() {
                     key={index}
                     href={item.href}
                     className={cn(
-                      "flex items-center text-sm font-medium p-2 pl-3 pr-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded text-muted-foreground",
+                      "flex items-center text-sm font-medium py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded text-muted-foreground",
                       item.disabled && "cursor-not-allowed opacity-80"
                     )}
                   >

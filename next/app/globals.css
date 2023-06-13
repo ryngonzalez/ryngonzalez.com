@@ -95,7 +95,7 @@
   position: relative;
 }
 
-.notion-asset-wrapper:after {
+.notion-asset-wrapper > *:after {
   content: "";
   display: block;
   position: absolute;

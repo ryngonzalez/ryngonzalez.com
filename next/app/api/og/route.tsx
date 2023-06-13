@@ -20,11 +20,6 @@ const fontBold = fetch(
 //   new URL("@/public/Inter-Light.otf", import.meta.url)
 // ).then((res) => res.arrayBuffer())
 
-// "--gradient-color-1": "#182536",
-// "--gradient-color-2": "#1e293b",
-// "--gradient-color-3": "#0f172a",
-// "--gradient-color-4": "#020617",
-
 export async function GET(request: Request) {
   try {
     const imgData = await image

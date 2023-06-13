@@ -76,7 +76,7 @@ export async function GET(request: Request) {
                 alt="Kathryn Gonzalez"
                 height={200}
                 width={200}
-                src={imgData}
+                src={imgData as unknown as string}
                 tw="relative rounded-full -z-10"
               />
             </div>

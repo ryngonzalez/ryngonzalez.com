@@ -16,9 +16,9 @@ const fontBold = fetch(
   new URL("@/public/Inter-Bold.otf", import.meta.url)
 ).then((res) => res.arrayBuffer())
 
-const fontLight = fetch(
-  new URL("@/public/Inter-Light.otf", import.meta.url)
-).then((res) => res.arrayBuffer())
+// const fontLight = fetch(
+//   new URL("@/public/Inter-Light.otf", import.meta.url)
+// ).then((res) => res.arrayBuffer())
 
 // "--gradient-color-1": "#182536",
 // "--gradient-color-2": "#1e293b",
@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   try {
     const imgData = await image
     const fontBoldData = await fontBold
-    const fontLightData = await fontLight
+    // const fontLightData = await fontLight
     const { searchParams } = new URL(request.url)
 
     // ?title=<title>
@@ -153,11 +153,11 @@ export async function GET(request: Request) {
             data: fontBoldData,
             style: "normal",
           },
-          {
-            name: "Inter Light",
-            data: fontLightData,
-            style: "normal",
-          },
+          // {
+          //   name: "Inter Light",
+          //   data: fontLightData,
+          //   style: "normal",
+          // },
         ],
       }
     )

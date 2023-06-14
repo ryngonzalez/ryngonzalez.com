@@ -10,6 +10,7 @@ import { ErrorBoundary } from "react-error-boundary"
 import { NotionRenderer, defaultMapImageUrl } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
+import { siteConfig } from "@/config/site"
 import { fontSans, fontSerif } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 
@@ -152,7 +153,9 @@ export const NotionPage = ({
           <meta name="twitter:card" content="summary" />
         )}
 
-        <title>{title}</title>
+        <title>
+          {title} - {siteConfig.navName} - Blog
+        </title>
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:creator" content="@ryngonzalez" />

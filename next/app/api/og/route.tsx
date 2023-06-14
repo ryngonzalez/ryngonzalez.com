@@ -136,14 +136,14 @@ export async function GET(request: Request) {
                   display: "flex",
                   flexDirection: "row",
                   alignItems: "center",
-                  gap: 32,
+                  gap: 48,
                 }}
               >
                 {hasImage && imageUrl && (
                   <img
                     src={imageUrl}
                     height={300}
-                    width={480}
+                    width={420}
                     style={{ objectFit: "cover", objectPosition: "top" }}
                     tw="shadow-lg shadow-black/40 rounded-xl mt-4 border-2 border-white/20"
                   />
@@ -159,7 +159,15 @@ export async function GET(request: Request) {
                   <div style={{ fontSize: 32, letterSpacing: 4, opacity: 0.5 }}>
                     POST
                   </div>
-                  <div style={{ fontSize: 56 }}>{title}</div>
+                  <div
+                    style={{
+                      fontSize: 56,
+                      textAlign: hasImage ? "left" : "center",
+                      maxWidth: hasImage ? 640 : 1200,
+                    }}
+                  >
+                    {title.length > 100 ? `${title.slice(0, 100)}…` : title}
+                  </div>
                   {hasDate && (
                     <div style={{ fontSize: 32, opacity: 0.5 }}>
                       {date?.toDateString()}

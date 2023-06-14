@@ -139,7 +139,7 @@ export async function GET(request: Request) {
                   gap: 32,
                 }}
               >
-                {hasImage && (
+                {hasImage && imageUrl && (
                   <img
                     src={imageUrl}
                     height={300}

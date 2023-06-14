@@ -5,9 +5,9 @@ import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { ExtendedRecordMap } from "notion-types"
-import { getPageTitle } from "notion-utils"
+import { getPageImageUrls, getPageProperty, getPageTitle } from "notion-utils"
 import { ErrorBoundary } from "react-error-boundary"
-import { NotionRenderer } from "react-notion-x"
+import { NotionRenderer, defaultMapImageUrl } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
 import { fontSans, fontSerif } from "@/lib/fonts"
@@ -106,20 +106,30 @@ export const NotionPage = ({
     return null
   }
 
+  const keys = Object.keys(recordMap?.block || {})
+  const block = recordMap?.block?.[keys[0]]?.value
+
   const title = getPageTitle(recordMap)
-  // console.log(title, recordMap)
+  const image = getPageImageUrls(recordMap, {
+    mapImageUrl: defaultMapImageUrl,
+  })[0]
+  const publishedDate = getPageProperty("Published Date", block, recordMap)
+
+  console.log(publishedDate)
 
   // useful for debugging from the dev console
   if (typeof window !== "undefined") {
-    const keys = Object.keys(recordMap?.block || {})
-    const block = recordMap?.block?.[keys[0]]?.value
+    // const keys = Object.keys(recordMap?.block || {})
+    // const block = recordMap?.block?.[keys[0]]?.value
     const g = window as any
     g.recordMap = recordMap
     g.block = block
   }
 
-  const socialDescription = `Kathryn Gonzalez - Blog - ${title}`
-  const socialImage = `/api/og?title=${encodeURIComponent(title)}`
+  const socialDescription = `Kathryn Gonzalez - Blog`
+  const socialImage = `/api/og?title=${encodeURIComponent(
+    title
+  )}&image=${encodeURIComponent(image)}&date=${publishedDate}`
 
   return (
     <>
@@ -174,22 +184,6 @@ export const NotionPage = ({
             Pdf,
             Modal,
             Tweet,
-            // PageLink: ({ href, as, passHref, prefetch, ...props }) => {
-            //   const hrefStr = href.startsWith("/")
-            //     ? href
-            //     : `/${href.replace(rootPageId, "")}`
-            //   console.log(as)
-            //   console.log(props)
-            //   return (
-            //     <Link
-            //       href={hrefStr}
-            //       passHref={passHref}
-            //       className={props.className}
-            //       // prefetch={pre fetch}
-            //       // {...props}
-            //     />
-            //   )
-            // },
           }}
 
           // NOTE: custom images will only take effect if previewImages is true and

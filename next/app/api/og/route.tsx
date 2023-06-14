@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/server"
 
 import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
 
 // App router includes @vercel/og.
 // No need to install it.
@@ -29,50 +30,46 @@ export async function GET(request: Request) {
 
     // ?title=<title>
     const hasTitle = searchParams.has("title")
-    const title = hasTitle
-      ? searchParams.get("title")?.slice(0, 100)
+    const title = hasTitle ? searchParams.get("title") : undefined
+
+    const hasImage = searchParams.has("image")
+    const imageUrl = hasImage ? searchParams.get("image") : undefined
+
+    const hasDate = searchParams.has("date")
+    const date = hasDate
+      ? new Date(Number.parseInt(searchParams.get("date") || ""))
       : undefined
 
     return new ImageResponse(
       (
         <div
           style={{
-            backgroundColor: "black",
-            height: "100%",
-            width: "100%",
-            display: "flex",
-            textAlign: "center",
-            alignItems: "center",
-            justifyContent: "center",
-            flexDirection: "column",
-            flexWrap: "nowrap",
-            fontSize: 100,
-            fontWeight: 200,
-            fontFamily: '"Inter Bold"',
             backgroundImage:
-              "linear-gradient(45deg, #1c2634, #1e293b, #213154, #020617)",
-            backgroundRepeat: "no-repeat",
+              "linear-gradient(45deg, #1c2634, #2e3b51, #213154, #0d1431)",
             backgroundSize: "1200px 630px",
-            padding: 48,
+            gap: 16,
           }}
+          tw={cn(
+            "font-bold bg-no-repeat px-12 py-8 flex items-center justify-center flex-col flex-nowrap text-center bg-cover h-full w-full",
+            hasImage && "items-start"
+          )}
         >
           <div
+            tw="flex items-center gap-12"
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 64,
+              gap: hasTitle ? 32 : 64,
             }}
           >
             <div
-              tw="relative w-[200px] h-[200px] after:bg-slate-600 after:-z-0 after:top-0 after:left-0 after:relative after:h-[128px] overflow-hidden after:block after:content-[''] block rounded-full shadow-inner shadow-gray-50/30"
+              tw="block rounded-full shadow-lg shadow-black/40"
               style={{ display: "flex" }}
             >
               <img
                 alt="Kathryn Gonzalez"
-                height={200}
-                width={200}
+                height={hasTitle ? 72 : 200}
+                width={hasTitle ? 72 : 200}
                 src={imgData as unknown as string}
-                tw="relative rounded-full -z-10"
+                tw="relative rounded-full"
               />
             </div>
             <div
@@ -85,16 +82,29 @@ export async function GET(request: Request) {
             >
               <div
                 style={{
-                  fontSize: 56,
+                  fontSize: hasTitle ? 32 : 56,
                   color: "white",
                   fontFamily: '"Inter Bold"',
                 }}
               >
                 {siteConfig.navName}
               </div>
-              <div style={{ fontSize: 28, opacity: 0.5 }}>
-                {siteConfig.subtitle}
-              </div>
+              {hasTitle ? (
+                <div style={{ fontSize: 24, opacity: 0.5 }}>
+                  ryngonzalez.com
+                </div>
+              ) : (
+                <div
+                  style={{
+                    fontSize: 32,
+                    // maxWidth: 640,
+                    textAlign: "left",
+                    opacity: 0.5,
+                  }}
+                >
+                  {siteConfig.subtitle}
+                </div>
+              )}
             </div>
           </div>
           {title && (
@@ -107,17 +117,16 @@ export async function GET(request: Request) {
                 letterSpacing: "-0.025em",
                 color: "white",
                 marginTop: 32,
-                // padding: "0 120px",
                 textAlign: "center",
                 lineHeight: 1.4,
                 whiteSpace: "pre-wrap",
                 alignItems: "center",
-                gap: 64,
+                gap: hasImage ? 32 : 64,
               }}
             >
               <div
                 style={{
-                  width: 320,
+                  width: 1048,
                   borderTop: "2px solid white",
                   opacity: 0.2,
                 }}
@@ -125,15 +134,38 @@ export async function GET(request: Request) {
               <div
                 style={{
                   display: "flex",
-                  flexDirection: "column",
+                  flexDirection: "row",
                   alignItems: "center",
-                  gap: 16,
+                  gap: 32,
                 }}
               >
-                <div style={{ fontSize: 32, letterSpacing: 4, opacity: 0.5 }}>
-                  POST
+                {hasImage && (
+                  <img
+                    src={imageUrl}
+                    height={300}
+                    width={480}
+                    style={{ objectFit: "cover", objectPosition: "top" }}
+                    tw="shadow-lg shadow-black/40 rounded-xl mt-4 border-2 border-white/20"
+                  />
+                )}
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: hasImage ? "flex-start" : "center",
+                    gap: 0,
+                  }}
+                >
+                  <div style={{ fontSize: 32, letterSpacing: 4, opacity: 0.5 }}>
+                    POST
+                  </div>
+                  <div style={{ fontSize: 56 }}>{title}</div>
+                  {hasDate && (
+                    <div style={{ fontSize: 32, opacity: 0.5 }}>
+                      {date?.toDateString()}
+                    </div>
+                  )}
                 </div>
-                <div style={{ fontSize: 56 }}>{title}</div>
               </div>
             </div>
           )}

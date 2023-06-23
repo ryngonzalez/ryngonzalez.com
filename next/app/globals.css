@@ -1,75 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
- 
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
- 
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 47.4% 11.2%;
- 
+
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
- 
+
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
- 
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
- 
+
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --ring: 215 20.2% 65.1%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   .dark {
     --background: 224 71% 4%;
     --foreground: 213 31% 91%;
- 
+
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
- 
+
     --popover: 224 71% 4%;
     --popover-foreground: 215 20.2% 65.1%;
- 
+
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
- 
+
     --border: 216 34% 17%;
     --input: 216 34% 17%;
- 
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
- 
+
     --secondary: 222.2 47.4% 11.2%;
     --secondary-foreground: 210 40% 98%;
- 
+
     --accent: 216 34% 17%;
     --accent-foreground: 210 40% 98%;
- 
+
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --ring: 216 34% 17%;
- 
+
     --radius: 0.5rem;
   }
 }
- 
+
 @layer base {
   * {
     @apply border-border;
@@ -78,4 +78,110 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+}
+
+@layer components {
+}
+
+.notion-collection-card {
+  @apply border hover:border-white/20 hover:bg-accent transition-all duration-200 !important;
+}
+
+.notion-page-icon-inline {
+  display: none;
+}
+
+.notion-asset-wrapper {
+  position: relative;
+}
+
+.notion-asset-wrapper > *:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 0 1px hsl(var(--border)) inset;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.notion-title {
+  @apply leading-normal text-3xl !important;
+  @apply leading-normal md:text-5xl font-light tracking-tight !important;
+  line-height: 1.2 !important;
+  @apply text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-600 !important;
+}
+
+.notion-text {
+  @apply text-sm md:text-base !important;
+}
+
+.notion-quote {
+  @apply text-sm md:text-base !important;
+}
+
+.notion-collection-column-title {
+  width: auto !important;
+  @apply font-mono h-0 mr-2 !important;
+}
+
+.notion-collection-column-title > svg {
+  display: none;
+}
+
+.notion-property-multi_select-item {
+  @apply bg-transparent w-auto p-0 underline !important;
+}
+
+.notion-property {
+  @apply font-mono;
+}
+
+.notion-collection-row-value {
+  @apply p-0 !important;
+}
+
+.notion-collection-row {
+  @apply pb-8 mb-8 border-b border-border !important;
+}
+
+.logotype {
+  @apply font-mono;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+  );
+  @apply bg-clip-text hover:bg-clip-content text-white/50 hover:text-transparent transition-all duration-500 tracking-tight;
+}
+
+.notion-gallery-grid {
+  @apply border-none !important;
+}
+
+.notion-page-title-text {
+  @apply whitespace-normal font-light text-lg font-sans !important;
+}
+
+.notion-h-title {
+  @apply font-light !important;
+}
+
+.notion-hr {
+  @apply border !important;
+}
+
+.notion > * {
+  padding: 0 !important;
 }

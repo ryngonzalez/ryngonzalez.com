@@ -5,7 +5,12 @@ import Head from "next/head"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { ExtendedRecordMap } from "notion-types"
-import { getPageImageUrls, getPageProperty, getPageTitle } from "notion-utils"
+import {
+  getCanonicalPageId,
+  getPageImageUrls,
+  getPageProperty,
+  getPageTitle,
+} from "notion-utils"
 import { ErrorBoundary } from "react-error-boundary"
 import { NotionRenderer, defaultMapImageUrl } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
@@ -153,9 +158,7 @@ export const NotionPage = ({
           <meta name="twitter:card" content="summary" />
         )}
 
-        <title>
-          {title} - {siteConfig.navName} - Blog
-        </title>
+        <title>{`${title} - ${siteConfig.navName} - Blog`}</title>
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:creator" content="@ryngonzalez" />
@@ -174,7 +177,9 @@ export const NotionPage = ({
           darkMode={false}
           disableHeader={true}
           header={<SiteHeader />}
-          mapPageUrl={(pageId) => `/blog/${pageId}`}
+          mapPageUrl={(pageId) =>
+            `/blog/${getCanonicalPageId(pageId, recordMap, { uuid: false })}`
+          }
           rootDomain={rootDomain}
           rootPageId={rootPageId}
           // previewImages={previewImagesEnabled}

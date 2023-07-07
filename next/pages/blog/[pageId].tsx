@@ -1,27 +1,23 @@
 import * as React from "react"
 import { GetStaticPaths, GetStaticPropsContext } from "next"
 import { ExtendedRecordMap } from "notion-types"
-import { getAllPagesInSpace } from "notion-utils"
-import { defaultMapPageUrl } from "react-notion-x"
 
-import { NotionPage } from "../../components/notion/NotionPage"
 import {
   isDev,
   previewImagesEnabled,
   rootDomain,
   rootNotionPageId,
-  rootNotionSpaceId,
-} from "../../config/notion"
-import * as notion from "../../lib/notion"
+} from "@/config/notion"
+import * as notion from "@/lib/notion"
+import { resolveNotionPage } from "@/lib/resolve-notion-page"
+import { NotionPage } from "@/components/notion/NotionPage"
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const pageId = context?.params?.pageId as string
-  const recordMap = await notion.getPage(pageId)
+  const rawPageId = context?.params?.pageId as string
+  const props = await resolveNotionPage("ryngonzalez.com", rawPageId)
 
   return {
-    props: {
-      recordMap,
-    },
+    props,
     // we will attempt to re-generate the page:
     // - when a request comes in
     // - at most once every 10 seconds
@@ -41,16 +37,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // for next.js to pre-generate all pages via static site generation (SSG).
   // This is a useful optimization but not necessary; you could just as easily
   // set paths to an empty array to not pre-generate any pages at build time.
-  const pages = await getAllPagesInSpace(
-    rootNotionPageId,
-    rootNotionSpaceId,
-    notion.getPage,
-    {
-      traverseCollections: false,
-    }
-  )
+  const siteMap = await notion.getSiteMap()
 
-  const paths = Object.keys(pages)
+  const paths = Object.keys(siteMap.canonicalPageMap)
     .map((pageId) => ({ params: { pageId: pageId } }))
     .filter((path) => path)
 

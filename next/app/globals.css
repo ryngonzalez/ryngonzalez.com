@@ -34,6 +34,8 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+    --notion-link-underline-thickness: 2px !important;
+    --fg-color-underline: rgba(55, 53, 47, 1) !important;
   }
 
   .dark {
@@ -93,7 +95,6 @@
 
 .notion-page-link {
   height: auto !important;
-  @apply text-sm !important;
 }
 
 .notion-list-body {
@@ -125,16 +126,16 @@
 }
 
 .notion-text {
-  @apply text-sm md:text-base !important;
+  @apply text-sm sm:text-base md:text-lg !important;
 }
 
 .notion-quote {
-  @apply text-sm md:text-base !important;
+  @apply text-sm sm:text-base md:text-lg !important;
 }
 
 .notion-collection-column-title {
   width: auto !important;
-  @apply font-mono h-0 mr-2 !important;
+  @apply h-0 mr-2 text-sm sm:text-base md:text-lg !important;
 }
 
 .notion-collection-column-title > svg {
@@ -146,7 +147,7 @@
 }
 
 .notion-property {
-  @apply text-base !important;
+  @apply text-sm sm:text-base md:text-lg !important;
 }
 
 .notion-collection-row-value {
@@ -181,11 +182,11 @@
 }
 
 .notion-page-title-text {
-  @apply whitespace-normal font-light text-base font-sans !important;
+  @apply whitespace-normal font-light text-sm sm:text-base md:text-lg font-sans !important;
 }
 
 .notion-property-title {
-  @apply whitespace-nowrap text-base md:text-lg font-sans !important;
+  @apply whitespace-nowrap text-sm sm:text-base md:text-lg font-sans !important;
 }
 
 .notion-h-title {
@@ -222,6 +223,11 @@
   overflow: auto !important;
   max-width: none !important;
   width: max-content;
+}
+
+.notion-list-item.notion-page-link {
+  --fg-color-underline: transparent;
+  --notion-link-underline-thickness: 0px !important;
 }
 
 .notion-list-item.notion-page-link > :last-child:after {

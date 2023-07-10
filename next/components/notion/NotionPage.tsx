@@ -96,11 +96,15 @@ export const NotionPage = ({
   previewImagesEnabled,
   rootPageId,
   rootDomain,
+  pageHeader,
+  pageFooter,
 }: {
   recordMap: ExtendedRecordMap
   previewImagesEnabled?: boolean
   rootPageId?: string
   rootDomain?: string
+  pageHeader?: React.ReactNode
+  pageFooter?: React.ReactNode
 }) => {
   const router = useRouter()
 
@@ -177,11 +181,14 @@ export const NotionPage = ({
           darkMode={false}
           disableHeader={true}
           header={<SiteHeader />}
+          pageHeader={pageHeader}
+          pageFooter={pageFooter}
           mapPageUrl={(pageId) =>
             `/blog/${getCanonicalPageId(pageId, recordMap, { uuid: false })}`
           }
           rootDomain={rootDomain}
           rootPageId={rootPageId}
+          isLinkCollectionToUrlProperty={false}
           // previewImages={previewImagesEnabled}
           components={{
             // nextImage: Image,

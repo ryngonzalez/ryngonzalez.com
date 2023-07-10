@@ -1,6 +1,14 @@
 import * as React from "react"
 import { ExtendedRecordMap } from "notion-types"
+import {
+  getBlockParentPage,
+  getCanonicalPageId,
+  getPageTitle,
+  parsePageId,
+} from "notion-utils"
 import { ErrorBoundary } from "react-error-boundary"
+
+import { Block, SiteMap } from "@/lib/types"
 
 import { NotionPage } from "../../components/notion/NotionPage"
 import {

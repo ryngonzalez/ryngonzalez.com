@@ -23,10 +23,10 @@
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 222.2 47.4% 23%;
 
     --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent-foreground: 222.2 47.4% 100%;
 
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
@@ -119,10 +119,9 @@
 }
 
 .notion-title {
-  @apply leading-normal text-3xl !important;
-  @apply leading-normal md:text-5xl font-light tracking-tight !important;
+  @apply leading-normal text-3xl md:text-5xl font-light tracking-tight font-serif !important;
   line-height: 1.2 !important;
-  @apply text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-600 !important;
+  /* @apply text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-600 !important; */
 }
 
 .notion-text {
@@ -159,8 +158,8 @@
 }
 
 .logotype {
-  @apply font-mono;
-  background: linear-gradient(
+  @apply font-serif text-3xl;
+  /* background: linear-gradient(
     90deg,
     rgba(255, 0, 0, 1) 0%,
     rgba(255, 154, 0, 1) 10%,
@@ -174,7 +173,7 @@
     rgba(251, 7, 217, 1) 90%,
     rgba(255, 0, 0, 1) 100%
   );
-  @apply bg-clip-text hover:bg-clip-content text-white/50 hover:text-transparent transition-all duration-500 tracking-tight;
+  @apply bg-clip-text hover:bg-clip-content text-white/50 hover:text-transparent transition-all duration-500 tracking-tight; */
 }
 
 .notion-gallery-grid {
@@ -190,7 +189,7 @@
 }
 
 .notion-h-title {
-  @apply font-light !important;
+  @apply font-light font-serif !important;
 }
 
 .notion-hr {
@@ -240,9 +239,10 @@
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0;
-  transition: all 200ms ease-in-out;
-  width: 0;
+  transition: transform 200ms ease-in-out;
+  width: 32px;
   will-change: width, opacity;
+  transform: scale-x(0);
 }
 
 .notion-list-item.notion-page-link:hover {
@@ -253,4 +253,5 @@
 .notion-list-item.notion-page-link:hover > :last-child:after {
   opacity: 1;
   width: 32px;
+  transform: scale-x(1);
 }

@@ -4,12 +4,14 @@ import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
+import { ThemeToggle } from "./theme-toggle"
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="container pl-5 pr-5 flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
         <Link href="/" className="flex items-center space-x-2">
-          <span className="inline-block font-medium logotype">
+          <span className="inline-block font-light logotype italic">
             {siteConfig.navName}
           </span>
         </Link>
@@ -22,7 +24,7 @@ export function SiteHeader() {
                     key={index}
                     href={item.href}
                     className={cn(
-                      "flex items-center text-sm font-medium py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded text-muted-foreground",
+                      "flex items-center text-base font-medium py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded text-secondary-foreground",
                       item.disabled && "cursor-not-allowed opacity-80"
                     )}
                   >
@@ -30,6 +32,7 @@ export function SiteHeader() {
                   </Link>
                 )
             )}
+            <ThemeToggle />
           </nav>
         </div>
       </div>

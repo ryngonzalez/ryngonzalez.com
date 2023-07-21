@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils"
 
 export const runtime = "edge"
 
-const image = fetch(new URL("@/public/Headshot.jpg", import.meta.url)).then(
-  (res) => res.arrayBuffer()
-)
+const image = fetch(
+  new URL("@/public/stickers/headshot.jpg", import.meta.url)
+).then((res) => res.arrayBuffer())
 
 // Make sure the font exists in the specified path:
 const fontBold = fetch(

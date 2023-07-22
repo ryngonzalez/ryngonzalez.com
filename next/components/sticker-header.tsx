@@ -1,16 +1,21 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { DragEndEvent, useDndMonitor, useDraggable } from "@dnd-kit/core"
-import { CSS } from "@dnd-kit/utilities"
+import { useRef, useState } from "react"
+import Image from "next/image"
 import {
+  AnimatePresence,
   motion,
   useMotionValue,
+  useSpring,
   useTransform,
   useVelocity,
 } from "framer-motion"
+import { useMediaQuery } from "usehooks-ts"
+
+import { cn } from "@/lib/utils"
 
 import Avatar from "./avatar"
+import { Icons } from "./icons"
 
 function getRandomNumberInRange(min: number, max: number): number {
   if (min >= max) {
@@ -23,35 +28,53 @@ function Sticker({
   children,
   containerRef,
   index = 1,
+  caption,
+  setDirty,
+  className,
+  preventYOffsetOnMobile: preventYOffset,
 }: {
   children: React.ReactNode
   containerRef?: React.MutableRefObject<HTMLElement | null>
   index: number
+  caption?: string
+  setDirty?: (dirty: boolean) => void
+  className?: string
+  preventYOffsetOnMobile?: boolean
 }) {
   const appRef = containerRef || useRef<HTMLElement | null>(null)
   const itemRef = useRef<HTMLDivElement | null>(null)
+  const [isVisible, setIsVisible] = useState<Boolean>(false)
+  const [initialRotation] = useState<number>(getRandomNumberInRange(-15, 15))
+  const [initialY] = useState<number>(
+    getRandomNumberInRange(25, 60) * (index % 2 == 0 ? -1 : 1)
+  )
+  const matches = useMediaQuery("(max-width: 768px)")
 
   const x = useMotionValue(0)
-  const xVelocity = useVelocity(x)
-
-  /**
-   * Transform the velocity of x into a scale motion value
-   */
+  const xSmooth = useSpring(x, { damping: 50, stiffness: 400 })
+  const xVelocity = useVelocity(xSmooth)
   const rotate = useTransform(
     xVelocity,
-    [-4000, 0, 4000],
-    [-25, getRandomNumberInRange(-15, 15), 25],
+    [-3000, 0, 3000],
+    [-25, initialRotation, 25],
     {
       clamp: true,
     }
   )
 
+  function hideCaption() {
+    setIsVisible(false)
+  }
+
   return (
     <motion.div
-      className="drop-shadow-lg shadow-black h-fit"
+      className={cn(
+        "relative drop-shadow-lg shadow-black h-fit flex-shrink-1 min-w-[96px]",
+        className
+      )}
       drag
       dragConstraints={appRef}
-      whileTap={{ scale: 1.1 }}
+      whileTap={{ scale: 1.8, zIndex: 1000 }}
       dragTransition={{
         power: 0.1,
         bounceStiffness: 200,
@@ -59,25 +82,62 @@ function Sticker({
       dragElastic={0.8}
       ref={itemRef}
       style={{
-        scale: 0.8,
+        scale: 1,
         rotate,
         x,
-        y: getRandomNumberInRange(25, 60) * (index % 2 == 0 ? -1 : 1),
+        y: matches && preventYOffset ? Math.abs(initialY) : initialY,
       }}
+      layout
+      onTapStart={() => {
+        setDirty && setDirty(true)
+        setIsVisible(true)
+      }}
+      onTapCancel={hideCaption}
+      onDragEndCapture={hideCaption}
+      onDragEnd={hideCaption}
+      onTouchEnd={hideCaption}
+      onMouseUp={hideCaption}
     >
       {children}
+      <AnimatePresence>
+        {caption && caption.length > 0 && isVisible && (
+          <motion.div
+            key="child"
+            initial={{ opacity: 0, y: -48, scale: 0.5 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -48, scale: 0.5 }}
+            className="-z-10 absolute top-full translate-y-full w-fit left-0 right-0 mx-auto text-[10px] text-center bg-yellow-300 text-black mt-3 py-2 px-3 text-balance rounded-sm"
+          >
+            {caption}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   )
 }
 
 function StickerHeader() {
   const containerRef = useRef<HTMLDivElement | null>(null)
+  const [resetIndex, setResetIndex] = useState<number>(0)
+  const [dirty, setDirty] = useState<boolean>(false)
+
+  function resetState() {
+    setResetIndex((prev) => prev + 1)
+    setDirty(false)
+  }
+
+  function setAsDirty() {
+    setDirty(true)
+  }
 
   return (
-    <div className="w-full w-min-[280px] h-[240px] bg-gray-50 rounded-3xl p-6">
+    <div
+      key={resetIndex}
+      className="w-full w-min-[280px] md:h-[240px] max-w-6xl m-auto bg-muted rounded-3xl p-6 border border-muted-foreground/10"
+    >
       <div
         ref={containerRef}
-        className="flex gap-4 h-full items-center relative"
+        className="grid md:flex content-start grid-rows-2 grid-cols-4 gap-4 h-full items-center relative justify-center"
       >
         <svg className="absolute top-0 left-0 w-full h-full">
           <pattern
@@ -91,11 +151,10 @@ function StickerHeader() {
           >
             <circle
               id="pattern-circle"
-              cx="10"
-              cy="10"
+              cx="8"
+              cy="8"
               r="1.6257413380501518"
-              fill="#000"
-              className="fill-gray-300"
+              className="fill-primary/20"
             ></circle>
           </pattern>
 
@@ -108,24 +167,90 @@ function StickerHeader() {
             fill="url(#pattern-circles)"
           ></rect>
         </svg>
-        <Sticker containerRef={containerRef} index={1}>
+        <Sticker
+          containerRef={containerRef}
+          caption="I've been on many podcasts like Design Details to talk about design-systems!"
+          index={0}
+          setDirty={setAsDirty}
+        >
+          <Image
+            src="/stickers/design-details.jpg"
+            alt="Image of Design Details Podcast cover"
+            draggable={false}
+            width={100}
+            height={100}
+            className="rounded-md"
+          />
+        </Sticker>
+        <Sticker
+          containerRef={containerRef}
+          caption="It me!"
+          index={1}
+          setDirty={setAsDirty}
+          className="z-50 top-6 md:top-0"
+        >
           <Avatar
             src="/stickers/headshot.jpg"
             alt="Image of Kathryn Gonzalez"
           />
         </Sticker>
-        <Sticker containerRef={containerRef} index={2}>
+
+        <Sticker
+          containerRef={containerRef}
+          caption="I grew up in South Carolina, and like our motto says—&ldquo;While I breath I hope.&rdquo;"
+          index={2}
+          setDirty={setAsDirty}
+        >
           <img src="/stickers/south-carolina.svg" draggable={false} />
         </Sticker>
-        <Sticker containerRef={containerRef} index={3}>
+        <Sticker
+          containerRef={containerRef}
+          caption="I joined DoorDash in 2015 as it's first product designer and frontend engineer, when it was just a handful of employees."
+          index={3}
+          setDirty={setAsDirty}
+        >
           <img src="/stickers/doordash.svg" draggable={false} />
         </Sticker>
-        <Sticker containerRef={containerRef} index={4}>
+        <Sticker
+          containerRef={containerRef}
+          caption="I'm a proud trans and bi-woman that lives in San Francisco!"
+          index={4}
+          setDirty={setAsDirty}
+          // className="col-start-3 row-start-2"
+        >
           <img src="/stickers/flag.svg" draggable={false} />
         </Sticker>
-        <Sticker containerRef={containerRef} index={5}>
+        <Sticker
+          containerRef={containerRef}
+          caption="Go Blue! I was a two-time dropout from their engineering school to join startups like DoorDash :)"
+          index={5}
+          setDirty={setAsDirty}
+          className="top-6 md:top-0"
+        >
           <img src="/stickers/michigan.svg" draggable={false} />
         </Sticker>
+        <Sticker
+          containerRef={containerRef}
+          index={6}
+          setDirty={setAsDirty}
+          className="left-8 -top-8 md:left-0 md:top-0"
+          caption="I spoke at Figma's Config 2023 conference, talking about design systems and AI!"
+          preventYOffsetOnMobile
+        >
+          <img src="/stickers/config.svg" draggable={false} />
+        </Sticker>
+        <AnimatePresence>
+          {dirty && (
+            <motion.button
+              className="absolute bottom-0 right-0"
+              onClick={resetState}
+              whileTap={{ scale: 0.8, rotate: 180 }}
+              whileHover={{ scale: 1.15 }}
+            >
+              <Icons.refresh className="stroke-secondary-foreground stroke-2" />
+            </motion.button>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )

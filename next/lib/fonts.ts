@@ -1,4 +1,4 @@
-import { DM_Mono as FontMono, DM_Sans as FontSans, Neuton as FontSerif } from "next/font/google"
+import { DM_Mono as FontMono, DM_Sans as FontSans, Boogaloo as FontSerif } from "next/font/google"
 
 export const fontSans = FontSans({
   subsets: ["latin"],

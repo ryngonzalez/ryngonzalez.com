@@ -18,12 +18,7 @@ function HighlightText({
   className?: string
 }) {
   return (
-    <span
-      className={cn(
-        className,
-        "text-primary transition-colors duration-300 font-bold"
-      )}
-    >
+    <span className={cn(className, "text-primary transition-colors font-bold")}>
       {children}
     </span>
   )
@@ -31,11 +26,12 @@ function HighlightText({
 
 function IndexPage() {
   return (
-    <section className="container flex flex-col items-start gap-10 pb-4 md:pb-8 pt-5 md:py-10 m-auto max-w-3xl mt-4">
-      {/* <GradientMesh /> */}
-      <StickerHeader />
-      <div className="flex flex-col items-start gap-6 leading-loose">
-        <h1 className="text-4xl md:text-5xl font-serif">
+    <section className="w-full flex flex-col items-start gap-10 pb-4 md:pb-8 pt-8 m-auto">
+      <div className="px-6 w-full">
+        <StickerHeader />
+      </div>
+      <div className="flex flex-col items-start gap-6 leading-loose container max-w-3xl ">
+        <h1 className="text-4xl md:text-5xl font-serif text-balance">
           <span className="">Kathryn Gonzalez</span> — Independent Design and
           Engineering Director.
         </h1>
@@ -68,44 +64,56 @@ function IndexPage() {
             and advisor to early-stage startups.
           </p>
         </div>
-      </div>
-      <div className="grid content-start grid-cols-2 md:grid-cols-4 gap-4">
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.email}
-          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
-        >
-          <Icons.mail className="h-5 w-5 stroke-current" />
-          Email
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.twitter}
-          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
-        >
-          <Icons.twitter className="h-5 w-5 fill-current" />
-          Twitter
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
-        >
-          <Icons.gitHub className="h-5 w-5 fill-current" />
-          GitHub
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.linkedin}
-          className={`gap-2 ${buttonVariants({ variant: "outline" })}`}
-        >
-          <Icons.linkedin className="h-5 w-5 stroke-current" />
-          LinkedIn
-        </Link>
+        <div className="grid content-start grid-cols-2 w-full md:w-fit md:grid-cols-4 gap-4">
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={siteConfig.links.email}
+            className={`gap-2 ${buttonVariants({
+              variant: "outline",
+              width: "block",
+            })}`}
+          >
+            <Icons.mail className="h-5 w-5 stroke-current" />
+            Email
+          </Link>
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={siteConfig.links.twitter}
+            className={`gap-2 ${buttonVariants({
+              variant: "outline",
+              width: "block",
+            })}`}
+          >
+            <Icons.twitter className="h-5 w-5 fill-current" />
+            Twitter
+          </Link>
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={siteConfig.links.github}
+            className={`gap-2 ${buttonVariants({
+              variant: "outline",
+              width: "block",
+            })}`}
+          >
+            <Icons.gitHub className="h-5 w-5 fill-current" />
+            GitHub
+          </Link>
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={siteConfig.links.linkedin}
+            className={`gap-2 ${buttonVariants({
+              variant: "outline",
+              width: "block",
+            })}`}
+          >
+            <Icons.linkedin className="h-5 w-5 stroke-current" />
+            LinkedIn
+          </Link>
+        </div>
       </div>
     </section>
   )

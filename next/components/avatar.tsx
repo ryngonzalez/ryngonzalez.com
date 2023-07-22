@@ -16,16 +16,14 @@ const MotionImage = motion(
 
 function Avatar({ src, alt, ...rest }: AvatarProps) {
   const [imageLoading, setImageLoading] = React.useState(true)
-  const [pulsing, setPulsing] = React.useState(true)
 
   const imageLoaded = () => {
     setImageLoading(false)
-    setTimeout(() => setPulsing(false), 600)
   }
 
   return (
     <div
-      className="relative w-[128px] h-[128px] after:bg-slate-600 after:-z-0 after:top-0 after:left-0 after:relative after:h-[128px] overflow-hidden after:block after:content-[''] block rounded-full border-[6px] border-white drop-shadow-lg dark:shadow-inner dark:shadow-gray-50/30"
+      className="relative w-[128px] h-[128px] bg-secondary block rounded-full border-[6px] border-white drop-shadow-lg dark:shadow-inner dark:shadow-gray-50/30"
       {...rest}
     >
       <MotionImage
@@ -34,7 +32,7 @@ function Avatar({ src, alt, ...rest }: AvatarProps) {
           opacity: imageLoading ? 0 : 1,
         }}
         draggable={false}
-        transition={{ opacity: { delay: 0.1, duration: 0.3 } }}
+        transition={{ opacity: { delay: 0, duration: 0.2 } }}
         src={src}
         width={128}
         height={128}

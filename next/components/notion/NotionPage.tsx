@@ -160,7 +160,9 @@ export const NotionPage = ({
           <meta name="twitter:card" content="summary" />
         )}
 
-        <title>{`${title} - ${siteConfig.navName} - Blog`}</title>
+        <title>
+          {`${title} - Kathryn Gonzalez` + (title == "Blog" ? "" : " - Blog")}
+        </title>
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:creator" content="@ryngonzalez" />

@@ -11,7 +11,7 @@ export function SiteHeader({ showLogo = true }) {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div className="@container container pl-5 pr-5 flex h-16 items-center justify-between">
-        <ul className="flex hidden md:inline-flex">
+        <ul className={cn("flex md:inline-flex", showLogo ? "hidden" : "")}>
           <Link
             href="/"
             className="flex items-center gap-2 py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded-full text-secondary-foreground"

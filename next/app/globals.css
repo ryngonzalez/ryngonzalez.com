@@ -148,6 +148,10 @@
   @apply text-sm sm:text-base md:text-lg !important;
 }
 
+.notion-property-text {
+  @apply uppercase font-bold tracking-[1.5px] text-[10px] py-0 px-2 bg-secondary rounded-full !important;
+}
+
 .notion-collection-row-value {
   @apply p-0 !important;
 }
@@ -181,6 +185,10 @@
   @apply whitespace-nowrap text-sm sm:text-base md:text-lg font-sans !important;
 }
 
+.notion-list-item-title {
+  @apply max-w-full !important;
+}
+
 .notion-h-title {
   @apply font-light font-serif !important;
 }
@@ -202,6 +210,10 @@
   overflow: auto !important;
 }
 
+.notion-list-item-body > *:first-child {
+  margin: 0;
+}
+
 .notion-collection {
   max-width: calc(100vw - 2rem);
   width: calc(100% + 24px);
@@ -211,10 +223,7 @@
 }
 
 .notion-list-item {
-  padding: 8px 0 !important;
-  overflow: auto !important;
-  max-width: none !important;
-  width: max-content;
+  @apply gap-1 py-2 w-full max-w-none overflow-auto flex flex-col sm:flex-row items-start sm:items-center !important;
 }
 
 .notion-list-item.notion-page-link {

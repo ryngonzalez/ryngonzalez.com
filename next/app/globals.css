@@ -104,6 +104,7 @@
 
 .notion-asset-wrapper {
   position: relative;
+  @apply mb-4 !important;
 }
 
 .notion-asset-wrapper > *:after {
@@ -124,12 +125,10 @@
   /* @apply text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-600 !important; */
 }
 
-.notion-text {
-  @apply text-sm sm:text-base md:text-lg !important;
-}
-
+.notion-text,
+.notion-list,
 .notion-quote {
-  @apply text-sm sm:text-base md:text-lg !important;
+  @apply text-sm sm:text-base md:text-lg mb-4 !important;
 }
 
 .notion-collection-column-title {

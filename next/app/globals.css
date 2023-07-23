@@ -122,7 +122,6 @@
 .notion-title {
   @apply leading-normal text-5xl md:text-6xl font-light tracking-tight font-serif !important;
   line-height: 1.2 !important;
-  /* @apply text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-600 !important; */
 }
 
 .notion-text,

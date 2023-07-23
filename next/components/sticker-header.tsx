@@ -101,8 +101,6 @@ function Sticker({
     }
   }
 
-  console.log(width, height)
-
   return (
     <motion.div
       ref={itemRef}

@@ -23,14 +23,10 @@ export async function resolveNotionPage(domain: string = defaultDomain, rawPageI
     // const cacheTTL = 8.64e7 // one day in milliseconds
     const cacheTTL = undefined // disable cache TTL
 
-    console.log(cacheKey)
-
     if (!pageId && useUriToPageIdCache) {
       try {
         // check if the database has a cached mapping of this URI to page ID
         pageId = await kv.get(cacheKey)
-
-        // console.log(`redis get "${cacheKey}"`, pageId)
       } catch (err: any) {
         // ignore redis errors
         console.warn(`redis error get "${cacheKey}"`, err.message)
@@ -43,7 +39,6 @@ export async function resolveNotionPage(domain: string = defaultDomain, rawPageI
       // handle mapping of user-friendly canonical page paths to Notion page IDs
       // e.g., /developer-x-entrepreneur versus /71201624b204481f862630ea25ce62fe
       const siteMap = await getSiteMap()
-      console.log(siteMap.canonicalPageMap)
       pageId = siteMap?.canonicalPageMap[rawPageId]
 
       if (pageId) {
@@ -57,8 +52,6 @@ export async function resolveNotionPage(domain: string = defaultDomain, rawPageI
           try {
             // update the database mapping of URI to pageId
             await kv.set(cacheKey, pageId, cacheTTL)
-
-            // console.log(`redis set "${cacheKey}"`, pageId, { cacheTTL })
           } catch (err: any) {
             // ignore redis errors
             console.warn(`redis error set "${cacheKey}"`, err.message)

@@ -125,8 +125,6 @@ export const NotionPage = ({
   })[0]
   const publishedDate = getPageProperty("Published Date", block, recordMap)
 
-  console.log(publishedDate)
-
   // useful for debugging from the dev console
   if (typeof window !== "undefined") {
     // const keys = Object.keys(recordMap?.block || {})

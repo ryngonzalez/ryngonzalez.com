@@ -64,13 +64,13 @@ function IndexPage() {
             and advisor to early-stage startups.
           </p>
         </div>
-        <div className="grid content-start grid-cols-2 w-full md:w-fit md:grid-cols-4 gap-4">
+        <div className="grid content-start grid-cols-2 w-full md:w-fit md:grid-cols-4 gap-4 mt-6">
           <Link
             target="_blank"
             rel="noreferrer"
             href={siteConfig.links.email}
             className={`gap-2 ${buttonVariants({
-              variant: "outline",
+              variant: "secondary",
               width: "block",
             })}`}
           >
@@ -82,7 +82,7 @@ function IndexPage() {
             rel="noreferrer"
             href={siteConfig.links.twitter}
             className={`gap-2 ${buttonVariants({
-              variant: "outline",
+              variant: "secondary",
               width: "block",
             })}`}
           >
@@ -94,7 +94,7 @@ function IndexPage() {
             rel="noreferrer"
             href={siteConfig.links.github}
             className={`gap-2 ${buttonVariants({
-              variant: "outline",
+              variant: "secondary",
               width: "block",
             })}`}
           >
@@ -106,7 +106,7 @@ function IndexPage() {
             rel="noreferrer"
             href={siteConfig.links.linkedin}
             className={`gap-2 ${buttonVariants({
-              variant: "outline",
+              variant: "secondary",
               width: "block",
             })}`}
           >

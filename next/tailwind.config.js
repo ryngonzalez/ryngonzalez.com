@@ -85,6 +85,7 @@ module.exports = {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("@tailwindcss/container-queries"),
     plugin(function ({ addUtilities }) {
       addUtilities({
         ".text-wrap": { "text-wrap": "wrap" },

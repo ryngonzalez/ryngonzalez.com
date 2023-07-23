@@ -52,7 +52,7 @@ function Sticker({
     getRandomNumberInRange(25, 60) * (index % 2 == 0 ? -1 : 1)
   )
   const matches = useMediaQuery("(max-width: 768px)")
-  // const [itemRef, { width, height }] = useElementSize()
+  const [captionRef, { width, height }] = useElementSize()
   const boundingRect = useElementBoundingRect(itemRef)
 
   function onOpen() {
@@ -101,6 +101,8 @@ function Sticker({
     }
   }
 
+  console.log(width, height)
+
   return (
     <motion.div
       ref={itemRef}
@@ -133,8 +135,6 @@ function Sticker({
           desktopTap: {
             scale: 1.8,
             zIndex: 1000,
-            // filter:
-            //   "drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))",
           },
         }}
         className={cn(
@@ -163,25 +163,27 @@ function Sticker({
         onDragEnd={hideCaption}
         onTouchEnd={hideCaption}
         onMouseUp={hideCaption}
+        onKeyUp={hideCaption}
       >
         <div className="pointer-events-none select-none">{children}</div>
 
         <AnimatePresence>
           {caption && caption.length > 0 && isVisible && (
             <motion.div
+              ref={captionRef}
               key="child"
               initial={{ opacity: 0, y: -48, scale: 0.5 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -48, scale: 0.5 }}
+              style={{
+                x: (boundingRect.width - width) / 2 + (matches ? 25 : 0),
+              }}
               className={cn(
                 "max-w-screen-sm md:w-fit select-none -z-10 absolute top-full translate-y-full mx-auto text-[10px] text-center bg-yellow-300 text-black mt-3 py-2 px-3 text-balance rounded-sm",
-                matches
-                  ? caption.length < 10
-                    ? "w-fit left-1/3"
-                    : "w-40 -left-1/3"
-                  : caption.length < 10
-                  ? "left-1/3"
-                  : "min-w-[160px] -left-[12%]"
+                caption.length < 10 ? "w-fit" : "min-w-[160px]"
+                // : caption.length < 10
+                // ? ""
+                // : `min-w-[160px]`
               )}
             >
               {caption}

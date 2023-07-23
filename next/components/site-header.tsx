@@ -1,21 +1,42 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
-import { ThemeToggle } from "./theme-toggle"
+import { Icons } from "./icons"
 
-export function SiteHeader() {
+export function SiteHeader({ showLogo = true }) {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="container pl-5 pr-5 flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="inline-block font-light logotype italic">
-            {siteConfig.navName}
-          </span>
-        </Link>
-        <div className="flex flex-1 items-center justify-end space-x-4">
+      <div className="@container container pl-5 pr-5 flex h-16 items-center justify-between">
+        <ul className="flex hidden md:inline-flex">
+          <Link
+            href="/"
+            className="flex items-center gap-2 py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded-full text-secondary-foreground"
+          >
+            <Icons.gitHub className="h-5 w-5 fill-current" />
+          </Link>
+          <Link
+            href="/"
+            className="flex items-center gap-2 py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded-full text-secondary-foreground"
+          >
+            <Icons.twitter className="h-5 w-5 fill-current" />
+          </Link>
+        </ul>
+        {showLogo && (
+          <Link href="/" className="flex items-center gap-2">
+            <span className="inline-block font-serif text-2xl @md:hidden">
+              KG
+            </span>
+            <span className="font-serif text-2xl hidden @md:inline-block">
+              Kathryn Gonzalez
+            </span>
+          </Link>
+        )}
+
+        <div className="flex">
           <nav className="flex items-center gap-2">
             {(siteConfig.mainNav as NavItem[])?.map(
               (item, index) =>
@@ -24,7 +45,7 @@ export function SiteHeader() {
                     key={index}
                     href={item.href}
                     className={cn(
-                      "flex items-center text-base font-medium py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded text-secondary-foreground",
+                      "flex items-center text-base font-medium py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded-full text-secondary-foreground",
                       item.disabled && "cursor-not-allowed opacity-80"
                     )}
                   >

@@ -58,7 +58,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <DndProvider>
               <div className="relative flex min-h-screen flex-col">
-                <SiteHeader />
+                <SiteHeader showLogo={false} />
                 <div className="flex-1">{children}</div>
                 <Footer />
               </div>

@@ -119,7 +119,7 @@
 }
 
 .notion-title {
-  @apply leading-normal text-3xl md:text-5xl font-light tracking-tight font-serif !important;
+  @apply leading-normal text-5xl md:text-6xl font-light tracking-tight font-serif !important;
   line-height: 1.2 !important;
   /* @apply text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-600 !important; */
 }
@@ -158,22 +158,16 @@
 }
 
 .logotype {
-  @apply font-serif text-3xl;
-  /* background: linear-gradient(
+  @apply font-serif text-2xl;
+  background: linear-gradient(
     90deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 154, 0, 1) 10%,
-    rgba(208, 222, 33, 1) 20%,
-    rgba(79, 220, 74, 1) 30%,
-    rgba(63, 218, 216, 1) 40%,
-    rgba(47, 201, 226, 1) 50%,
-    rgba(28, 127, 238, 1) 60%,
-    rgba(95, 21, 242, 1) 70%,
-    rgba(186, 12, 248, 1) 80%,
-    rgba(251, 7, 217, 1) 90%,
+    rgba(28, 127, 238, 1) 0%,
+    rgba(95, 21, 242, 1) 20%,
+    rgba(186, 12, 248, 1) 40%,
+    rgba(251, 7, 217, 1) 60%,
     rgba(255, 0, 0, 1) 100%
   );
-  @apply bg-clip-text hover:bg-clip-content text-white/50 hover:text-transparent transition-all duration-500 tracking-tight; */
+  @apply drop-shadow-lg bg-clip-text text-transparent hover:text-transparent transition-all duration-500 tracking-tight;
 }
 
 .notion-gallery-grid {

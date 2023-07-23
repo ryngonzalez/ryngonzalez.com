@@ -1,13 +1,9 @@
 import Link from "next/link"
-import { DndContext } from "@dnd-kit/core"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import Avatar from "@/components/avatar"
-import GradientMesh from "@/components/gradient-mesh"
 import { Icons } from "@/components/icons"
-import { SiteHeader } from "@/components/site-header"
 import StickerHeader from "@/components/sticker-header"
 
 function HighlightText({

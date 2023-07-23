@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
           <ThemeProvider
             attribute="class"
             enableSystem={false}
-            defaultTheme="dark"
+            defaultTheme="light"
           >
             <Main />
             <Footer />

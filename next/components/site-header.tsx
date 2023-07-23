@@ -32,7 +32,7 @@ export function SiteHeader() {
                   </Link>
                 )
             )}
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </nav>
         </div>
       </div>

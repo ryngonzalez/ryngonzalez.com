@@ -23,7 +23,7 @@ function Avatar({ src, alt, ...rest }: AvatarProps) {
 
   return (
     <div
-      className="relative w-[128px] h-[128px] bg-secondary block rounded-full border-[6px] border-white drop-shadow-lg dark:shadow-inner dark:shadow-gray-50/30"
+      className="relative w-[128px] h-[128px] block rounded-full border-[6px] border-white"
       {...rest}
     >
       <MotionImage

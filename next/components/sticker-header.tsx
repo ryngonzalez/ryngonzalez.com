@@ -10,8 +10,9 @@ import {
   useTransform,
   useVelocity,
 } from "framer-motion"
-import { useMediaQuery } from "usehooks-ts"
+import { useClickAnyWhere, useElementSize, useMediaQuery } from "usehooks-ts"
 
+import { useElementBoundingRect } from "@/lib/hooks"
 import { cn } from "@/lib/utils"
 
 import Avatar from "./avatar"
@@ -43,12 +44,43 @@ function Sticker({
 }) {
   const appRef = containerRef || useRef<HTMLElement | null>(null)
   const itemRef = useRef<HTMLDivElement | null>(null)
+  const [isDragging, setIsDragging] = useState<Boolean>(false)
   const [isVisible, setIsVisible] = useState<Boolean>(false)
+  const [isModal, setIsModal] = useState<Boolean>(false)
   const [initialRotation] = useState<number>(getRandomNumberInRange(-15, 15))
   const [initialY] = useState<number>(
     getRandomNumberInRange(25, 60) * (index % 2 == 0 ? -1 : 1)
   )
   const matches = useMediaQuery("(max-width: 768px)")
+  // const [itemRef, { width, height }] = useElementSize()
+  const boundingRect = useElementBoundingRect(itemRef)
+
+  function onOpen() {
+    if (matches) {
+      setIsModal(!isModal)
+      setIsVisible(!isModal)
+    }
+  }
+
+  function onTapStart() {
+    if (!matches) {
+      setDirty && setDirty(true)
+      setIsVisible(true)
+      setIsDragging(true)
+    }
+  }
+
+  useClickAnyWhere((e) => {
+    if (
+      e.target != itemRef.current &&
+      !itemRef.current?.contains(e.target as Node) &&
+      isModal &&
+      matches
+    ) {
+      setIsModal(false)
+      setIsVisible(false)
+    }
+  })
 
   const x = useMotionValue(0)
   const xSmooth = useSpring(x, { damping: 50, stiffness: 400 })
@@ -63,55 +95,100 @@ function Sticker({
   )
 
   function hideCaption() {
-    setIsVisible(false)
+    if (!matches) {
+      setIsVisible(false)
+      setIsDragging(false)
+    }
   }
 
   return (
     <motion.div
-      className={cn(
-        "relative drop-shadow-lg shadow-black h-fit flex-shrink-1 min-w-[96px]",
-        className
-      )}
-      drag
-      dragConstraints={appRef}
-      whileTap={{ scale: 1.8, zIndex: 1000 }}
-      dragTransition={{
-        power: 0.1,
-        bounceStiffness: 200,
-      }}
-      dragElastic={0.8}
       ref={itemRef}
+      variants={{
+        hidden: {
+          opacity: 0,
+          scale: 0.9,
+          y: 10,
+        },
+        show: {
+          opacity: 1,
+          scale: 1,
+          y: matches && preventYOffset ? Math.abs(initialY) : initialY,
+        },
+      }}
       style={{
-        scale: 1,
-        rotate,
-        x,
-        y: matches && preventYOffset ? Math.abs(initialY) : initialY,
+        zIndex: isModal || isDragging ? 1000 : undefined,
       }}
-      layout
-      onTapStart={() => {
-        setDirty && setDirty(true)
-        setIsVisible(true)
-      }}
-      onTapCancel={hideCaption}
-      onDragEndCapture={hideCaption}
-      onDragEnd={hideCaption}
-      onTouchEnd={hideCaption}
-      onMouseUp={hideCaption}
+      className={cn("relative", className)}
     >
-      {children}
-      <AnimatePresence>
-        {caption && caption.length > 0 && isVisible && (
-          <motion.div
-            key="child"
-            initial={{ opacity: 0, y: -48, scale: 0.5 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -48, scale: 0.5 }}
-            className="-z-10 absolute top-full translate-y-full w-fit left-0 right-0 mx-auto text-[10px] text-center bg-yellow-300 text-black mt-3 py-2 px-3 text-balance rounded-sm"
-          >
-            {caption}
-          </motion.div>
+      <motion.div
+        variants={{
+          default: {},
+          modal: {
+            x: -boundingRect.x + boundingRect.width * 2 + 45,
+            rotate: 0,
+            scale: 1.8,
+            zIndex: 1000,
+          },
+          desktopTap: {
+            scale: 1.8,
+            zIndex: 1000,
+            // filter:
+            //   "drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1))",
+          },
+        }}
+        className={cn(
+          "relative drop-shadow-lg h-fit flex-shrink-1 min-w-[96px]"
         )}
-      </AnimatePresence>
+        drag={!matches}
+        dragConstraints={appRef}
+        whileTap={!matches ? "desktopTap" : "default"}
+        dragTransition={{
+          power: 0.1,
+          bounceStiffness: 200,
+        }}
+        dragElastic={0.8}
+        style={{
+          rotate: isModal ? 0 : rotate,
+          x,
+        }}
+        animate={isModal ? "modal" : ""}
+        onTap={onOpen}
+        onDrag={() => {
+          setIsDragging(true)
+        }}
+        onTapStart={onTapStart}
+        onTapCancel={hideCaption}
+        onDragEndCapture={hideCaption}
+        onDragEnd={hideCaption}
+        onTouchEnd={hideCaption}
+        onMouseUp={hideCaption}
+      >
+        <div className="pointer-events-none select-none">{children}</div>
+
+        <AnimatePresence>
+          {caption && caption.length > 0 && isVisible && (
+            <motion.div
+              key="child"
+              initial={{ opacity: 0, y: -48, scale: 0.5 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -48, scale: 0.5 }}
+              className={cn(
+                "max-w-screen-sm md:w-fit select-none -z-10 absolute top-full translate-y-full mx-auto text-[10px] text-center bg-yellow-300 text-black mt-3 py-2 px-3 text-balance rounded-sm",
+                matches
+                  ? caption.length < 10
+                    ? "w-fit left-1/3"
+                    : "w-40 -left-1/3"
+                  : caption.length < 10
+                  ? "left-1/3"
+                  : "min-w-[160px] -left-[12%]"
+              )}
+            >
+              {caption}
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </motion.div>
   )
 }
@@ -130,12 +207,26 @@ function StickerHeader() {
     setDirty(true)
   }
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        delayChilcren: 0,
+        staggerChildren: 0.2,
+      },
+    },
+  }
+
   return (
     <div
       key={resetIndex}
       className="w-full w-min-[280px] md:h-[240px] max-w-6xl m-auto bg-muted rounded-3xl p-6 border border-muted-foreground/10"
     >
-      <div
+      <motion.div
+        variants={container}
+        initial="hidden"
+        animate="show"
         ref={containerRef}
         className="grid md:flex content-start grid-rows-2 grid-cols-4 gap-4 h-full items-center relative justify-center"
       >
@@ -242,16 +333,22 @@ function StickerHeader() {
         <AnimatePresence>
           {dirty && (
             <motion.button
-              className="absolute bottom-0 right-0"
+              className="absolute bottom-0 right-0 p-2 bg-background border border-secondary-foreground/20 rounded-full shadow-sm shadow-black/30"
               onClick={resetState}
               whileTap={{ scale: 0.8, rotate: 180 }}
               whileHover={{ scale: 1.15 }}
+              initial={{ opacity: 0, y: -48, scale: 0.5 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -48, scale: 0 }}
             >
-              <Icons.refresh className="stroke-secondary-foreground stroke-2" />
+              <Icons.refresh
+                size={18}
+                className="stroke-secondary-foreground stroke-2"
+              />
             </motion.button>
           )}
         </AnimatePresence>
-      </div>
+      </motion.div>
     </div>
   )
 }

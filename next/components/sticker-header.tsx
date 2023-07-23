@@ -278,7 +278,7 @@ function StickerHeader() {
           caption="It me!"
           index={1}
           setDirty={setAsDirty}
-          className="z-50 top-6 md:top-0"
+          className="z-30 top-6 md:top-0"
         >
           <Avatar
             src="/stickers/headshot.jpg"

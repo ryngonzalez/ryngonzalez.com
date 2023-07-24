@@ -1,7 +1,6 @@
 import { ExtendedRecordMap } from 'notion-types'
 import { parsePageId } from 'notion-utils'
 
-// import { environment, pageUrlAdditions, pageUrlOverrides, site } from './config'
 import { getSiteMap } from './notion'
 import { getPage } from './notion'
 import kv from "@vercel/kv"

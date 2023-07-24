@@ -11,11 +11,7 @@ import { getCanonicalPageId } from 'notion-utils'
 import { getAllPagesInSpace, uuidToId } from 'notion-utils'
 import pMemoize from 'p-memoize'
 
-// import * as config from './config'
 import * as types from './types'
-// import { includeNotionIdInUrls } from './config'
-// import { getCanonicalPageId } from './get-canonical-page-id'
-// import { notion } from './notion-api'
 
 const notion = useOfficialNotionAPI
   ? new NotionCompatAPI(new Client({ auth: process.env.NOTION_TOKEN }))

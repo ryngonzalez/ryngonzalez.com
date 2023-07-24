@@ -4,7 +4,7 @@ import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
-import { Icons } from "./icons"
+import { Icons } from "../icons"
 
 export function SiteHeader({ showLogo = true }) {
   return (
@@ -52,7 +52,6 @@ export function SiteHeader({ showLogo = true }) {
                   </Link>
                 )
             )}
-            {/* <ThemeToggle /> */}
           </nav>
         </div>
       </div>

@@ -15,11 +15,10 @@ import { ErrorBoundary } from "react-error-boundary"
 import { NotionRenderer, defaultMapImageUrl } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
-import { siteConfig } from "@/config/site"
 import { fontSans, fontSerif } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
+import { SiteHeader } from "@/components/ui/site-header"
 
-import { SiteHeader } from "../site-header"
 import { Loading } from "./Loading"
 import styles from "./styles.module.css"
 
@@ -124,16 +123,6 @@ export const NotionPage = ({
     mapImageUrl: defaultMapImageUrl,
   })[0]
   const publishedDate = getPageProperty("Published Date", block, recordMap)
-
-  // useful for debugging from the dev console
-  if (typeof window !== "undefined") {
-    // const keys = Object.keys(recordMap?.block || {})
-    // const block = recordMap?.block?.[keys[0]]?.value
-    const g = window as any
-    g.recordMap = recordMap
-    g.block = block
-  }
-
   const socialDescription = `Kathryn Gonzalez - Blog`
   const socialImage = `/api/og?title=${encodeURIComponent(
     title

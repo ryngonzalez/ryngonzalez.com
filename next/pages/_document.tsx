@@ -3,7 +3,7 @@ import Document, { Head, Html, Main, NextScript } from "next/document"
 
 import { fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import Footer from "@/components/footer"
+import Footer from "@/components/ui/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export default class MyDocument extends Document {

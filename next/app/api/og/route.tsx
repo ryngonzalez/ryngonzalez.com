@@ -3,32 +3,27 @@ import { ImageResponse } from "next/server"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
-// App router includes @vercel/og.
-// No need to install it.
-
 export const runtime = "edge"
 
-const image = fetch(
+// Make the image and font requests outside of the handler
+const imageRequest = fetch(
   new URL("@/public/stickers/headshot.jpg", import.meta.url)
 ).then((res) => res.arrayBuffer())
 
-// Make sure the font exists in the specified path:
-const fontBold = fetch(
-  new URL("@/public/Boogaloo-Regular.ttf", import.meta.url)
+const fontName = "Boogaloo-Regular"
+const fontRequest = fetch(
+  new URL(`@/public/${fontName}.ttf`, import.meta.url)
 ).then((res) => res.arrayBuffer())
-
-// const fontLight = fetch(
-//   new URL("@/public/Inter-Light.otf", import.meta.url)
-// ).then((res) => res.arrayBuffer())
 
 export async function GET(request: Request) {
   try {
-    const imgData = await image
-    const fontBoldData = await fontBold
-    // const fontLightData = await fontLight
+    // Load the image and font data
+    const imgData = await imageRequest
+    const fontData = await fontRequest
+
+    // Parse the URL query parameters
     const { searchParams } = new URL(request.url)
 
-    // ?title=<title>
     const hasTitle = searchParams.has("title")
     const title = hasTitle ? searchParams.get("title") : undefined
 
@@ -82,7 +77,7 @@ export async function GET(request: Request) {
                 style={{
                   fontSize: hasTitle ? 72 : 128,
                   color: "black",
-                  fontFamily: '"Inter Bold"',
+                  fontFamily: fontName,
                 }}
               >
                 Kathryn Gonzalez
@@ -95,7 +90,6 @@ export async function GET(request: Request) {
                 <div
                   style={{
                     fontSize: 48,
-                    // maxWidth: 640,
                     textAlign: "left",
                     opacity: 0.5,
                   }}
@@ -182,15 +176,10 @@ export async function GET(request: Request) {
         height: 630,
         fonts: [
           {
-            name: "Inter Bold",
-            data: fontBoldData,
+            name: fontName,
+            data: fontData,
             style: "normal",
           },
-          // {
-          //   name: "Inter Light",
-          //   data: fontLightData,
-          //   style: "normal",
-          // },
         ],
       }
     )

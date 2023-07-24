@@ -5,10 +5,9 @@ import { Analytics } from "@vercel/analytics/react"
 import { siteConfig } from "@/config/site"
 import { fontSans, fontSerif } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import DndProvider from "@/components/dnd-provider"
-import Footer from "@/components/footer"
-import { SiteHeader } from "@/components/site-header"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
+import Footer from "@/components/ui/footer"
+import { SiteHeader } from "@/components/ui/site-header"
+import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export const metadata: Metadata = {
     template: `%s - ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  themeColor: [{ color: "black" }],
+  themeColor: [{ color: "white" }],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -56,13 +55,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             enableSystem={false}
             defaultTheme="light"
           >
-            <DndProvider>
-              <div className="relative flex min-h-screen flex-col">
-                <SiteHeader showLogo={false} />
-                <div className="flex-1">{children}</div>
-                <Footer />
-              </div>
-            </DndProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader showLogo={false} />
+              <div className="flex-1">{children}</div>
+              <Footer />
+            </div>
             <TailwindIndicator />
           </ThemeProvider>
           <Analytics />

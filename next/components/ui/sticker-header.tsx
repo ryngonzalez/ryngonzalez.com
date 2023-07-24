@@ -14,9 +14,8 @@ import { useClickAnyWhere, useElementSize, useMediaQuery } from "usehooks-ts"
 
 import { useElementBoundingRect } from "@/lib/hooks"
 import { cn } from "@/lib/utils"
-
-import Avatar from "./avatar"
-import { Icons } from "./icons"
+import Avatar from "@/components/ui/avatar"
+import { Icons } from "@/components/icons"
 
 function getRandomNumberInRange(min: number, max: number): number {
   if (min >= max) {

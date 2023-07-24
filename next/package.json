@@ -14,7 +14,6 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
   },
   "dependencies": {
-    "@dnd-kit/core": "^6.0.8",
     "@notionhq/client": "^1.0.4",
     "@radix-ui/react-slot": "^1.0.2",
     "@tailwindcss/container-queries": "^0.1.1",
@@ -24,7 +23,6 @@
     "clsx": "^1.2.1",
     "framer-motion": "^10.12.16",
     "got": "^13.0.0",
-    "gradient-path": "^2.3.0",
     "lqip-modern": "^2.0.0",
     "lucide-react": "^0.105.0-alpha.4",
     "next": "^13.4.4",

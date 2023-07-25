@@ -3,7 +3,7 @@ import { parsePageId } from 'notion-utils'
 
 import { getSiteMap } from './notion'
 import { getPage } from './notion'
-import kv from "@vercel/kv"
+import { kv } from "@vercel/kv"
 import { rootNotionPageId } from '@/config/notion'
 
 export const environment = process.env.NODE_ENV || 'development'

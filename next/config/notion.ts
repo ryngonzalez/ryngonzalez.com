@@ -4,11 +4,6 @@
 export const rootNotionPageId = '0260a95744a64f4ca67456420761be24'
 export const rootNotionSpaceId = undefined
 
-// NOTE: having this enabled can be pretty expensive as it re-generates preview
-// images each time a page is built. In a production setting, we recommend that
-// you cache the preview image results in a key-value database.
-export const previewImagesEnabled = true
-
 // Whether to use the official public Notion API or the unofficial private API.
 // Note that the official API doesn't expose formatting options for many blocks
 // and is currently not as well-supported.
@@ -22,3 +17,8 @@ export const isDev =
 
 export const port = process.env.PORT || 3000
 export const rootDomain = isDev ? `localhost:${port}/blog` : `/blog`
+
+// NOTE: having this enabled can be pretty expensive as it re-generates preview
+// images each time a page is built. In a production setting, we recommend that
+// you cache the preview image results in a key-value database.
+export const previewImagesEnabled = isDev ? false : true

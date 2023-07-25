@@ -193,7 +193,7 @@
 }
 
 .notion-hr {
-  @apply border !important;
+  @apply border mb-4 !important;
 }
 
 .notion > * {

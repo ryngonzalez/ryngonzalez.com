@@ -24,6 +24,58 @@ function getRandomNumberInRange(min: number, max: number): number {
   return Math.random() * (max - min) + min
 }
 
+function DotPattern() {
+  return (
+    <svg className="absolute top-0 left-0 w-full h-full">
+      <pattern
+        id="pattern-circles"
+        x="0"
+        y="0"
+        width="20"
+        height="20"
+        patternUnits="userSpaceOnUse"
+        patternContentUnits="userSpaceOnUse"
+      >
+        <circle
+          id="pattern-circle"
+          cx="8"
+          cy="8"
+          r="1.6257413380501518"
+          className="fill-primary/20"
+        ></circle>
+      </pattern>
+
+      <rect
+        id="rect"
+        x="0"
+        y="0"
+        width="100%"
+        height="100%"
+        fill="url(#pattern-circles)"
+      ></rect>
+    </svg>
+  )
+}
+
+function ResetButton({ resetState }: { resetState: () => void }) {
+  return (
+    <motion.button
+      className="absolute bottom-0 right-0 p-2 bg-background border border-secondary-foreground/20 rounded-full shadow-sm shadow-black/30"
+      onClick={resetState}
+      whileTap={{ scale: 0.8, rotate: 180 }}
+      whileHover={{ scale: 1.15 }}
+      initial={{ opacity: 0, y: -48, scale: 0.5 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -48, scale: 0 }}
+    >
+      <Icons.refresh
+        size={18}
+        className="stroke-secondary-foreground stroke-2"
+      />
+    </motion.button>
+  )
+}
+
 function Sticker({
   children,
   containerRef,
@@ -41,31 +93,45 @@ function Sticker({
   className?: string
   preventYOffsetOnMobile?: boolean
 }) {
+  // Create refs for the sticker and caption, and set up measurement of elements
   const appRef = containerRef || useRef<HTMLElement | null>(null)
   const itemRef = useRef<HTMLDivElement | null>(null)
+  const [captionRef, { width, height }] = useElementSize()
+  const boundingRect = useElementBoundingRect(itemRef)
+
+  // Manage state of stickers
   const [isDragging, setIsDragging] = useState<Boolean>(false)
-  const [isVisible, setIsVisible] = useState<Boolean>(false)
+  const [isCaptionVisible, setIsCaptionVisible] = useState<Boolean>(false)
   const [isModal, setIsModal] = useState<Boolean>(false)
+
+  // Set up initial values persisted in state even while dragging
   const [initialRotation] = useState<number>(getRandomNumberInRange(-15, 15))
   const [initialY] = useState<number>(
     getRandomNumberInRange(25, 60) * (index % 2 == 0 ? -1 : 1)
   )
+
+  // Handle smaller devices with different behavior
   const matches = useMediaQuery("(max-width: 768px)")
-  const [captionRef, { width, height }] = useElementSize()
-  const boundingRect = useElementBoundingRect(itemRef)
 
   function onOpen() {
     if (matches) {
       setIsModal(!isModal)
-      setIsVisible(!isModal)
+      setIsCaptionVisible(!isModal)
     }
   }
 
   function onTapStart() {
     if (!matches) {
       setDirty && setDirty(true)
-      setIsVisible(true)
+      setIsCaptionVisible(true)
       setIsDragging(true)
+    }
+  }
+
+  function hideCaption() {
+    if (!matches) {
+      setIsCaptionVisible(false)
+      setIsDragging(false)
     }
   }
 
@@ -77,10 +143,11 @@ function Sticker({
       matches
     ) {
       setIsModal(false)
-      setIsVisible(false)
+      setIsCaptionVisible(false)
     }
   })
 
+  // Setup rotation based on speed of drag
   const x = useMotionValue(0)
   const xSmooth = useSpring(x, { damping: 50, stiffness: 400 })
   const xVelocity = useVelocity(xSmooth)
@@ -93,11 +160,18 @@ function Sticker({
     }
   )
 
-  function hideCaption() {
-    if (!matches) {
-      setIsVisible(false)
-      setIsDragging(false)
-    }
+  const stickerVariants = {
+    default: {},
+    modal: {
+      x: -boundingRect.x + boundingRect.width * 2 + 45,
+      rotate: 0,
+      scale: 1.8,
+      zIndex: 1000,
+    },
+    desktopTap: {
+      scale: 1.8,
+      zIndex: 1000,
+    },
   }
 
   return (
@@ -121,19 +195,7 @@ function Sticker({
       className={cn("relative", className)}
     >
       <motion.div
-        variants={{
-          default: {},
-          modal: {
-            x: -boundingRect.x + boundingRect.width * 2 + 45,
-            rotate: 0,
-            scale: 1.8,
-            zIndex: 1000,
-          },
-          desktopTap: {
-            scale: 1.8,
-            zIndex: 1000,
-          },
-        }}
+        variants={stickerVariants}
         className={cn(
           "relative drop-shadow-lg h-fit flex-shrink-1 min-w-[96px]"
         )}
@@ -165,7 +227,7 @@ function Sticker({
         <div className="pointer-events-none select-none">{children}</div>
 
         <AnimatePresence>
-          {caption && caption.length > 0 && isVisible && (
+          {caption && caption.length > 0 && isCaptionVisible && (
             <motion.div
               ref={captionRef}
               key="child"
@@ -178,9 +240,6 @@ function Sticker({
               className={cn(
                 "max-w-screen-sm md:w-fit select-none -z-10 absolute top-full translate-y-full mx-auto text-[10px] text-center bg-yellow-300 text-black mt-3 py-2 px-3 text-balance rounded-sm",
                 caption.length < 10 ? "w-fit" : "min-w-[160px]"
-                // : caption.length < 10
-                // ? ""
-                // : `min-w-[160px]`
               )}
             >
               {caption}
@@ -220,7 +279,7 @@ function StickerHeader() {
   return (
     <div
       key={resetIndex}
-      className="w-full w-min-[280px] md:h-[240px] max-w-6xl m-auto bg-muted rounded-3xl p-6 border border-muted-foreground/10"
+      className="w-full w-min-[280px] md:h-[240px] container m-auto bg-muted rounded-3xl p-6 border border-muted-foreground/10"
     >
       <motion.div
         variants={container}
@@ -229,34 +288,7 @@ function StickerHeader() {
         ref={containerRef}
         className="grid md:flex content-start grid-rows-2 grid-cols-4 gap-4 h-full items-center relative justify-center"
       >
-        <svg className="absolute top-0 left-0 w-full h-full">
-          <pattern
-            id="pattern-circles"
-            x="0"
-            y="0"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-            patternContentUnits="userSpaceOnUse"
-          >
-            <circle
-              id="pattern-circle"
-              cx="8"
-              cy="8"
-              r="1.6257413380501518"
-              className="fill-primary/20"
-            ></circle>
-          </pattern>
-
-          <rect
-            id="rect"
-            x="0"
-            y="0"
-            width="100%"
-            height="100%"
-            fill="url(#pattern-circles)"
-          ></rect>
-        </svg>
+        <DotPattern />
         <Sticker
           containerRef={containerRef}
           caption="I've been on many podcasts like Design Details to talk about design-systems!"
@@ -306,7 +338,6 @@ function StickerHeader() {
           caption="I'm a proud trans and bi-woman that lives in San Francisco!"
           index={4}
           setDirty={setAsDirty}
-          // className="col-start-3 row-start-2"
         >
           <img src="/stickers/flag.svg" draggable={false} />
         </Sticker>
@@ -330,22 +361,7 @@ function StickerHeader() {
           <img src="/stickers/config.svg" draggable={false} />
         </Sticker>
         <AnimatePresence>
-          {dirty && (
-            <motion.button
-              className="absolute bottom-0 right-0 p-2 bg-background border border-secondary-foreground/20 rounded-full shadow-sm shadow-black/30"
-              onClick={resetState}
-              whileTap={{ scale: 0.8, rotate: 180 }}
-              whileHover={{ scale: 1.15 }}
-              initial={{ opacity: 0, y: -48, scale: 0.5 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -48, scale: 0 }}
-            >
-              <Icons.refresh
-                size={18}
-                className="stroke-secondary-foreground stroke-2"
-              />
-            </motion.button>
-          )}
+          {dirty && <ResetButton resetState={resetState} />}
         </AnimatePresence>
       </motion.div>
     </div>

@@ -2,7 +2,7 @@ import { DM_Mono as FontMono, DM_Sans as FontSans, Boogaloo as FontSerif } from 
 
 export const fontSans = FontSans({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "700"],
   variable: "--font-sans",
 })
 

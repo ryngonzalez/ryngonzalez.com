@@ -120,7 +120,7 @@
 }
 
 .notion-title {
-  @apply leading-normal text-5xl md:text-6xl font-light tracking-tight font-serif !important;
+  @apply leading-normal text-5xl md:text-6xl font-light tracking-tight font-serif mb-2 !important;
   line-height: 1.2 !important;
 }
 
@@ -132,7 +132,7 @@
 
 .notion-collection-column-title {
   width: auto !important;
-  @apply h-0 mr-2 text-sm sm:text-base md:text-lg !important;
+  @apply h-0 mr-2 text-sm sm:text-base md:text-lg hidden !important;
 }
 
 .notion-collection-column-title > svg {
@@ -148,7 +148,7 @@
 }
 
 .notion-property-text {
-  @apply uppercase font-bold tracking-[1.5px] text-[10px] py-0 px-2 bg-secondary rounded-full !important;
+  @apply uppercase font-normal tracking-[1.5px] text-[10px] py-0 px-2 bg-secondary rounded-full !important;
 }
 
 .notion-collection-row-value {
@@ -230,6 +230,7 @@
   --notion-link-underline-thickness: 0px !important;
   transition: all 300ms ease-in-out;
 }
+
 @media (min-width: 768px) {
   .notion-list-item {
     padding: 8px 12px !important;

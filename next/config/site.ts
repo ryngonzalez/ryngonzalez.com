@@ -19,6 +19,7 @@ export const siteConfig = {
   links: {
     email: "mailto:kathrynmichellegonzalez@gmail.com",
     twitter: "https://twitter.com/ryngonzalez",
+    threads: "https://threads.net/@kathrynmichelleg",
     github: "https://github.com/ryngonzalez",
     linkedin: "https://www.linkedin.com/in/ryngonzalez/",
   },

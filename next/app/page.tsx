@@ -23,19 +23,24 @@ function HighlightText({
 function SocialButton({
   children,
   href,
+  className,
 }: {
   children: React.ReactNode
   href: string
+  className?: string
 }) {
   return (
     <Link
       target="_blank"
       rel="noreferrer"
       href={href}
-      className={`gap-2 ${buttonVariants({
-        variant: "secondary",
-        width: "block",
-      })}`}
+      className={cn(
+        `gap-2 ${buttonVariants({
+          variant: "secondary",
+          width: "block",
+        })}`,
+        className
+      )}
     >
       {children}
     </Link>
@@ -82,14 +87,21 @@ function IndexPage() {
             and advisor to early-stage startups.
           </p>
         </div>
-        <div className="grid content-start grid-cols-2 w-full md:w-fit md:grid-cols-4 gap-4 mt-6">
-          <SocialButton href={siteConfig.links.email}>
+        <div className="grid content-start grid-cols-2 w-full md:w-fit md:grid-cols-5 gap-4 mt-6">
+          <SocialButton
+            href={siteConfig.links.email}
+            className="col-span-2 md:col-span-1"
+          >
             <Icons.mail className="h-5 w-5 stroke-current" />
             Email
           </SocialButton>
           <SocialButton href={siteConfig.links.twitter}>
             <Icons.twitter className="h-5 w-5 fill-current" />
             Twitter
+          </SocialButton>
+          <SocialButton href={siteConfig.links.threads}>
+            <Icons.threads className="h-5 w-5 fill-current" />
+            Threads
           </SocialButton>
           <SocialButton href={siteConfig.links.github}>
             <Icons.gitHub className="h-5 w-5 fill-current" />

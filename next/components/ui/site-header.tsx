@@ -12,13 +12,15 @@ export function SiteHeader({ showLogo = true }) {
       <div className="@container container pl-5 pr-5 flex h-16 items-center justify-between">
         <ul className={cn("flex md:inline-flex", showLogo ? "hidden" : "")}>
           <Link
-            href="/"
+            href="https://github.com/ryngonzalez"
+            target="_blank"
             className="flex items-center gap-2 py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded-full text-secondary-foreground"
           >
             <Icons.gitHub className="h-5 w-5 fill-current" />
           </Link>
           <Link
-            href="/"
+            href="https://twitter.com/ryngonzalez"
+            target="_blank"
             className="flex items-center gap-2 py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-white/20 rounded-full text-secondary-foreground"
           >
             <Icons.twitter className="h-5 w-5 fill-current" />

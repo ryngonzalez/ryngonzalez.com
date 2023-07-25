@@ -178,7 +178,7 @@ export const NotionPage = ({
           rootDomain={rootDomain}
           rootPageId={rootPageId}
           isLinkCollectionToUrlProperty={false}
-          // previewImages={previewImagesEnabled}
+          previewImages={previewImagesEnabled}
           components={{
             // nextImage: Image,
             nextLink: Link,

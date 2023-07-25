@@ -181,7 +181,7 @@
 }
 
 .notion-property-title {
-  @apply whitespace-nowrap text-sm sm:text-base md:text-lg font-sans !important;
+  @apply whitespace-nowrap text-sm sm:text-base md:text-lg font-sans font-normal !important;
 }
 
 .notion-list-item-title {

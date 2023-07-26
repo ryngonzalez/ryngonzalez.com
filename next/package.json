@@ -36,7 +36,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.10",
-    "react-notion-x": "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?build",
+    "react-notion-x": "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?b977258f12bbedb188a444ae1693486981ee33ff",
     "react-tweet-embed": "^2.0.0",
     "sharp": "^0.31.3",
     "tailwind-merge": "^1.13.0",

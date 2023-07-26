@@ -3106,9 +3106,9 @@ react-modal@^3.14.3:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
-"react-notion-x@https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?build":
+"react-notion-x@https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?b977258f12bbedb188a444ae1693486981ee33ff":
   version "6.16.0"
-  resolved "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?build#85dea6e009c7dfd596273ffee732e7fe8d2df981"
+  resolved "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?b977258f12bbedb188a444ae1693486981ee33ff#90bc2d2e8531a505a47de75e4f462cf873d84370"
   dependencies:
     "@fisch0920/medium-zoom" "^1.0.7"
     "@matejmazur/react-katex" "^3.1.3"

@@ -34,10 +34,13 @@ function HeaderLink({
 export function SiteHeader({ showLogo = true }) {
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
-      <div className="@container container pl-5 pr-5 flex h-16 items-center justify-between">
-        <ul
-          className={cn("flex md:inline-flex gap-1", showLogo ? "hidden" : "")}
-        >
+      <div
+        className={cn(
+          "@container container pl-5 pr-5 grid grid-rows-1 grid-cols-2 h-16 items-center justify-between",
+          showLogo ? "md:grid-cols-3" : "grid-cols-2"
+        )}
+      >
+        <ul className={cn("gap-2 md:flex", showLogo ? "hidden" : "flex")}>
           <HeaderLink
             href={siteConfig.links.github}
             target="_blank"
@@ -60,29 +63,32 @@ export function SiteHeader({ showLogo = true }) {
             <Icons.threads className="h-5 w-5 fill-current" />
           </HeaderLink>
         </ul>
-        {showLogo && (
-          <Link href="/" className="flex items-center gap-2">
-            <span className="inline-block font-serif text-2xl @md:hidden">
-              KG
-            </span>
-            <span className="font-serif text-2xl hidden @md:inline-block">
-              Kathryn Gonzalez
-            </span>
-          </Link>
-        )}
 
-        <div className="flex">
-          <nav className="flex items-center gap-1">
-            {(siteConfig.mainNav as NavItem[])?.map(
-              (item, index) =>
-                item.href && (
-                  <HeaderLink key={index} href={item.href}>
-                    {item.title}
-                  </HeaderLink>
-                )
-            )}
-          </nav>
-        </div>
+        <Link
+          href="/"
+          className={cn(
+            "hidden items-center gap-2 justify-start md:justify-center",
+            showLogo ? "flex" : "hidden"
+          )}
+        >
+          <span className="inline-block font-serif text-2xl @md:hidden">
+            KG
+          </span>
+          <span className="font-serif text-2xl hidden @md:inline-block">
+            Kathryn Gonzalez
+          </span>
+        </Link>
+
+        <nav className="flex items-center justify-end gap-1">
+          {(siteConfig.mainNav as NavItem[])?.map(
+            (item, index) =>
+              item.href && (
+                <HeaderLink key={index} href={item.href}>
+                  {item.title}
+                </HeaderLink>
+              )
+          )}
+        </nav>
       </div>
     </header>
   )

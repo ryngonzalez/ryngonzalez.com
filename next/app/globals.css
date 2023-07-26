@@ -86,7 +86,27 @@
 }
 
 .notion-collection-card {
-  @apply border hover:border-white/20 hover:bg-accent transition-all duration-200 !important;
+  @apply border-none shadow-none hover:bg-accent transition-all duration-200 rounded-lg p-2 pb-0 !important;
+}
+
+.notion-collection-card-cover {
+  @apply rounded-md border-none !important;
+}
+
+.notion-collection-card-body {
+  @apply flex-row flex-wrap items-center !important;
+}
+
+.notion-collection-card-body > *:first-child {
+  @apply flex-grow !important;
+}
+
+.notion-collection-card-body > *:last-child {
+  @apply ml-4 text-sm flex-grow  justify-end flex !important;
+}
+
+.notion-collection-card-body .notion-property-text {
+  @apply font-normal text-sm py-1 px-2 bg-secondary rounded-sm !important;
 }
 
 .notion-page-icon-inline {
@@ -147,8 +167,8 @@
   @apply text-sm sm:text-base md:text-lg !important;
 }
 
-.notion-property-text {
-  @apply uppercase font-normal tracking-[1.5px] text-[10px] py-0 px-2 bg-secondary rounded-full !important;
+.notion-property-date {
+  @apply text-sm text-secondary-foreground/50 !important;
 }
 
 .notion-collection-row-value {

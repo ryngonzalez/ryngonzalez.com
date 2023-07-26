@@ -68,9 +68,11 @@ function IndexPage() {
             <HighlightText className="cursor-rocket hover:text-[#ff3008]">
               DoorDash
             </HighlightText>{" "}
-            in 2015 as their first designer and frontend engineer. I then spent
-            8 years building and leading the design infrastructure org (design
-            systems, design engineering, prototyping, accessibility).
+            in 2015 as their first designer and frontend engineer. After a few
+            years as a lead product designer across Consumer and Merchant
+            products, I then spent 6 years building and leading the design
+            infrastructure org (design systems, design engineering, prototyping,
+            accessibility) from being an IC to become a manager of managers.
           </p>
           <p>
             Now, I'm currently in the middle of a{" "}

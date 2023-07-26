@@ -166,7 +166,7 @@ export default function Page({
   pageId: string
   relatedPosts: RelatedPosts
 }) {
-  let relatedPostsFooter = null
+  let relatedPostsFooter: React.JSX.Element[] | null = null
   let hasRelatedPosts = false
   if (relatedPosts as RelatedPosts) {
     const posts = Object.values(relatedPosts)

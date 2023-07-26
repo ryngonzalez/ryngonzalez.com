@@ -68,11 +68,18 @@ function IndexPage() {
             <HighlightText className="cursor-rocket hover:text-[#ff3008]">
               DoorDash
             </HighlightText>{" "}
-            in 2015 as their first designer and frontend engineer. After a few
-            years as a lead product designer across Consumer and Merchant
-            products, I then spent 6 years building and leading the design
-            infrastructure org (design systems, design engineering, prototyping,
-            accessibility) from being an IC to become a manager of managers.
+            in 2015 as their first designer and frontend engineer. Where I
+            worked for 2 years as a lead product designer across Consumer and
+            Merchant products, as well as leading their frontend engineering.
+          </p>
+          <p>
+            I then spent 6 years building and leading the{" "}
+            <HighlightText className="cursor-tools hover:text-yellow-600">
+              Design Infrastructure
+            </HighlightText>{" "}
+            org (design systems, design engineering, prototyping, accessibility)
+            — starting as an IC and ending as a manager of managers over an org
+            of 25 people.
           </p>
           <p>
             Now, I'm currently in the middle of a{" "}

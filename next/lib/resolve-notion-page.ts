@@ -9,7 +9,21 @@ import { rootNotionPageId } from '@/config/notion'
 export const environment = process.env.NODE_ENV || 'development'
 const defaultDomain = "ryngonzalez.com"
 
-export async function resolveNotionPage(domain: string = defaultDomain, rawPageId?: string) {
+export interface ResolveNotionPageResult {
+  recordMap: ExtendedRecordMap
+  pageId: string
+}
+
+export interface ResolveNotionPageError {
+  message: string
+  statusCode: number
+}
+
+interface ResolveNotionPageErrorWrapper {
+  error: ResolveNotionPageError
+}
+
+export async function resolveNotionPage(domain: string = defaultDomain, rawPageId?: string): Promise<ResolveNotionPageResult | ResolveNotionPageErrorWrapper> {
   let pageId: string | null
   let recordMap: ExtendedRecordMap
 

@@ -52,15 +52,15 @@
   --notion-brown: rgb(100, 71, 58);
   --notion-gray: rgb(155, 154, 151);
 
-  --notion-red_background: #b91c1c;
-  --notion-pink_background: #be185d;
-  --notion-blue_background: #1d4ed8;
-  --notion-purple_background: #6d28d9;
-  --notion-teal_background: #0f766e;
-  --notion-yellow_background: #a16207;
-  --notion-orange_background: #c2410c;
-  --notion-brown_background: #b45309;
-  --notion-gray_background: #374151;
+  --notion-red_background: #f2baba;
+  --notion-pink_background: #f7c6db;
+  --notion-blue_background: #c2d0f8;
+  --notion-purple_background: #d7c0fb;
+  --notion-teal_background: #b1f2ed;
+  --notion-yellow_background: #faefc3;
+  --notion-orange_background: #ffe0d4;
+  --notion-brown_background: #fadfca;
+  --notion-gray_background: #e0e0e0;
 
   --notion-red_background_co: rgba(251, 228, 228, 0.3);
   --notion-pink_background_co: rgba(244, 223, 235, 0.3);

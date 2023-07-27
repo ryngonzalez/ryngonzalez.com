@@ -95,6 +95,7 @@ export const NotionPage = ({
   rootPageId,
   rootDomain,
   pageHeader,
+  pageTitle,
   pageFooter,
 }: {
   recordMap: ExtendedRecordMap
@@ -102,6 +103,7 @@ export const NotionPage = ({
   rootPageId?: string
   rootDomain?: string
   pageHeader?: React.ReactNode
+  pageTitle?: React.ReactNode
   pageFooter?: React.ReactNode
 }) => {
   const router = useRouter()
@@ -170,6 +172,7 @@ export const NotionPage = ({
           disableHeader={true}
           header={<SiteHeader />}
           pageHeader={pageHeader}
+          pageTitle={pageTitle}
           pageFooter={pageFooter}
           mapPageUrl={(pageId) =>
             `/blog/${getCanonicalPageId(pageId, recordMap, { uuid: false })}`

@@ -1,0 +1,95 @@
+Arguments: 
+  /Users/kathryngonzalez/.nvm/versions/node/v20.0.0/bin/node /Users/kathryngonzalez/.yarn/bin/yarn.js
+
+PATH: 
+  /Users/kathryngonzalez/.deno/bin:/Users/kathryngonzalez/.yarn/bin:/Users/kathryngonzalez/.config/yarn/global/node_modules/.bin:/Users/kathryngonzalez/.rbenv/shims:/usr/local/opt/ncurses/bin:/Users/kathryngonzalez/.nvm/versions/node/v20.0.0/bin:/Users/kathryngonzalez/bin:/usr/local/bin:/Users/kathryngonzalez/.pyenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin
+
+Yarn version: 
+  1.21.1
+
+Node version: 
+  20.0.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error [ERR_SOCKET_CONNECTION_TIMEOUT]: Socket connection timeout
+      at new NodeError (node:internal/errors:399:5)
+      at internalConnectMultiple (node:net:1098:20)
+      at Timeout.internalConnectMultipleTimeout (node:net:1637:3)
+      at listOnTimeout (node:internal/timers:575:11)
+      at process.processTimers (node:internal/timers:514:7)
+
+npm manifest: 
+  {
+    "name": "next-template",
+    "version": "0.0.2",
+    "private": true,
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint",
+      "lint:fix": "next lint --fix",
+      "preview": "next build && next start",
+      "typecheck": "tsc --noEmit",
+      "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
+      "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache"
+    },
+    "dependencies": {
+      "@notionhq/client": "^1.0.4",
+      "@radix-ui/react-slot": "^1.0.2",
+      "@tailwindcss/container-queries": "^0.1.1",
+      "@vercel/analytics": "^1.0.1",
+      "@vercel/kv": "^0.2.2",
+      "class-variance-authority": "^0.4.0",
+      "clsx": "^1.2.1",
+      "framer-motion": "^10.12.16",
+      "got": "^13.0.0",
+      "lqip-modern": "^2.0.0",
+      "lucide-react": "^0.105.0-alpha.4",
+      "next": "^13.4.4",
+      "next-themes": "^0.2.1",
+      "notion-client": "^6.16.0",
+      "notion-compat": "^6.16.0",
+      "notion-utils": "^6.16.0",
+      "p-map": "^6.0.0",
+      "p-memoize": "^7.1.1",
+      "prismjs": "^1.29.0",
+      "react": "^18.2.0",
+      "react-dom": "^18.2.0",
+      "react-error-boundary": "^4.0.10",
+      "react-notion-x": "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?8c48b63cd09cf3076c2fc896e87e7529829bb578",
+      "react-tweet-embed": "^2.0.0",
+      "sharp": "^0.31.3",
+      "tailwind-merge": "^1.13.0",
+      "tailwindcss-animate": "^1.0.5",
+      "usehooks-ts": "^2.9.1"
+    },
+    "devDependencies": {
+      "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
+      "@types/lqip-modern": "^1.1.3",
+      "@types/node": "^17.0.45",
+      "@types/prismjs": "^1.26.0",
+      "@types/react": "^18.2.7",
+      "@types/react-dom": "^18.2.4",
+      "@typescript-eslint/parser": "^5.59.7",
+      "autoprefixer": "^10.4.14",
+      "eslint": "^8.41.0",
+      "eslint-config-next": "13.0.0",
+      "eslint-config-prettier": "^8.8.0",
+      "eslint-plugin-react": "^7.32.2",
+      "eslint-plugin-tailwindcss": "^3.12.0",
+      "postcss": "^8.4.24",
+      "prettier": "^2.8.8",
+      "tailwindcss": "^3.3.2",
+      "typescript": "^4.9.5"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

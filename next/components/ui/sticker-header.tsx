@@ -2,27 +2,16 @@
 
 import { useRef, useState } from "react"
 import Image from "next/image"
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-  useVelocity,
-} from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { useClickAnyWhere, useElementSize, useMediaQuery } from "usehooks-ts"
 
+import { getRandomNumberInRange } from "@/lib/getRandomNumberInRange"
 import { useElementBoundingRect } from "@/lib/hooks"
 import { cn } from "@/lib/utils"
 import Avatar from "@/components/ui/avatar"
 import { Icons } from "@/components/icons"
 
-function getRandomNumberInRange(min: number, max: number): number {
-  if (min >= max) {
-    throw new Error("Min value should be less than max value")
-  }
-  return Math.random() * (max - min) + min
-}
+import { useRotationVelocity } from "../../lib/useRotationVelocity"
 
 function DotPattern() {
   return (
@@ -148,17 +137,7 @@ function Sticker({
   })
 
   // Setup rotation based on speed of drag
-  const x = useMotionValue(0)
-  const xSmooth = useSpring(x, { damping: 50, stiffness: 400 })
-  const xVelocity = useVelocity(xSmooth)
-  const rotate = useTransform(
-    xVelocity,
-    [-3000, 0, 3000],
-    [-25, initialRotation, 25],
-    {
-      clamp: true,
-    }
-  )
+  const { rotate, x } = useRotationVelocity(initialRotation)
 
   const stickerVariants = {
     default: {},

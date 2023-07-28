@@ -4,3 +4,4 @@
 .env.local
 build/
 .sass-cache/
+**/.DS_Store

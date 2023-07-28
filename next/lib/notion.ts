@@ -3,7 +3,8 @@ import { NotionAPI } from 'notion-client'
 import { NotionCompatAPI } from 'notion-compat'
 import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
 
-import { previewImagesEnabled, useOfficialNotionAPI, rootDomain, rootNotionPageId, rootNotionSpaceId } from '../config/notion'
+import { previewImagesEnabled, useOfficialNotionAPI } from '@/config/notion'
+import * as config from '@/config/notion'
 import { getPreviewImageMap } from './preview-images'
 import { getCanonicalPageId } from 'notion-utils'
 
@@ -41,9 +42,12 @@ export async function search(params: SearchParams): Promise<SearchResults> {
 
 const uuid = false
 
-export async function getSiteMap(): Promise<types.SiteMap> {
+export async function getSiteMap(
+  rootNotionPageId: string | undefined,
+  rootNotionSpaceId: string | undefined
+): Promise<types.SiteMap> {
   const partialSiteMap = await getAllPages(
-    rootNotionPageId,
+    rootNotionPageId || config.rootNotionPageId,
     rootNotionSpaceId
   )
 

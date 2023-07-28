@@ -23,7 +23,8 @@ interface ResolveNotionPageErrorWrapper {
   error: ResolveNotionPageError
 }
 
-export async function resolveNotionPage(domain: string = defaultDomain, rawPageId?: string): Promise<ResolveNotionPageResult | ResolveNotionPageErrorWrapper> {
+export async function resolveNotionPage(domain: string = defaultDomain, rawPageId?: string, rootNotionPageId?: string,
+  rootNotionSpaceId?: string): Promise<ResolveNotionPageResult | ResolveNotionPageErrorWrapper> {
   let pageId: string | null
   let recordMap: ExtendedRecordMap
 
@@ -51,7 +52,7 @@ export async function resolveNotionPage(domain: string = defaultDomain, rawPageI
     } else {
       // handle mapping of user-friendly canonical page paths to Notion page IDs
       // e.g., /developer-x-entrepreneur versus /71201624b204481f862630ea25ce62fe
-      const siteMap = await getSiteMap()
+      const siteMap = await getSiteMap(rootNotionPageId, rootNotionSpaceId)
       pageId = siteMap?.canonicalPageMap[rawPageId]
 
       if (pageId) {
@@ -81,7 +82,7 @@ export async function resolveNotionPage(domain: string = defaultDomain, rawPageI
       }
     }
   } else {
-    pageId = rootNotionPageId
+    pageId = rootNotionPageId as string
 
     recordMap = await getPage(pageId)
   }

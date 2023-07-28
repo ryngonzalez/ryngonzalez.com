@@ -349,3 +349,23 @@
   border-image-slice: 6;
   border-image-repeat: repeat fill;
 }
+
+.bits-page .notion-title {
+  text-align: center;
+}
+
+.bits-page .notion-page-content-inner > .notion-text:first-of-type {
+  text-align: center;
+}
+
+.notion-inline-code {
+  @apply bg-secondary rounded-sm px-1 text-primary !important;
+  --notion-link-underline-thickness: 1px;
+}
+
+.notion-inline-code .notion-link {
+}
+
+.notion-asset-wrapper.notion-asset-wrapper-video > div:has(video) {
+  height: auto !important;
+}

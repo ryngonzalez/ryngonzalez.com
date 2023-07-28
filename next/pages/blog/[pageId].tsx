@@ -19,6 +19,7 @@ import {
   previewImagesEnabled,
   rootDomain,
   rootNotionPageId,
+  rootNotionSpaceId,
 } from "@/config/notion"
 import { siteConfig } from "@/config/site"
 import * as notion from "@/lib/notion"
@@ -77,7 +78,10 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
   async function getRelatedPosts(): Promise<RelatedPosts | undefined> {
     try {
-      const results = await notion.getSiteMap()
+      const results = await notion.getSiteMap(
+        rootNotionPageId,
+        rootNotionSpaceId
+      )
       const published = Object.entries(results?.pageMap)?.filter(
         ([pageId, recordMap]) => {
           return getPageProperty(
@@ -145,7 +149,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // for next.js to pre-generate all pages via static site generation (SSG).
   // This is a useful optimization but not necessary; you could just as easily
   // set paths to an empty array to not pre-generate any pages at build time.
-  const siteMap = await notion.getSiteMap()
+  const siteMap = await notion.getSiteMap(rootNotionPageId, rootNotionSpaceId)
 
   const paths = Object.keys(siteMap.canonicalPageMap)
     .map((pageId) => ({ params: { pageId: pageId } }))

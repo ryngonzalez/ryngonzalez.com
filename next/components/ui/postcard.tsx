@@ -36,27 +36,34 @@ export const Postcard = ({
       initial={{ rotate: initialRotation }}
       className={cn(
         className,
-        "relative mt-12 md:-mt-4 shrink-0 mb-12 w-fit mx-auto ",
+        "relative mt-12 md:-mt-4 shrink-0 mb-12 w-fit mx-auto cursor-grab active:cursor-grabbing",
         direction == "left" ? "md:-ml-24" : "md:-mr-24",
         direction == "left" ? "md:mr-16" : "md:ml-16"
       )}
       style={{ rotate, x }}
     >
       <div className="tape z-10"></div>
-      <div className="bg-yellow-50 shadow-lg w-72 sm:w-96 max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-4 md:p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[12px] after:border-yellow-600/5 postcard">
+      <div className="bg-yellow-50 shadow-lg w-72 sm:w-96 max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-4 md:p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[0.5px] after:border-gray-400/50 postcard">
+        <Image
+          src="/stickers/paperclip.svg"
+          alt="paperclip"
+          width={20}
+          height={80}
+          className="absolute z-50 -top-[20px] -rotate-[20deg] left-[72px]"
+        />
         <Image
           src="/photos/vacation.jpg"
           alt="stamp"
           width={72}
           height={72}
-          className="row-span-2 row-start-1 col-span-1 w-full h-full object-cover border-background border-4 shadow-lg -rotate-2 -ml-1"
+          className="row-span-2 row-start-1 col-span-1 w-full h-full object-cover border-background border-[10px] border-b-[32px] shadow-lg -rotate-2 -ml-1 -mt-4"
         />
         <Image
           src="/stickers/stamp.svg"
           alt="stamp"
           width={72}
           height={72}
-          className="w-16 md:w-20 col-start-2 row-start-1 justify-self-end"
+          className="w-12 md:w-16 col-start-2 row-start-1 justify-self-end"
         />
         <Image
           src="/stickers/waves.svg"

@@ -171,7 +171,7 @@ function Sticker({
       style={{
         zIndex: isModal || isDragging ? 1000 : undefined,
       }}
-      className={cn("relative", className)}
+      className={cn("relative cursor-grab active:cursor-grabbing", className)}
     >
       <motion.div
         variants={stickerVariants}

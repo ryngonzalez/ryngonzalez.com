@@ -36,14 +36,14 @@ export const Postcard = ({
       initial={{ rotate: initialRotation }}
       className={cn(
         className,
-        "relative mt-12 md:-mt-4 shrink-0 mb-12 w-fit mx-auto",
+        "relative mt-12 md:-mt-4 shrink-0 mb-12 w-fit mx-auto ",
         direction == "left" ? "md:-ml-24" : "md:-mr-24",
         direction == "left" ? "md:mr-16" : "md:ml-16"
       )}
       style={{ rotate, x }}
     >
       <div className="tape z-10"></div>
-      <div className="bg-yellow-50 shadow-lg w-96 aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[12px] after:border-yellow-600/5 postcard">
+      <div className="bg-yellow-50 shadow-lg w-72 sm:w-96 max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[12px] after:border-yellow-600/5 postcard">
         <Image
           src="/photos/vacation.jpg"
           alt="stamp"

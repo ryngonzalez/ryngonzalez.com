@@ -2,7 +2,7 @@
 
 import { Ref, forwardRef, useState } from "react"
 import Image, { ImageProps } from "next/image"
-import { motion, useMotionValue } from "framer-motion"
+import { motion } from "framer-motion"
 
 import { getRandomNumberInRange } from "@/lib/getRandomNumberInRange"
 import { useRotationVelocity } from "@/lib/useRotationVelocity"
@@ -40,7 +40,7 @@ export const Photo = ({
       initial={{ rotate: initialRotation }}
       className={cn(
         className,
-        "relative mt-12 md:-mt-4 shrink-0 mb-12 w-fit mx-auto",
+        "relative mt-12 max-w-xs md:max-w-none md:-mt-4 shrink-0 mb-12 w-fit mx-auto",
         direction == "left" ? "md:-ml-24" : "md:-mr-24",
         direction == "left" ? "md:mr-16" : "md:ml-16"
       )}

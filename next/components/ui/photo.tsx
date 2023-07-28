@@ -37,10 +37,11 @@ export const Photo = ({
       drag
       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
       whileTap={{ scale: 1.4, zIndex: 1000 }}
+      whileHover={{ scale: 1.1 }}
       initial={{ rotate: initialRotation }}
       className={cn(
         className,
-        "relative mt-12 max-w-xs md:max-w-none md:-mt-4 shrink-0 mb-12 w-fit mx-auto",
+        "relative mt-12 max-w-xs md:max-w-none md:-mt-4 shrink-0 mb-12 w-fit mx-auto cursor-grab active:cursor-grabbing",
         direction == "left" ? "md:-ml-24" : "md:-mr-24",
         direction == "left" ? "md:mr-16" : "md:ml-16"
       )}

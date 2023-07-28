@@ -85,9 +85,9 @@ function IndexPage() {
           </div>
           <div className="md:flex">
             <p className="leading-relaxed">
-              I then spent 6 years building and leading DoorDash's{" "}
+              I then spent 6 years building and leading their{" "}
               <HighlightText className="cursor-tools hover:text-yellow-600">
-                Design Infrastructure
+                Design&nbsp;Infrastructure
               </HighlightText>{" "}
               org (design systems, design engineering, prototyping,
               accessibility) — starting as an IC and ending as a manager of

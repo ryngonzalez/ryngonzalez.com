@@ -24,7 +24,7 @@ export const Postcard = ({
   className?: string
   direction?: Direction
 }) => {
-  const [savedRotation] = useState<number>(getRandomNumberInRange(2, 6))
+  const [savedRotation] = useState<number>(getRandomNumberInRange(1, 4))
   const initialRotation = savedRotation * (direction == "left" ? -1 : 1)
   const { rotate, x } = useRotationVelocity(initialRotation)
 
@@ -43,7 +43,7 @@ export const Postcard = ({
       style={{ rotate, x }}
     >
       <div className="tape z-10"></div>
-      <div className="bg-yellow-50 shadow-lg w-72 sm:w-96 max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[12px] after:border-yellow-600/5 postcard">
+      <div className="bg-yellow-50 shadow-lg w-72 sm:w-96 max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-4 md:p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[12px] after:border-yellow-600/5 postcard">
         <Image
           src="/photos/vacation.jpg"
           alt="stamp"
@@ -56,26 +56,26 @@ export const Postcard = ({
           alt="stamp"
           width={72}
           height={72}
-          className="col-start-2 row-start-1 justify-self-end"
+          className="w-16 md:w-20 col-start-2 row-start-1 justify-self-end"
         />
         <Image
           src="/stickers/waves.svg"
           alt="stamp"
           width={88}
           height={88}
-          className="col-start-2 row-start-1 justify-self-center rotate-6 self-end opacity-50"
+          className="w-16 md:w-20 col-start-2 row-start-1 justify-self-center rotate-6 self-end opacity-50"
         />
         <div className="row-start-2 col-start-2 self-end">
-          <p className="text-base font-serif text-gray-700 border-b">
+          <p className="font-serif text-gray-700 border-b">
             <span className="text-[12px] tracking-widest font-mono uppercase block text-red-700">
               From:
             </span>
             Kathryn Gonzalez
           </p>
-          <p className="text-base font-serif text-gray-700 border-b">
+          <p className="text-[10px] md:text-base font-serif text-gray-700 border-b">
             Mandue City, Cebu, 10259
           </p>
-          <p className="text-base font-serif text-gray-700 border-b">
+          <p className="text-[10px] md:text-base font-serif text-gray-700 border-b">
             Republic of the Philippines
           </p>
         </div>

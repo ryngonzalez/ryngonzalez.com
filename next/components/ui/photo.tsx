@@ -28,7 +28,7 @@ export const Photo = ({
   className?: string
   direction?: Direction
 }) => {
-  const [savedRotation] = useState<number>(getRandomNumberInRange(2, 6))
+  const [savedRotation] = useState<number>(getRandomNumberInRange(1, 4))
   const initialRotation = savedRotation * (direction == "left" ? -1 : 1)
   const { rotate, x } = useRotationVelocity(initialRotation)
 

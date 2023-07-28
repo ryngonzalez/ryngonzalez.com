@@ -97,6 +97,8 @@ export const NotionPage = ({
   pageHeader,
   pageTitle,
   pageFooter,
+  className,
+  showTableOfContents,
 }: {
   recordMap: ExtendedRecordMap
   previewImagesEnabled?: boolean
@@ -105,6 +107,8 @@ export const NotionPage = ({
   pageHeader?: React.ReactNode
   pageTitle?: React.ReactNode
   pageFooter?: React.ReactNode
+  className?: string
+  showTableOfContents?: boolean
 }) => {
   const router = useRouter()
 
@@ -164,7 +168,8 @@ export const NotionPage = ({
             styles.dark,
             styles.renderer,
             fontSans.variable,
-            fontSerif.variable
+            fontSerif.variable,
+            className
           )}
           recordMap={recordMap}
           fullPage={true}
@@ -181,6 +186,7 @@ export const NotionPage = ({
           rootPageId={rootPageId}
           isLinkCollectionToUrlProperty={false}
           previewImages={previewImagesEnabled}
+          showTableOfContents={showTableOfContents}
           components={{
             nextLink: Link,
             Code,

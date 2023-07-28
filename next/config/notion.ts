@@ -18,7 +18,13 @@ export const isDev =
 export const port = process.env.PORT || 3000
 export const rootDomain = isDev ? `localhost:${port}/blog` : `/blog`
 
+
+
 // NOTE: having this enabled can be pretty expensive as it re-generates preview
 // images each time a page is built. In a production setting, we recommend that
 // you cache the preview image results in a key-value database.
 export const previewImagesEnabled = isDev ? false : true
+
+
+export const rootBitsDomain = isDev ? `localhost:${port}/bits` : `/bits`
+export const rootBitsNotionPageId = '64c2f8ba672e484788cca1fb6c50db9d'

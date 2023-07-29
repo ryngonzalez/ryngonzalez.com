@@ -5,6 +5,7 @@ import "@/app/globals.css"
 import "prismjs/themes/prism-tomorrow.css"
 // core styles shared by all of react-notion-x (required)
 import "react-notion-x/src/styles.css"
+import { Analytics } from "@vercel/analytics/react"
 
 interface MyAppProps {
   Component: React.ComponentType
@@ -12,7 +13,12 @@ interface MyAppProps {
 }
 
 function MyApp({ Component, pageProps }: MyAppProps) {
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Component {...pageProps} />
+      <Analytics />
+    </>
+  )
 }
 
 export default MyApp

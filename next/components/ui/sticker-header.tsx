@@ -298,7 +298,7 @@ function StickerHeader() {
 
         <Sticker
           containerRef={containerRef}
-          caption="I grew up in South Carolina, and like our motto says—&ldquo;While I breath I hope.&rdquo;"
+          caption="I grew up in South Carolina, and like our motto says—&ldquo;While I breathe I hope.&rdquo;"
           index={2}
           setDirty={setAsDirty}
         >

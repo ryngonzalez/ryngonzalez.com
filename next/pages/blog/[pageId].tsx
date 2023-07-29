@@ -4,12 +4,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { ExtendedRecordMap } from "notion-types"
 import {
-  NotionDateTime,
   estimatePageReadTimeAsHumanizedString,
   formatDate,
-  formatNotionDateTime,
   getCanonicalPageId,
-  getDateValue,
   getPageProperty,
   getPageTitle,
 } from "notion-utils"
@@ -21,7 +18,6 @@ import {
   rootNotionPageId,
   rootNotionSpaceId,
 } from "@/config/notion"
-import { siteConfig } from "@/config/site"
 import * as notion from "@/lib/notion"
 import {
   ResolveNotionPageResult,
@@ -29,6 +25,7 @@ import {
 } from "@/lib/resolve-notion-page"
 import { Block } from "@/lib/types"
 import Avatar from "@/components/ui/avatar"
+import { NewsletterForm } from "@/components/ui/newsletter-form"
 import { NotionPage } from "@/components/notion/NotionPage"
 
 interface Post {
@@ -38,83 +35,6 @@ interface Post {
 
 interface RelatedPosts {
   [key: string]: Post
-}
-
-export enum FormEvent {
-  Change,
-  Submit,
-  Saved,
-  Errored,
-}
-
-export enum FormState {
-  Start,
-  Loading,
-  Done,
-  Error,
-}
-
-const machine = {
-  [FormState.Start]: {
-    [FormEvent.Submit]: FormState.Loading,
-  },
-  [FormState.Loading]: {
-    [FormEvent.Saved]: FormState.Done,
-    [FormEvent.Errored]: FormState.Error,
-  },
-  [FormState.Done]: {
-    [FormEvent.Change]: FormState.Start,
-  },
-  [FormState.Error]: {
-    [FormEvent.Change]: FormState.Start,
-  },
-}
-
-const transition = (state: FormState, event: FormEvent): FormState => {
-  return machine[state][event] ?? state
-}
-
-// const submitButtonTypeMap = {
-//   [FormState.Start]: undefined,
-//   [FormState.Loading]: "loading",
-//   [FormState.Done]: "success",
-// }
-
-export const useSubscribe = () => {
-  const [state, dispatch] = React.useReducer(transition, FormState.Start)
-
-  const handleSubmit = async (email?: string) => {
-    dispatch(FormEvent.Submit)
-    try {
-      await subscribe(email)
-      dispatch(FormEvent.Saved)
-    } catch (error) {
-      dispatch(FormEvent.Errored)
-    }
-  }
-
-  return [handleSubmit, { state, dispatch }] as const
-}
-
-function subscribe(email?: string) {
-  if (!email) {
-    return
-  }
-  const params = new URLSearchParams({ email } as Record<string, string>)
-  return new Promise((resolve, reject) => {
-    window
-      .fetch(`/api/subscribe`, {
-        method: "POST",
-        body: JSON.stringify({ email }),
-      })
-      .then((response) => {
-        if (response.ok) {
-          resolve(response)
-        } else {
-          reject(response)
-        }
-      })
-  })
 }
 
 function RelatedPost({ post }: { post: Post }) {
@@ -258,14 +178,6 @@ export default function Page({
     hasRelatedPosts = posts.length > 0
   }
 
-  const [subscribe, { state, dispatch }] = useSubscribe()
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault()
-    const email = evt.target.email.value
-    return subscribe(email)
-  }
-
   return (
     <NotionPage
       recordMap={recordMap}
@@ -275,7 +187,7 @@ export default function Page({
       pageFooter={
         <div className="w-full pt-8">
           <div className="border-t border-border pt-8">
-            <div className="flex gap-6 items-center">
+            <div className="flex gap-6 items-start">
               <Avatar
                 src="/stickers/headshot.jpg"
                 alt="Image of Kathryn Gonzalez"
@@ -288,42 +200,10 @@ export default function Page({
                 <span className="block text-base text-secondary-foreground max-w-lg">
                   You'll get new posts from my blog straight to your inbox! Stay
                   up to date on the things I'm working on, thinking about, or
-                  want to share.
+                  want to share—including my long-form posts and the smaller
+                  bits.
                 </span>
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  <div className="flex items-center">
-                    <input
-                      className="py-2 px-3 bg-input border-input focus:border-black mr-4 rounded-lg flex-grow-[0.5]"
-                      type="email"
-                      name="email"
-                      id="email"
-                      placeholder="Your email"
-                      required
-                    />
-                    <button
-                      type="submit"
-                      className="bg-black rounded-lg text-white py-2 px-3"
-                    >
-                      {state === FormState.Start && <div>Subscribe</div>}
-                      {state === FormState.Error && <div>Retry</div>}
-                      {state === FormState.Loading && <div>Loading</div>}
-                      {state === FormState.Done && "🎉"}
-                    </button>
-                  </div>
-
-                  {state === FormState.Done && (
-                    <p className="text-sm block">
-                      Thanks! Check your inbox — we sent you a confirmation
-                      email.
-                    </p>
-                  )}
-                  {state === FormState.Error && (
-                    <p className="text-sm text-red-800 block">
-                      There was an issue creating your newsletter subscription,
-                      please try again.
-                    </p>
-                  )}
-                </form>
+                <NewsletterForm />
               </div>
             </div>
           </div>

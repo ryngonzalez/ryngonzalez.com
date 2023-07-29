@@ -12,7 +12,7 @@ const imageRequest = fetch(
 
 const fontName = "Boogaloo-Regular"
 const fontRequest = fetch(
-  new URL(`@/public/${fontName}.ttf`, import.meta.url)
+  new URL("@/public/Boogaloo-Regular.ttf", import.meta.url)
 ).then((res) => res.arrayBuffer())
 
 export async function GET(request: Request) {
@@ -155,7 +155,8 @@ export async function GET(request: Request) {
                     style={{
                       fontSize: 56,
                       textAlign: hasImage ? "left" : "center",
-                      maxWidth: hasImage ? 640 : 1200,
+                      maxWidth: hasImage ? 600 : 1200,
+                      wordWrap: "break-word",
                     }}
                   >
                     {title.length > 100 ? `${title.slice(0, 100)}…` : title}

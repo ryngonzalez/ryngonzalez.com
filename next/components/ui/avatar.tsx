@@ -4,9 +4,12 @@ import React, { Ref } from "react"
 import Image, { ImageProps } from "next/image"
 import { motion } from "framer-motion"
 
+import { cn } from "@/lib/utils"
+
 type AvatarProps = {
   src: string
   alt: string
+  className?: string
 }
 const MotionImage = motion(
   React.forwardRef((props: ImageProps, ref: Ref<HTMLImageElement>) => (
@@ -14,7 +17,7 @@ const MotionImage = motion(
   ))
 )
 
-function Avatar({ src, alt, ...rest }: AvatarProps) {
+function Avatar({ src, alt, className, ...rest }: AvatarProps) {
   const [imageLoading, setImageLoading] = React.useState(true)
 
   const imageLoaded = () => {
@@ -23,7 +26,10 @@ function Avatar({ src, alt, ...rest }: AvatarProps) {
 
   return (
     <div
-      className="relative w-[128px] h-[128px] block rounded-full border-[6px] border-white"
+      className={cn(
+        "relative w-[128px] h-[128px] block rounded-full border-[6px] border-white",
+        className
+      )}
       {...rest}
     >
       <MotionImage
@@ -36,7 +42,7 @@ function Avatar({ src, alt, ...rest }: AvatarProps) {
         src={src}
         width={128}
         height={128}
-        className="relative rounded-full -z-10"
+        className="rounded-full -z-10"
         alt="Image of Kathryn Gonzalez"
         onLoad={imageLoaded}
         priority={true}

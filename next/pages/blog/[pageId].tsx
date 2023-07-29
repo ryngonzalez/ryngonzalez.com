@@ -4,12 +4,9 @@ import Image from "next/image"
 import Link from "next/link"
 import { ExtendedRecordMap } from "notion-types"
 import {
-  NotionDateTime,
   estimatePageReadTimeAsHumanizedString,
   formatDate,
-  formatNotionDateTime,
   getCanonicalPageId,
-  getDateValue,
   getPageProperty,
   getPageTitle,
 } from "notion-utils"
@@ -21,13 +18,14 @@ import {
   rootNotionPageId,
   rootNotionSpaceId,
 } from "@/config/notion"
-import { siteConfig } from "@/config/site"
 import * as notion from "@/lib/notion"
 import {
   ResolveNotionPageResult,
   resolveNotionPage,
 } from "@/lib/resolve-notion-page"
 import { Block } from "@/lib/types"
+import Avatar from "@/components/ui/avatar"
+import { NewsletterForm } from "@/components/ui/newsletter-form"
 import { NotionPage } from "@/components/notion/NotionPage"
 
 interface Post {
@@ -189,25 +187,29 @@ export default function Page({
       pageFooter={
         <div className="w-full pt-8">
           <div className="border-t border-border pt-8">
-            <div className="flex gap-6 items-center">
-              <Image
-                alt="Profile picture of Kathryn Gonzalez"
+            <div className="flex gap-6 items-start">
+              <Avatar
                 src="/stickers/headshot.jpg"
-                width={96}
-                height={96}
-                className="rounded-full border-4 border-background drop-shadow-lg"
+                alt="Image of Kathryn Gonzalez"
+                className="hidden sm:block"
               />
-              <div>
-                <span className="font-bold text-2xl">Kathryn Gonzalez</span>
-                <span className="block text-base text-secondary-foreground">
-                  {siteConfig.description}
+              <div className="flex flex-col gap-4">
+                <h2 className="font-bold text-xl sm:text-2xl">
+                  Subscribe to my newsletter
+                </h2>
+                <span className="block text-base text-secondary-foreground max-w-lg">
+                  You'll get new posts from my blog straight to your inbox! Stay
+                  up to date on the things I'm working on, thinking about, or
+                  want to share—including my long-form posts and the smaller
+                  bits.
                 </span>
+                <NewsletterForm />
               </div>
             </div>
           </div>
           {hasRelatedPosts && (
             <div className="w-full pt-8">
-              <h2 className="text-3xl border-t border-border w-full pt-8 font-bold pb-6">
+              <h2 className="text-xl sm:text-2xl border-t border-border w-full pt-8 font-bold pb-6">
                 Related Posts
               </h2>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 -ml-2 -mr-2">

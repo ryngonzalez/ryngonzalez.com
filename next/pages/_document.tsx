@@ -1,5 +1,6 @@
 import * as React from "react"
 import Document, { Head, Html, Main, NextScript } from "next/document"
+import { Analytics } from "@vercel/analytics/react"
 
 import { fontMono, fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
@@ -27,6 +28,7 @@ export default class MyDocument extends Document {
             <Footer />
             <NextScript />
           </ThemeProvider>
+          <Analytics />
         </body>
       </Html>
     )

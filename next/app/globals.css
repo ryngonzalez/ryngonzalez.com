@@ -363,9 +363,6 @@
   --notion-link-underline-thickness: 1px;
 }
 
-.notion-inline-code .notion-link {
-}
-
 .notion-asset-wrapper.notion-asset-wrapper-video > div:has(video) {
   height: auto !important;
 }

@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
@@ -80,7 +79,8 @@ function IndexPage() {
               </HighlightText>{" "}
               in 2015 as their first designer and frontend engineer. I worked
               for 2 years as a lead product designer across Consumer and
-              Merchant products, as well as leading their frontend engineering.
+              Merchant products, started their platform product (DoorDash
+              Drive), and lead their frontend engineering across audiences.
             </p>
           </div>
           <div className="md:flex">

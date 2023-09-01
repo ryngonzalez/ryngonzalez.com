@@ -16,7 +16,7 @@ import * as types from './types'
 
 const notion = useOfficialNotionAPI
   ? new NotionCompatAPI(new Client({ auth: process.env.NOTION_TOKEN }))
-  : new NotionAPI()
+  : new NotionAPI({ authToken: process.env.NOTION_TOKEN_V2, activeUser: process.env.NOTION_USER_ID })
 
 if (useOfficialNotionAPI) {
   console.warn(

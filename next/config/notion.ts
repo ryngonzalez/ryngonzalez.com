@@ -2,7 +2,7 @@
 // NOTE: rootNotionSpaceId is optional; set it to undefined if you don't want to
 // use it.
 export const rootNotionPageId = '0260a95744a64f4ca67456420761be24'
-export const rootNotionSpaceId = undefined
+export const rootNotionSpaceId = '6ebfe15a-4d6a-4467-8b3c-e88c766d594f'
 
 // Whether to use the official public Notion API or the unofficial private API.
 // Note that the official API doesn't expose formatting options for many blocks

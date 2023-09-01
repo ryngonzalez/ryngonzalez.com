@@ -15,6 +15,7 @@ import { NotionRenderer, defaultMapImageUrl } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
 import { fontSans, fontSerif } from "@/lib/fonts"
+import { Block } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/ui/site-header"
 
@@ -132,6 +133,7 @@ export const NotionPage = ({
   const socialImage = `/api/og?title=${encodeURIComponent(
     title
   )}&image=${encodeURIComponent(image)}&date=${publishedDate}`
+  console.log(recordMap.signed_urls)
 
   return (
     <>
@@ -182,6 +184,12 @@ export const NotionPage = ({
           mapPageUrl={(pageId) =>
             `/blog/${getCanonicalPageId(pageId, recordMap, { uuid: false })}`
           }
+          mapImageUrl={(url: string, block: Block) => {
+            // return defaultMapImageUrl(url, block) || ""
+            const signedUrl = recordMap.signed_urls?.[block.id]
+            console.log(url)
+            return signedUrl || url
+          }}
           rootDomain={rootDomain}
           rootPageId={rootPageId}
           isLinkCollectionToUrlProperty={false}

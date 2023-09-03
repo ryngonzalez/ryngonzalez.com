@@ -133,7 +133,6 @@ export const NotionPage = ({
   const socialImage = `/api/og?title=${encodeURIComponent(
     title
   )}&image=${encodeURIComponent(image)}&date=${publishedDate}`
-  console.log(recordMap.signed_urls)
 
   return (
     <>
@@ -184,12 +183,6 @@ export const NotionPage = ({
           mapPageUrl={(pageId) =>
             `/blog/${getCanonicalPageId(pageId, recordMap, { uuid: false })}`
           }
-          mapImageUrl={(url: string, block: Block) => {
-            // return defaultMapImageUrl(url, block) || ""
-            const signedUrl = recordMap.signed_urls?.[block.id]
-            console.log(url)
-            return signedUrl || url
-          }}
           rootDomain={rootDomain}
           rootPageId={rootPageId}
           isLinkCollectionToUrlProperty={false}

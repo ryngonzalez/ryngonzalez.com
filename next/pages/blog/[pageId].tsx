@@ -74,7 +74,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
     props.recordMap
   )
 
-  async function getRelatedPosts(): Promise<RelatedPosts | undefined> {
+  async function getRelatedPosts(): Promise<RelatedPosts | Array<Post>> {
     try {
       const results = await notion.getSiteMap(
         rootNotionPageId,
@@ -112,6 +112,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
         }, {})
     } catch (e: any) {
       console.log(e.message)
+      return []
     }
   }
 
@@ -149,8 +150,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
   // set paths to an empty array to not pre-generate any pages at build time.
   const siteMap = await notion.getSiteMap(rootNotionPageId, rootNotionSpaceId)
 
-  const paths = Object.keys(siteMap.canonicalPageMap)
-    .map((pageId) => ({ params: { pageId: pageId } }))
+  const paths = Object.entries(siteMap.canonicalPageMap)
+    .filter(([canonicalPageId, pageId]) => {
+      return getPageProperty(
+        "Published",
+        siteMap.pageMap[pageId]?.block[pageId].value as Block,
+        siteMap.pageMap[pageId] as ExtendedRecordMap
+      )
+    })
+    .map(([canonicalPageId]) => ({ params: { pageId: canonicalPageId } }))
     .filter((path) => path)
 
   return {

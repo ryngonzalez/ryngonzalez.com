@@ -15,6 +15,7 @@ import { NotionRenderer, defaultMapImageUrl } from "react-notion-x"
 import TweetEmbed from "react-tweet-embed"
 
 import { fontSans, fontSerif } from "@/lib/fonts"
+import { Block } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/ui/site-header"
 

@@ -3101,9 +3101,9 @@ normalize-url@^8.0.0:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-8.0.0.tgz#593dbd284f743e8dcf6a5ddf8fadff149c82701a"
   integrity sha512-uVFpKhj5MheNBJRTiMZ9pE/7hD1QTeEvugSJW/OmLzAp78PB5O6adfMNTvmfKhXBkvCzC+rqifWcVYpGFwTjnw==
 
-"notion-client@https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/notion-client?ccb5c3697eaed1926a6e2e77b339e145b8088646":
+"notion-client@https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/notion-client?eaaf1ab74a0aa8c474908871c12ef2dd399dc46f":
   version "6.16.0"
-  resolved "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/notion-client?ccb5c3697eaed1926a6e2e77b339e145b8088646#b6dde27be4fff8050803e7873b761826711b8b4f"
+  resolved "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/notion-client?eaaf1ab74a0aa8c474908871c12ef2dd399dc46f#b58edf3b64704bb7591b8844e746bc99936d9412"
   dependencies:
     got "^11.8.1"
     notion-types "^6.16.0"
@@ -3596,9 +3596,9 @@ react-modal@^3.14.3:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
-"react-notion-x@https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?ccb5c3697eaed1926a6e2e77b339e145b8088646":
+"react-notion-x@https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?eaaf1ab74a0aa8c474908871c12ef2dd399dc46f":
   version "6.16.0"
-  resolved "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?ccb5c3697eaed1926a6e2e77b339e145b8088646#d422c5127d75acde6b99b008ffdcc603a28dddc8"
+  resolved "https://gitpkg.now.sh/ryngonzalez/react-notion-x/packages/react-notion-x?eaaf1ab74a0aa8c474908871c12ef2dd399dc46f#244b7f434635be08ef4f3bc07709c77a3bcdb5af"
   dependencies:
     "@fisch0920/medium-zoom" "^1.0.7"
     "@matejmazur/react-katex" "^3.1.3"

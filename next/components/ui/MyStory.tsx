@@ -1,8 +1,7 @@
 import { cn } from "@/lib/utils"
 import { Photo } from "@/components/ui/photo"
 import { Postcard } from "@/components/ui/postcard"
-
-import { HighlightText } from "../../app/page"
+import { HighlightText } from "@/app/HighlightText"
 
 export function MyStory({ className }: { className?: string }) {
   return (

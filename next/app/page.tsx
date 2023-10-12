@@ -1,29 +1,11 @@
-import { ArrowUp } from "lucide-react"
-
-import { cn } from "@/lib/utils"
+import { ApproachSection } from "@/components/ui/ApproachSection"
+import { CapabilitiesSection } from "@/components/ui/CapabilitiesSection"
+import { ContactBanner } from "@/components/ui/ContactBanner"
+import { ExperienceSection } from "@/components/ui/ExperienceSection"
+import { MyStory } from "@/components/ui/MyStory"
 import { NavigationLinks } from "@/components/ui/NavigationLinks"
+import { TestimonialsSection } from "@/components/ui/TestimonialsSection"
 import StickerHeader from "@/components/ui/sticker-header"
-
-import { ApproachSection } from "../components/ui/ApproachSection"
-import { CapabilitiesSection } from "../components/ui/CapabilitiesSection"
-import { ContactBanner } from "../components/ui/ContactBanner"
-import { ExperienceSection } from "../components/ui/ExperienceSection"
-import { MyStory } from "../components/ui/MyStory"
-import { TestimonialsSection } from "../components/ui/TestimonialsSection"
-
-export function HighlightText({
-  children,
-  className,
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
-  return (
-    <span className={cn(className, "text-primary transition-colors font-bold")}>
-      {children}
-    </span>
-  )
-}
 
 function IndexPage() {
   return (

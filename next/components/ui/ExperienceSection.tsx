@@ -8,7 +8,6 @@ export function ExperienceSection({ className }: { className?: string }) {
         className
       )}
     >
-      {/* <h2 className="text-4xl font-headline">Where I've Worked</h2> */}
       <div className="flex-col items-center text-center">
         <img
           width="160"

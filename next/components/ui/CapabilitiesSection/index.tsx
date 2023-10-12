@@ -65,14 +65,13 @@ export const CAPABILITIES = [
     title: "Team Building",
     definition: (
       <>
-        At DoorDash, I{" "}
-        <span className="font-bold">built teams of different sizes</span>—6
-        people in 2018, eventually growing the team to a 25 person org (with 4
-        sub-teams) in 2022.
-        <br />
-        <br />
-        I've recruited different kinds of employees: designers, engineers,
-        operations, accessibility specialists, and managers.
+        At DoorDash, I established the Design Engineering and Design Systems
+        functions—
+        <span className="font-bold">building teams of different sizes</span>: 6
+        people by 2019, and eventually growing the team to a 25 person org (with
+        4 sub-teams of web, mobile, and accessibility engineering, alongside
+        design systems design) in 2022. I recruited and hired engineers,
+        designers, managers and specialists.
       </>
     ),
   },
@@ -80,7 +79,8 @@ export const CAPABILITIES = [
     title: "Design Systems",
     definition: (
       <>
-        One of my focuses over my career has been{" "}
+        One of my focuses over my career (and what I'm publically known for
+        through my speaking) has been{" "}
         <span className="font-bold">building and scaling design systems</span>.
         I've built design systems from scratch, and scaled them to support
         multiple products and teams.
@@ -102,8 +102,8 @@ export const CAPABILITIES = [
         <br />
         <br />
         Design engineers help ensure that the products you build are
-        well-crafted, reflective of your vision, and are built with an ease and
-        efficiency that allows your team to move quickly.
+        well-crafted, truly reflective of your vision, and are built with an
+        ease and efficiency that allows your team to move quickly.
       </>
     ),
   },
@@ -145,6 +145,9 @@ export const CAPABILITIES = [
         </span>{" "}
         is critical to building trust and respect, as well as a deep
         understanding of the product problems they're solving.
+        <br />
+        <br />I deploy this skill thoughtfully—knowing when to step into the
+        work and when to let my team lead the way.
       </>
     ),
   },

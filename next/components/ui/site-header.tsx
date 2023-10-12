@@ -1,35 +1,11 @@
-import { AnchorHTMLAttributes } from "react"
 import Link from "next/link"
 
-import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "../icons"
-
-function HeaderLink({
-  children,
-  href,
-  className,
-  ...rest
-}: {
-  children: React.ReactNode
-  href: string
-  className?: string
-} & AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return (
-    <Link
-      href={href}
-      className={cn(
-        "flex items-center gap-2 py-1 px-2 md:py-2 md:px-3 hover:bg-secondary border border-transparent hover:border-primary/10 rounded-full text-secondary-foreground transition-all duration-200",
-        className
-      )}
-      {...rest}
-    >
-      {children}
-    </Link>
-  )
-}
+import { HeaderLink } from "./HeaderLink"
+import { NavigationLinks } from "./NavigationLinks"
 
 export function SiteHeader({ showLogo = true }) {
   return (
@@ -67,28 +43,17 @@ export function SiteHeader({ showLogo = true }) {
         <Link
           href="/"
           className={cn(
-            "hidden items-center gap-2 justify-start md:justify-center",
+            "hidden items-center gap-2 justify-start md:justify-center font-headline",
             showLogo ? "flex" : "hidden"
           )}
         >
-          <span className="inline-block font-serif text-2xl @md:hidden">
-            KG
-          </span>
-          <span className="font-serif text-2xl hidden @md:inline-block">
+          <span className="inline-block text-2xl @md:hidden">KG</span>
+          <span className="text-2xl hidden @md:inline-block">
             Kathryn Gonzalez
           </span>
         </Link>
 
-        <nav className="flex items-center justify-end gap-1">
-          {(siteConfig.mainNav as NavItem[])?.map(
-            (item, index) =>
-              item.href && (
-                <HeaderLink key={index} href={item.href}>
-                  {item.title}
-                </HeaderLink>
-              )
-          )}
-        </nav>
+        <NavigationLinks />
       </div>
     </header>
   )

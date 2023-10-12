@@ -3,7 +3,7 @@ import { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/react"
 
 import { siteConfig } from "@/config/site"
-import { fontSans, fontSerif } from "@/lib/fonts"
+import { fontHeadline, fontMono, fontSans, fontSerif } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import Footer from "@/components/ui/footer"
 import { SiteHeader } from "@/components/ui/site-header"
@@ -47,7 +47,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           className={cn(
             "min-h-screen max-h-screen bg-background font-sans antialiased",
             fontSans.variable,
-            fontSerif.variable
+            fontSerif.variable,
+            fontMono.variable,
+            fontHeadline.variable
           )}
         >
           <ThemeProvider
@@ -56,7 +58,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
             defaultTheme="light"
           >
             <div className="relative flex min-h-screen flex-col">
-              <SiteHeader showLogo={false} />
               <div className="flex-1">{children}</div>
               <Footer />
             </div>

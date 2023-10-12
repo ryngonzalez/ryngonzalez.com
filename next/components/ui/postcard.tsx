@@ -33,17 +33,16 @@ export const Postcard = ({
       drag
       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
       whileTap={{ scale: 1.4, zIndex: 1000 }}
+      whileHover={{ scale: 1.1, rotateZ: 2 * (direction == "left" ? -1 : 1) }}
       initial={{ rotate: initialRotation }}
       className={cn(
         className,
-        "relative mt-12 md:-mt-4 shrink-0 mb-12 w-fit mx-auto cursor-grab active:cursor-grabbing",
-        direction == "left" ? "md:-ml-24" : "md:-mr-24",
-        direction == "left" ? "md:mr-16" : "md:ml-16"
+        "max-w-xs md:max-w-none shrink-0 w-fit mx-auto cursor-grab active:cursor-grabbing relative z-0"
       )}
       style={{ rotate, x }}
     >
       <div className="tape z-10"></div>
-      <div className="bg-yellow-50 shadow-lg w-72 sm:w-96 max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-4 md:p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[0.5px] after:border-gray-400/50 postcard">
+      <div className="bg-background shadow-lg w-fit max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-4 md:p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[0.5px] after:border-gray-400/50 postcard">
         <Image
           src="/stickers/paperclip.svg"
           alt="paperclip"
@@ -56,33 +55,33 @@ export const Postcard = ({
           alt="stamp"
           width={72}
           height={72}
-          className="row-span-2 row-start-1 col-span-1 w-full h-full object-cover border-background border-[10px] border-b-[32px] shadow-lg -rotate-2 -ml-1 -mt-4"
+          className="row-span-2 row-start-1 col-span-1 w-full h-full object-cover border-background border-[0.5em] border-b-[1em] shadow-lg -rotate-2 -ml-1 -mt-4"
         />
         <Image
           src="/stickers/stamp.svg"
           alt="stamp"
           width={72}
           height={72}
-          className="w-12 md:w-16 col-start-2 row-start-1 justify-self-end"
+          className="z-10 w-12 md:w-16 col-start-2 row-start-1 justify-self-end"
         />
         <Image
           src="/stickers/waves.svg"
           alt="stamp"
           width={88}
           height={88}
-          className="w-16 md:w-20 col-start-2 row-start-1 justify-self-center rotate-6 self-end opacity-50"
+          className="z-10 w-16 md:w-20 col-start-2 row-start-1 justify-self-center rotate-6 self-end opacity-50"
         />
-        <div className="row-start-2 col-start-2 self-end">
-          <p className="font-serif text-gray-700 border-b">
+        <div className="row-start-2 col-start-2 self-end whitespace-nowrap">
+          <p className="font-serif text-[15px] text-gray-700 border-b overflow-hidden text-ellipsis">
             <span className="text-[12px] tracking-widest font-mono uppercase block text-red-700">
               From:
             </span>
             Kathryn Gonzalez
           </p>
-          <p className="text-[10px] md:text-base font-serif text-gray-700 border-b">
+          <p className="text-[10px] font-serif text-gray-700 border-b overflow-hidden text-ellipsis">
             Mandue City, Cebu, 10259
           </p>
-          <p className="text-[10px] md:text-base font-serif text-gray-700 border-b">
+          <p className="text-[10px] font-serif text-gray-700 border-b overflow-hidden text-ellipsis">
             Republic of the Philippines
           </p>
         </div>

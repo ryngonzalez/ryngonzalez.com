@@ -26,5 +26,6 @@ export const siteConfig = {
     threads: "https://threads.net/@kathrynmichelleg",
     github: "https://github.com/ryngonzalez",
     linkedin: "https://www.linkedin.com/in/ryngonzalez/",
+    readcv: "https://read.cv/kathryngonzalez",
   },
 }

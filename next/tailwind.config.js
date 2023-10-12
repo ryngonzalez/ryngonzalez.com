@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        "hover-hover": { raw: "(hover: hover)" },
+      },
       cursor: {
         rocket: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🚀</text></svg>") 16 0,auto`,
         money: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🍀</text></svg>") 16 0,auto;`,
@@ -27,6 +30,7 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
         serif: ["var(--font-serif)", ...defaultTheme.fontFamily.serif],
+        headline: ["var(--font-headline)", ...defaultTheme.fontFamily.serif],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -63,6 +67,9 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -77,12 +84,25 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        marquee: {
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        marquee2: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        marquee: "marquee 30s linear infinite",
+        marquee2: "marquee2 30s linear infinite",
       },
     },
+  },
+  variants: {
+    animation: ["motion-safe", "motion-reduce"],
   },
   plugins: [
     require("tailwindcss-animate"),

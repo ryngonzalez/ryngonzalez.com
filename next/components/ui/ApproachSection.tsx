@@ -1,5 +1,3 @@
-import { ApproachListItem } from "../../app/page"
-
 export function ApproachSection() {
   return (
     <div className="lg:order-2 col-span-full lg:col-span-3 flex flex-col items-start gap-10 bg-secondary p-6 md:p-12 rounded-3xl">
@@ -31,5 +29,19 @@ export function ApproachSection() {
         />
       </ol>
     </div>
+  )
+}
+export function ApproachListItem({
+  title,
+  description,
+}: {
+  title: string
+  description?: string
+}) {
+  return (
+    <li className="marker:text-red-500 marker:font-bold">
+      <h3 className="font-bold text-xl mb-2">{title}</h3>
+      <p>{description}</p>
+    </li>
   )
 }

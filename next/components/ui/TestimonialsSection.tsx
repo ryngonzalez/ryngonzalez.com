@@ -32,11 +32,11 @@ export function Testimonial({
         className="rounded-full w-20 h-20 object-cover object-center border-4 border-white shadow-2xl"
       />
       <div>
-        <h2 className="font-headline text-xl md:text-2xl">
-          {name}, {title}
-        </h2>
+        <h2 className="font-headline text-xl md:text-2xl">{name}</h2>
         <h3 className="text-secondary-foreground font-mono mb-2 text-sm md:text-base">
-          {context}
+          <span className="text-sm">{title}</span>
+          <br />
+          <span className="text-sm font-sans italic">{context}</span>
         </h3>
         <blockquote className="text-sm md:text-base">{quote}</blockquote>
       </div>
@@ -101,7 +101,7 @@ export function TestimonialsSection() {
         >
           <Testimonial
             name="Lindsey Menges"
-            title="Manager of Design Engineering at DoorDash"
+            title="Engineering Manager, Design Engineering at DoorDash"
             context="Managed by Kathryn, 2018-2023"
             imageSrc="https://media.licdn.com/dms/image/C4E03AQErSX6JUPKV5w/profile-displayphoto-shrink_100_100/0/1516992051983?e=1702512000&v=beta&t=V0aLOWls2z-X_2sjKnI5wmsUYGEAMUTR7GOFAfmsSxY"
             quote={
@@ -121,8 +121,27 @@ export function TestimonialsSection() {
             }
           />
           <Testimonial
+            name="Emma Bergmann"
+            title="Product Design Recruiter at DoorDash"
+            context="Kathryn's Recruiting Partner, 2021-2023"
+            imageSrc="https://media.licdn.com/dms/image/C4E03AQER24ETAVKE9w/profile-displayphoto-shrink_800_800/0/1542130360073?e=1702512000&v=beta&t=ZxqG74Dr0Pt5udzpJKH-kAj_l5y18SO9Rk8HDsFLqFc"
+            quote={
+              <>
+                I had the pleasure of working with Kathryn for nearly two years
+                as her Recruiting and Sourcing partner at DoorDash. Kathryn’s
+                truly a dream to work with: she’s engaged and excited, process
+                and systems oriented, open to iterating and testing and first
+                principles driven throughout the hiring funnel. She leans in and
+                leads from the front, and will not ask you to do anything she
+                herself isn’t willing to do as well. She celebrates successes
+                and learning opportunities equally, and genuinely cares about
+                her candidates, colleagues, and clients equally.
+              </>
+            }
+          />
+          <Testimonial
             name="Camden Asay"
-            title="Manager of Design Systems at DoorDash"
+            title="Design Manager, Design Systems at DoorDash"
             context="Managed by Kathryn, 2021-2023"
             imageSrc="https://media.licdn.com/dms/image/D4E35AQHH5BCv4tYQ8g/profile-framedphoto-shrink_800_800/0/1693238114455?e=1697605200&v=beta&t=wm-inFrhwX2BpyHiP_PMIw3BTOf_pzsz2lC-jXqrHME"
             quote={
@@ -142,7 +161,7 @@ export function TestimonialsSection() {
           />
           <Testimonial
             name="Yarden Eitan"
-            title="Principal Engineer & Mobile Tech Lead Manager, Design Systems at DoorDash"
+            title="Principal Engineer & Tech Lead Manager, Design Systems at DoorDash"
             context="Managed by Kathryn, 2022-2023"
             imageSrc="https://media.licdn.com/dms/image/C4D03AQGbYADqWwBKfQ/profile-displayphoto-shrink_400_400/0/1517069288965?e=1702512000&v=beta&t=ULJsFx-eHA9tVjcyDTocljvCAn_MFd4zR3frzyng6-M"
             quote={

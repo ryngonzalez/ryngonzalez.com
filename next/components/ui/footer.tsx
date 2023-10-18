@@ -1,10 +1,8 @@
 import { ArrowUpRight, MessageCircleIcon } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
+import { SocialButton } from "@/components/ui/SocialButton"
 import { Icons } from "@/components/icons"
-
-import { Marquee } from "./Marquee"
-import { SocialButton } from "./SocialButton"
 
 export default function Footer() {
   return (

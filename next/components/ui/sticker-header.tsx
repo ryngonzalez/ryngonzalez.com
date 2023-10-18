@@ -224,7 +224,7 @@ function StickerHeader({ className }: { className?: string }) {
     <div
       key={resetIndex}
       className={cn(
-        "w-full w-min-[280px] md:h-[320px] bg-secondary rounded-3xl p-6 @container max-h-72 xs:max-h-none",
+        "w-full w-min-[280px] md:min-h-[280px] bg-secondary rounded-3xl p-6 @container max-h-72 xs:max-h-none",
         className
       )}
     >

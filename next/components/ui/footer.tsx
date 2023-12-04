@@ -37,10 +37,10 @@ export default function Footer() {
               Send me details at{" "}
               <span className="whitespace-nowrap">
                 <a
-                  href="mailto:kathrynmichellegonzalez@gmail.com"
+                  href="mailto:kathryn@makeshiftlabs.io"
                   className="underline underline-offset-4"
                 >
-                  kathrynmichellegonzalez@gmail.com
+                  kathryn@makeshiftlabs.io
                 </a>
                 <ArrowUpRight
                   size={16}

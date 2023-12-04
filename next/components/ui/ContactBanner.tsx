@@ -12,7 +12,7 @@ export function ContactBanner() {
         Need help with a project, looking for fractional leadership, or just
         need some advice?{" "}
         <a
-          href="mailto:kathrynmichellegonzalez@gmail.com"
+          href="mailto:kathryn@makeshiftlabs.io"
           className="underline underline-offset-4"
         >
           Send me an email

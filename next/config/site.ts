@@ -21,7 +21,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    email: "mailto:kathrynmichellegonzalez@gmail.com",
+    email: "mailto:kathryn@makeshiftlabs.io",
     twitter: "https://twitter.com/ryngonzalez",
     threads: "https://threads.net/@kathrynmichelleg",
     github: "https://github.com/ryngonzalez",

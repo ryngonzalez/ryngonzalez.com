@@ -51,10 +51,7 @@ export const CAPABILITIES = [
         <br />
         If you're an individual looking for mentorship, or a company looking to
         have their team get coaching, please{" "}
-        <a
-          className="underline"
-          href="mailto:kathrynmichellegonzalez@gmail.com"
-        >
+        <a className="underline" href="mailto:kathryn@makeshiftlabs.io">
           reach out
         </a>
         .

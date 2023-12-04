@@ -143,7 +143,7 @@ export function TestimonialsSection() {
             name="Camden Asay"
             title="Design Manager, Design Systems at DoorDash"
             context="Managed by Kathryn, 2021-2023"
-            imageSrc="https://media.licdn.com/dms/image/D4E35AQHH5BCv4tYQ8g/profile-framedphoto-shrink_800_800/0/1693238114455?e=1697605200&v=beta&t=wm-inFrhwX2BpyHiP_PMIw3BTOf_pzsz2lC-jXqrHME"
+            imageSrc="https://media.licdn.com/dms/image/C4E03AQG6q0LK-Q-ziA/profile-displayphoto-shrink_800_800/0/1638915859383?e=1707350400&v=beta&t=EVYng0Ub3lX8Jpz0KK54Lg9q2_gg2y7wbi59nIwx8G8"
             quote={
               <>
                 Kathryn is an inspiring leader and thoughtful manager. In my

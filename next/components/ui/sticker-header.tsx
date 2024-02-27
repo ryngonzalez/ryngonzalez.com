@@ -3,7 +3,13 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
-import { useClickAnyWhere, useElementSize, useMediaQuery } from "usehooks-ts"
+import {
+  useClickAnyWhere,
+  useDebounceCallback,
+  useElementSize,
+  useMediaQuery,
+  useResizeObserver,
+} from "usehooks-ts"
 
 import { getRandomNumberInRange } from "@/lib/getRandomNumberInRange"
 import { useElementBoundingRect } from "@/lib/hooks"
@@ -46,6 +52,11 @@ function DotPattern() {
   )
 }
 
+type Size = {
+  width?: number
+  height?: number
+}
+
 function Sticker({
   children,
   index = 1,
@@ -61,7 +72,6 @@ function Sticker({
 }) {
   // Create refs for the sticker and caption, and set up measurement of elements
   const itemRef = useRef<HTMLDivElement | null>(null)
-  const [captionRef, { width, height }] = useElementSize()
   const boundingRect = useElementBoundingRect(itemRef)
 
   // Manage state of stickers
@@ -118,7 +128,7 @@ function Sticker({
   const stickerVariants = {
     default: {},
     modal: {
-      x: -boundingRect.x + boundingRect.width,
+      x: -boundingRect.x / 2 + boundingRect.width,
       rotate: 0,
       scale: 1.4,
       zIndex: 1000,
@@ -184,17 +194,16 @@ function Sticker({
         <AnimatePresence>
           {caption && caption.length > 0 && isCaptionVisible && (
             <motion.div
-              ref={captionRef}
               key="child"
               initial={{ opacity: 0, y: -48, scale: 0.5 }}
               animate={{ opacity: 1, y: 0, scale: 0.9 }}
               exit={{ opacity: 0, y: -48, scale: 0.5 }}
               style={{
-                x: (boundingRect.width - width) / 2 + (matches ? 25 : 0),
+                left: `50%`,
+                x: `-50%`,
               }}
               className={cn(
-                "pointer-events-none max-w-screen-sm md:w-fit select-none z-10 absolute top-full translate-y-full mx-auto text-[10px] text-center bg-white/95 backdrop-blur-3xl text-black mt-3 py-2 px-3 text-balance rounded-sm",
-                caption.length < 10 ? "w-fit" : "min-w-[160px]"
+                "pointer-events-none max-w-screen-sm select-none z-10 absolute top-full mx-auto text-[10px] text-center bg-white/95 backdrop-blur-3xl text-black mt-2 py-2 px-3 text-balance rounded-sm min-w-[160px]"
               )}
             >
               {caption}

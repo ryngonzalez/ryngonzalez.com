@@ -100,10 +100,33 @@ export function TestimonialsSection() {
           onClick={handleClick}
         >
           <Testimonial
+            name="Kara Fong"
+            title="Senior Design Director at DoorDash"
+            context="Kathryn's manager 2022-2023"
+            imageSrc="/photos/testimonials/kara.jpeg"
+            quote={
+              <>
+                I had the privilege of having Kathryn on my team when I joined
+                DoorDash and I was fortunate to learn a lot from her when I
+                started. It&apos;s rare to find a leader who is so humble and
+                puts so much of their heart into what they do. She isn&apos;t
+                afraid to roll up her sleeves to get the job done with such
+                careful attention to detail. She&apos;s a Swiss Army knife - a
+                high craft designer, passionate systems-thinker, innovative
+                engineer, and a delightful pun master. Kathryn set a strong
+                foundation for craft, quality, and our design systems strategy
+                here at DoorDash. Anyone who has worked with her can attest to
+                the fact that she is an inspiring leader with a wealth of
+                knowledge in how to build products 0-1, design systems,
+                engineering, team management, and beyond.
+              </>
+            }
+          />
+          <Testimonial
             name="Lindsey Menges"
             title="Engineering Manager, Design Engineering at DoorDash"
             context="Managed by Kathryn, 2018-2023"
-            imageSrc="https://media.licdn.com/dms/image/C4E03AQErSX6JUPKV5w/profile-displayphoto-shrink_100_100/0/1516992051983?e=1702512000&v=beta&t=V0aLOWls2z-X_2sjKnI5wmsUYGEAMUTR7GOFAfmsSxY"
+            imageSrc="/photos/testimonials/lindsey.jpeg"
             quote={
               <>
                 {" "}
@@ -124,7 +147,7 @@ export function TestimonialsSection() {
             name="Emma Bergmann"
             title="Product Design Recruiter at DoorDash"
             context="Kathryn's Recruiting Partner, 2021-2023"
-            imageSrc="https://media.licdn.com/dms/image/C4E03AQER24ETAVKE9w/profile-displayphoto-shrink_800_800/0/1542130360073?e=1702512000&v=beta&t=ZxqG74Dr0Pt5udzpJKH-kAj_l5y18SO9Rk8HDsFLqFc"
+            imageSrc="/photos/testimonials/emma.jpeg"
             quote={
               <>
                 I had the pleasure of working with Kathryn for nearly two years
@@ -143,7 +166,7 @@ export function TestimonialsSection() {
             name="Camden Asay"
             title="Design Manager, Design Systems at DoorDash"
             context="Managed by Kathryn, 2021-2023"
-            imageSrc="https://media.licdn.com/dms/image/C4E03AQG6q0LK-Q-ziA/profile-displayphoto-shrink_800_800/0/1638915859383?e=1707350400&v=beta&t=EVYng0Ub3lX8Jpz0KK54Lg9q2_gg2y7wbi59nIwx8G8"
+            imageSrc="/photos/testimonials/camden.jpeg"
             quote={
               <>
                 Kathryn is an inspiring leader and thoughtful manager. In my
@@ -163,7 +186,7 @@ export function TestimonialsSection() {
             name="Yarden Eitan"
             title="Principal Engineer & Tech Lead Manager, Design Systems at DoorDash"
             context="Managed by Kathryn, 2022-2023"
-            imageSrc="https://media.licdn.com/dms/image/C4D03AQGbYADqWwBKfQ/profile-displayphoto-shrink_400_400/0/1517069288965?e=1702512000&v=beta&t=ULJsFx-eHA9tVjcyDTocljvCAn_MFd4zR3frzyng6-M"
+            imageSrc="/photos/testimonials/yarden.jpeg"
             quote={
               <>
                 I worked with Kathryn as a Design Systems mobile lead while she

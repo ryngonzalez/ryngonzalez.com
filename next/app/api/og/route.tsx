@@ -31,9 +31,7 @@ export async function GET(request: Request) {
     const imageUrl = hasImage ? searchParams.get("image") : undefined
 
     const hasDate = searchParams.has("date")
-    const date = hasDate
-      ? new Date(Number.parseInt(searchParams.get("date") || ""))
-      : undefined
+    const date = hasDate ? searchParams.get("date") : undefined
 
     return new ImageResponse(
       (
@@ -44,7 +42,7 @@ export async function GET(request: Request) {
           }}
           tw={cn(
             "font-bold px-12 py-8 flex items-center justify-center flex-col flex-nowrap text-center h-full w-full",
-            hasImage && "items-start"
+            "items-start"
           )}
         >
           <div
@@ -144,7 +142,7 @@ export async function GET(request: Request) {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: hasImage ? "flex-start" : "center",
+                    alignItems: "flex-start",
                     gap: 0,
                   }}
                 >

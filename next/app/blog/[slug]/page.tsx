@@ -7,9 +7,10 @@ import { CustomMDX } from "@/app/src/components/mdx/mdx"
 import { BlogFooter } from "@/app/src/components/ui/BlogFooter"
 
 function generateOgImage(title: string, date?: string, image?: string) {
+  const formattedDate = date ? new Date(date).toLocaleDateString() : ""
   const parts = [
     `title=${encodeURIComponent(title)}`,
-    date && `date=${encodeURIComponent(date)}`,
+    date && `date=${encodeURIComponent(formattedDate)}`,
     image && `image=${encodeURIComponent(image)}`,
   ]
   return `/api/og?${parts.filter(Boolean).join("&")}`

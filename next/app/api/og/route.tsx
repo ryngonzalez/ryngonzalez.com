@@ -160,9 +160,7 @@ export async function GET(request: Request) {
                     {title.length > 100 ? `${title.slice(0, 100)}…` : title}
                   </div>
                   {hasDate && (
-                    <div style={{ fontSize: 32, opacity: 0.5 }}>
-                      {date?.toDateString()}
-                    </div>
+                    <div style={{ fontSize: 32, opacity: 0.5 }}>{date}</div>
                   )}
                 </div>
               </div>

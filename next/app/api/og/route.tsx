@@ -131,7 +131,7 @@ export async function GET(request: Request) {
               >
                 {hasImage && imageUrl && (
                   <img
-                    src={imageUrl}
+                    src={`${process.env.VERCEL_URL}${imageUrl}`}
                     height={280}
                     width={480}
                     style={{ objectFit: "cover", objectPosition: "top" }}

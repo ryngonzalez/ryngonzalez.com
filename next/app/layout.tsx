@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
+    url: "https://ryngonzalez.com",
+    title: siteConfig.name,
+    description: siteConfig.description,
     images: [
       {
         url: "/api/og",

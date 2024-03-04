@@ -6,6 +6,15 @@ import { getAllPosts } from "app/src/db/blog"
 import { CustomMDX } from "@/app/src/components/mdx/mdx"
 import { BlogFooter } from "@/app/src/components/ui/BlogFooter"
 
+function generateOgImage(title: string, date?: string, image?: string) {
+  const parts = [
+    `title=${encodeURIComponent(title)}`,
+    date && `date=${encodeURIComponent(date)}`,
+    image && `image=${encodeURIComponent(image)}`,
+  ]
+  return `/api/og?${parts.filter(Boolean).join("&")}`
+}
+
 export async function generateMetadata({
   params,
 }): Promise<Metadata | undefined> {
@@ -14,17 +23,13 @@ export async function generateMetadata({
     return
   }
 
-  let {
+  const {
     title,
     subtitle: description,
     publishedDate: publishedTime,
     image,
   } = post.metadata
-  let ogImage = `https://ryngonzalez.com/api/og?title=${encodeURIComponent(
-    title
-  )}&date=${encodeURIComponent(publishedTime)}&image=${encodeURIComponent(
-    image || ""
-  )}`
+  let ogImage = generateOgImage(title, publishedTime, image)
 
   return {
     title,
@@ -105,7 +110,7 @@ export default async function Blog({ params }) {
             url: `https://ryngonzalez.com/blog/${post.slug}`,
             author: {
               "@type": "Person",
-              name: "Lee Robinson",
+              name: "Kathryn Gonzalez",
             },
           }),
         }}

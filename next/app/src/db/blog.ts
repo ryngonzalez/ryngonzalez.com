@@ -22,7 +22,7 @@ async function readMDXFile(filePath) {
 
 function getRelatedPosts(allPosts, currentPost): Post[] {
   let relatedPosts = allPosts.filter((post) => {
-    return post.metadata.tags.split(',').some((tag) => currentPost.metadata.tags.split(',').includes(tag));
+    return post.metadata.tags?.split(',').some((tag) => currentPost.metadata.tags.split(',').includes(tag));
   });
   relatedPosts = relatedPosts.filter((post) => post.slug !== currentPost.slug);
   return relatedPosts;
@@ -54,6 +54,11 @@ export async function getTalkPosts() {
 export async function getPodcastPosts() {
   return getMDXData(path.join(process.cwd(), 'content', 'podcasts'));
 }
+
+export async function getBitsPosts() {
+  return getMDXData(path.join(process.cwd(), 'content', 'bits'));
+}
+
 export async function getAllPosts() {
   return (await getBlogPosts()).concat(await getTalkPosts()).concat(await getPodcastPosts());
 }

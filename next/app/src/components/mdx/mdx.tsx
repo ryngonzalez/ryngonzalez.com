@@ -1,4 +1,3 @@
-import React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
@@ -7,6 +6,7 @@ import { highlight } from "sugar-high"
 import { cn } from "../../lib/utils"
 import { LiveCode } from "../sandpack"
 import { TweetComponent } from "../tweet"
+import { createHeading } from "./createHeading"
 import styles from "./styles.module.css"
 
 function Table({ data }) {
@@ -152,7 +152,7 @@ function Video({ className, ...props }) {
   return <video className={cn("mb-4 mx-auto", className)} {...props} />
 }
 
-function slugify(str) {
+export function slugify(str) {
   return str
     .toString()
     .toLowerCase()
@@ -161,37 +161,6 @@ function slugify(str) {
     .replace(/&/g, "-and-") // Replace & with 'and'
     .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
     .replace(/\-\-+/g, "-") // Replace multiple - with single -
-}
-
-function createHeading(level) {
-  const baseTextStyle = "font-headline font-light mt-8 mb-4"
-  const sizes = [
-    "text-4xl",
-    "text-3xl",
-    "text-2xl",
-    "text-xl",
-    "text-lg",
-    "text-base",
-  ]
-  return ({ children }) => {
-    let slug = slugify(children?.props?.children || "")
-    return React.createElement(
-      `h${level}`,
-      { id: slug, className: cn(baseTextStyle, sizes[level - 1]) },
-      [
-        React.createElement("a", {
-          href: `#${slug}`,
-          key: `link-${slug}`,
-          className: cn(
-            "anchor",
-            "no-underline -ml-[calc(2ch_+_8px)] pr-2 opacity-20 group-hover:opacity-100"
-          ),
-          children: "#",
-        }),
-      ],
-      children
-    )
-  }
 }
 
 let components = {

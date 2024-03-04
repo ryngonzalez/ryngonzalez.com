@@ -1,3 +1,5 @@
+import { Suspense } from "react"
+
 import { createHeading } from "../src/components/mdx/createHeading"
 import { CustomMDX } from "../src/components/mdx/mdx"
 import { getBitsPosts } from "../src/db/blog"

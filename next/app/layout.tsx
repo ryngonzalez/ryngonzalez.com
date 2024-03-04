@@ -15,6 +15,7 @@ import {
 import { cn } from "@/app/src/lib/utils"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ryngonzalez.com"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,

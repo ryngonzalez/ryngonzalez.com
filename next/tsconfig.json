@@ -15,8 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "got": ["./node_modules/got/dist/source"]
+      "@/*": ["./*"]
     },
     "plugins": [
       {

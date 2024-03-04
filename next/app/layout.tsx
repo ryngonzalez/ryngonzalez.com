@@ -4,7 +4,6 @@ import { Analytics } from "@vercel/analytics/react"
 
 import { ThemeProvider } from "@/app/src/components/theme-provider"
 import SiteFooter from "@/app/src/components/ui/SiteFooter"
-import { SiteHeader } from "@/app/src/components/ui/SiteHeader"
 import { TailwindIndicator } from "@/app/src/components/ui/TailwindIndicator"
 import { siteConfig } from "@/app/src/config/site"
 import {

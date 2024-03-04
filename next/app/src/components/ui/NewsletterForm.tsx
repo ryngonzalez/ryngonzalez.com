@@ -1,9 +1,7 @@
 "use client"
 
 import * as React from "react"
-
-import { Loading } from "../notion/Loading"
-import { LoadingIcon } from "../notion/LoadingIcon"
+import { RotatingLines } from "react-loader-spinner"
 
 export const useSubscribe = () => {
   const [state, dispatch] = React.useReducer(transition, FormState.Start)
@@ -106,7 +104,7 @@ export function NewsletterForm() {
           )}
           {state === FormState.Loading && (
             <div>
-              <LoadingIcon />
+              <RotatingLines strokeColor="currentColor" width="20" />
             </div>
           )}
           {state === FormState.Done && "Subscribed!"}

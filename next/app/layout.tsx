@@ -2,15 +2,20 @@ import "@/app/globals.css"
 import { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/react"
 
-import { siteConfig } from "@/config/site"
-import { fontHeadline, fontMono, fontSans, fontSerif } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
-import Footer from "@/components/ui/footer"
-import { SiteHeader } from "@/components/ui/site-header"
-import { TailwindIndicator } from "@/components/ui/tailwind-indicator"
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/app/src/components/theme-provider"
+import SiteFooter from "@/app/src/components/ui/SiteFooter"
+import { TailwindIndicator } from "@/app/src/components/ui/TailwindIndicator"
+import { siteConfig } from "@/app/src/config/site"
+import {
+  fontHeadline,
+  fontMono,
+  fontSans,
+  fontSerif,
+} from "@/app/src/lib/fonts"
+import { cn } from "@/app/src/lib/utils"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ryngonzalez.com"),
   title: {
     default: siteConfig.name,
     template: `%s - ${siteConfig.name}`,
@@ -23,6 +28,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
+    url: "https://ryngonzalez.com",
+    title: siteConfig.name,
+    description: siteConfig.description,
     images: [
       {
         url: "/api/og",
@@ -59,7 +67,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           >
             <div className="relative flex min-h-screen flex-col">
               <div className="flex-1">{children}</div>
-              <Footer />
+              <SiteFooter />
             </div>
             <TailwindIndicator />
           </ThemeProvider>

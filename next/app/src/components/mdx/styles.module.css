@@ -1,0 +1,65 @@
+.mdxContainer {
+  background: red;
+}
+
+.grid {
+  background: white;
+}
+
+.videosContainer {
+  @apply w-[80vw] mx-auto -translate-x-1/2 left-1/2 relative gap-8 hidden md:grid;
+}
+
+.videosContainer {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "one two three four"
+    "five center center six"
+    "seven eight nine ten";
+}
+
+.one {
+  grid-area: one;
+}
+
+.two {
+  grid-area: two;
+}
+
+.three {
+  grid-area: three;
+}
+
+.four {
+  grid-area: four;
+}
+
+.center {
+  grid-area: center;
+}
+
+.five {
+  grid-area: five;
+}
+
+.six {
+  grid-area: six;
+}
+
+.seven {
+  grid-area: seven;
+}
+
+.eight {
+  grid-area: eight;
+}
+
+.nine {
+  grid-area: nine;
+}
+
+.ten {
+  grid-area: ten;
+}

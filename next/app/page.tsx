@@ -1,11 +1,11 @@
-import { ApproachSection } from "@/components/ui/ApproachSection"
-import { CapabilitiesSection } from "@/components/ui/CapabilitiesSection"
-import { ContactBanner } from "@/components/ui/ContactBanner"
-import { ExperienceSection } from "@/components/ui/ExperienceSection"
-import { MyStory } from "@/components/ui/MyStory"
-import { NavigationLinks } from "@/components/ui/NavigationLinks"
-import { TestimonialsSection } from "@/components/ui/TestimonialsSection"
-import StickerHeader from "@/components/ui/sticker-header"
+import { ApproachSection } from "@/app/src/components/ui/ApproachSection"
+import { CapabilitiesSection } from "@/app/src/components/ui/CapabilitiesSection"
+import { ContactBanner } from "@/app/src/components/ui/ContactBanner"
+import { ExperienceSection } from "@/app/src/components/ui/ExperienceSection"
+import { MyStory } from "@/app/src/components/ui/MyStory"
+import { NavigationLinks } from "@/app/src/components/ui/NavigationLinks"
+import StickerHeader from "@/app/src/components/ui/StickerHeader"
+import { TestimonialsSection } from "@/app/src/components/ui/TestimonialsSection"
 
 function IndexPage() {
   return (

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/server"
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/app/src/config/site"
+import { cn } from "@/app/src/lib/utils"
 
 export const runtime = "edge"
 
@@ -31,9 +31,7 @@ export async function GET(request: Request) {
     const imageUrl = hasImage ? searchParams.get("image") : undefined
 
     const hasDate = searchParams.has("date")
-    const date = hasDate
-      ? new Date(Number.parseInt(searchParams.get("date") || ""))
-      : undefined
+    const date = hasDate ? searchParams.get("date") : undefined
 
     return new ImageResponse(
       (
@@ -44,7 +42,7 @@ export async function GET(request: Request) {
           }}
           tw={cn(
             "font-bold px-12 py-8 flex items-center justify-center flex-col flex-nowrap text-center h-full w-full",
-            hasImage && "items-start"
+            "items-start"
           )}
         >
           <div
@@ -133,7 +131,7 @@ export async function GET(request: Request) {
               >
                 {hasImage && imageUrl && (
                   <img
-                    src={imageUrl}
+                    src={`https://${process.env.VERCEL_URL}${imageUrl}`}
                     height={280}
                     width={480}
                     style={{ objectFit: "cover", objectPosition: "top" }}
@@ -144,7 +142,7 @@ export async function GET(request: Request) {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: hasImage ? "flex-start" : "center",
+                    alignItems: "flex-start",
                     gap: 0,
                   }}
                 >
@@ -162,9 +160,7 @@ export async function GET(request: Request) {
                     {title.length > 100 ? `${title.slice(0, 100)}…` : title}
                   </div>
                   {hasDate && (
-                    <div style={{ fontSize: 32, opacity: 0.5 }}>
-                      {date?.toDateString()}
-                    </div>
+                    <div style={{ fontSize: 32, opacity: 0.5 }}>{date}</div>
                   )}
                 </div>
               </div>

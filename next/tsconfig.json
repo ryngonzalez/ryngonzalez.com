@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "got": ["./node_modules/got/dist/source"]
+      "react": ["./node_modules/@types/react"]
     },
     "plugins": [
       {

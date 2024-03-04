@@ -1,0 +1,300 @@
+---
+title: The Design Systems Podcast
+publishedDate: 10/26/2022
+image: /blog/images/the-design-systems-podcast/Untitled.png
+tags: Design Systems,Interview,Podcast
+---
+
+<iframe
+  allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+  frameborder="0"
+  height="175"
+  style={{
+    width: "100%",
+    maxWidth: "660px",
+    overflow: "hidden",
+    borderRadius: "10px",
+  }}
+  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+  src="https://embed.podcasts.apple.com/us/podcast/52-kathryn-gonzalez-from-doordash-localize-your-design/id1491843793?i=1000584028827"
+  className="w-full mb-8"
+></iframe>
+
+[Episodes | Design Systems
+Podcast](https://www.designsystemspodcast.com/episodes/episode/7acbba1a/52-kathryn-gonzalez-from-doordash-localize-your-design-system)
+
+Kathryn Gonzalez and Chris discuss the evolution of design systems from centralized to localized and how DoorDash’s design system team is evolving as their system matures.
+
+**Guest:**
+
+Kathryn Gonzalez is the head of design infrastructure at DoorDash, where she leads design systems design, design systems engineering, accessibility, and prototyping. She was the first designer and front-end engineer at DoorDash and has been living at the intersection of design and engineering for her entire career. She loves startups, sports, and fashion and is a proud queer woman of color from the South.
+
+**Host:**
+
+Chris Strahl is co-founder and CEO of [Knapsack](https://www.knapsack.cloud/), host of [@TheDSPod](https://twitter.com/thedspod), DnD DM, and occasional river guide. You can find Chris on Twitter as [@chrisstrahl](https://twitter.com/chrisstrahl) and on [LinkedIn](https://www.linkedin.com/in/chrisstrahl/).
+
+View the transcript of this episode [here](https://docs.google.com/document/d/1yCh96GWDi_w5GyuTiDQzHBPmN2Q9I8S2/edit?usp=sharing&ouid=110546040302524924968&rtpof=true&sd=true).
+
+---
+
+# Transcript
+
+**Chris Strahl:**
+
+Hi, and welcome to the Design Systems podcast. This podcast is about the place where design and development overlap. We talk with experts to get their point of view about trends in design, code and how it relates to the world around us. As always, this podcast is brought to you by Knapsack. Check us out at Knapsack.cloud.
+
+**Chris Strahl:**
+
+If you want to get in touch with the show, ask some questions, or generally tell us what you think, go ahead and tweet us at the DS Pod. We'd love to hear from you. Hey, everybody. Welcome to the Design Systems podcast. I'm your host, Chris Strahl. I'm here today with Kathryn Gonzalez, the head of design infrastructure at DoorDash. Welcome to the program.
+
+**Kathryn Gonzalez:**
+
+Hey, Chris. I'm super excited to be here.
+
+**Chris Strahl:**
+
+So you were able to attend Patterns back in June in Santa Fe, and we got to go spend a few wonderful days hanging out together in the middle of the desert talking about design systems. I kind of want to understand what you took away from that experience because that experience was really unique and special to me, and I love hearing people's sort of personal takes on what it was like for them.
+
+**Kathryn Gonzalez:**
+
+Totally. I think it was a really amazing time. And sort of the two big takeaways that I had coming out of that were, one, design systems is such a new space that there's so much untread ground, that all of us leaders that were there at Patterns were trying to figure out is how do we scale our teams? How do we scale the practice of design systems?
+
+**Kathryn Gonzalez:**
+
+How do we figure out how to take this pretty new practice and help make it be successful in how we build our products for the different kinds of situations and businesses that we're all coming from?
+
+**Kathryn Gonzalez:**
+
+And so there was a lot of exciting sort of learning and discussion for me to understand how much people haven't figured out and that the things that we're still struggling with here at DoorDash where I'm from, to be able to build what we're doing as a practice, it's something other people are also struggling with.
+
+**Kathryn Gonzalez:**
+
+And that has helped me better understand where we can share with the industry the things that we're learning and the things that we're innovating on. And also has made it easier for us to know that when we're struggling, it doesn't necessarily mean that it's just our own problem, that other people are also really trying to figure this out at the same time.
+
+**Chris Strahl:**
+
+Yeah. I think it was amazing to see how many leaders there really were open to learning a lot about how to do this differently. And I mean, I think that, I almost said the right way, and I don't think that there even is quite a right way yet, or at least not one that is fully defined. And so kind of building on what you were talking about, the scale side of things was a huge part of the topic.
+
+**Chris Strahl:**
+
+Right? And we all want to try to understand inside of companies like DoorDash where you're starting to reach scale, I know your team's expanding, you guys are doing a lot more with design systems, how do you meet that challenge? And I'm curious from your perspective, what key takeaways did you find that helps you understand more about how to meet that challenge of scale?
+
+**Kathryn Gonzalez:**
+
+I think for us, some of the learnings that I took back to my team were that there is a lot of sort work at the intersection of design and engineering to ensure the things that we're building for our designers, the things that we're building for our engineers are really specific and the right sort of products for them.
+
+**Kathryn Gonzalez:**
+
+In a lot of ways, the way that we run our team is that the design system is a product and it's a foundation that we use to actually help other people run the building of their products more efficiently. And so being able to be thoughtful about, okay, what are the different tactics and ways that we can build the right product for our designers?
+
+**Kathryn Gonzalez:**
+
+What are the kinds of challenges organizationally that from the leadership perspective, other product design leaders have in trying to adopt the kind of tools that we're building for their designers? Those are the things that I think we were able to take away from Patterns, understanding how other design systems leaders have really driven those conversations forward in their own organizations.
+
+**Chris Strahl:**
+
+Yeah. You said something before the show that I thought was a really interesting comment, that one of the great things about connecting with other people in Santa Fe was that there are a lot of folks that are in design and engineering and there's a lot of people that are leaders in design and engineering, but there are very few design systems leaders.
+
+**Chris Strahl:**
+
+And so we have this sense of building the plane in the air, to use an old cliche, where we're all trying to figure this out kind of as we're also responsible for the success of these programs, or organizations. And that sort of intersection of design and engineering in this space that hasn't been fully explored from the perspective of a design systems practitioner, it can feel really isolating. Tell me about some of the connections you made at Patterns and how that maybe helped fend off some of that isolation?
+
+**Kathryn Gonzalez:**
+
+I think one of the things that was really striking for me coming out of years where we couldn't as practitioners really connect and be with each other was this idea that especially in a space like Patterns where it was design systems leaders, all really trying to solve for their challenges and problems and similar ways across the industry and across different industries, it was really great to understand that there is very similar challenges that we are all trying to solve the same things.
+
+**Kathryn Gonzalez:**
+
+There's not a playbook for this kind of role. And knowing too, that in our own organizations, we're oftentimes the people that know this kind of role and space the best of being someone that lives at that intersection of design and engineering, but is in a lot of ways really trying to serve the other practitioners in design, in engineering.
+
+**Kathryn Gonzalez:**
+
+It's one of those things where you find solace in your own teams, but to be able to go out and meet other practitioners and leaders, I think really gives you that perspective. And so having great relationships now with some of the folks that I got to meet in the desert at Patterns, folks like Gen Ye at Disney, folks like Gina Ann at Google.
+
+**Kathryn Gonzalez:**
+
+I think being able to know the kind of struggles and also just that feeling of being the one person in the org that's driving this space, they also are struggling with that too. And being able to connect on that as a person was a really great moment for me as a leader so that I can come back to my team with the understanding that we're all figuring this out together.
+
+**Chris Strahl:**
+
+I think it's also interesting in your role in particular as head of design infrastructure. So that's an interesting title because it encompasses a lot more than just design systems. And so talk to me about some of the other parts of the work you do? Because I think it's interesting how yes, design systems is this big part of it, but there's also all these other things inside of the DoorDash ecosystem that you really have to think about on a day-to-day.
+
+**Kathryn Gonzalez:**
+
+Yeah. For us, some of the things that we think about is our design system, the tools and resources that we build for designers and engineers, they're really there to be a conduit for other things that we're trying to achieve. And so for instance, one of the foundations that we really want to be able to build on top of the design system is how do we make sure accessibility is a practice and an aspect of our work from the very foundation.
+
+**Kathryn Gonzalez:**
+
+And so part of my organization in design infrastructure is design systems, which includes design and engineering groups, but then also design and engineering focused accessibility team as well as also a prototyping team. And so these groups are all really meant to bring other aspects of the work through the design system. So with accessibility, making sure that we're both building really accessible foundations with our design systems and the components and frameworks that we build.
+
+**Kathryn Gonzalez:**
+
+But then also too, that it ties into the kinds of processes and feedback that we want to give to designers and engineers in our product organization that are building things. And so they leverage similar sort of approaches to working as the design systems group does because they're trying to make sure that they're giving the right feedback, the right time to make all of our products as inclusive as possible.
+
+**Chris Strahl:**
+
+I love this idea that the interesting stuff is built on top of the design system. Yes, it's a part of it, but it's also this idea that the design system's very foundational to the way that you all think about building. And then from there, you figured out accessibility, you figured out a bunch of things in terms of specific systems for various parts of the application that represent an extension of that design system.
+
+**Kathryn Gonzalez:**
+
+Yeah. And I think that's one of the things that for us, we're in a really interesting and exciting position at DoorDash because of the way that we've grown this practice. I was the first designer and first [inaudible 00:09:12] engineer at DoorDash, and in a lot of ways the design system predated the product that exists today.
+
+**Kathryn Gonzalez:**
+
+And so we've been thinking of product development and building our products with design systems from the very beginning. And so in that sort of position of strength as a design systems group, we've been able to start thinking about how does this really mature, really well adopted, well run aspect of how we work, now start feeding into other areas that can grow beyond what design systems were?
+
+**Chris Strahl:**
+
+Gotcha. Because design systems have been a part of your culture and kind of the way of building things for so long. And that's really interesting by the way that there is such this foundational systems driven idea behind everything that you all do. I'm kind of curious about how you see that future.
+
+**Chris Strahl:**
+
+What does the next stage of maturity look like within your organization? Because right now you have a centralized design system, there's also these emergent sort of ideas of tailoring aspects of the design system for different parts of the product. What do you see as sort of your next camping spot on the trail up the mountain?
+
+**Kathryn Gonzalez:**
+
+Yeah. I think what you're referring to, what we call local systems, but other design systems refer to as maybe product systems is this idea that for DoorDash, we are a three-sided marketplace. We have audiences like the folks ordering things, so what we call consumers, the dashers doing their deliveries, the merchants actually running their businesses on DoorDash. They have very different needs.
+
+**Kathryn Gonzalez:**
+
+And so trying to think about how do we build a coherent platform that solves really the sort of global things that we're trying to do at DoorDash with regards to craft and accessibility and quality, but also is respectful and thoughtful about how do we solve for the things that are very different for our merchants or for our dashers who are out in the road and need different tools that are not going to be designed in the same way as the folks ordering things on their couch at home.
+
+**Kathryn Gonzalez:**
+
+Those are the sort of challenges that we're really starting to invest in. And so being able to know that we're very early in that journey, but knowing too that we have the right sort of investment and foundation already in place to do that really well and to do that from both a design and engineering point of view. That's something that I think we're really excited about.
+
+**Chris Strahl:**
+
+So these more localized design systems, you also have the benefit still of that accessibility you set that you mentioned earlier, right? Where you have these layers upon layers on top of your foundational system that make sure that the team that is focusing on that person ordering from their couch, that team that is focusing on that driver that is lost, trying to find this particular address in the middle of nowhere, or that merchant that is trying to figure out how to do order management, they're able to really focus on that individual problem space.
+
+**Chris Strahl:**
+
+And that's one of the things that really sticks out to me with the sort of structure that you've defined in this, right? Is you have this core base of things that is very robust and you continue to add additional things to make it more and more robust. And that strength in that central system allows the folks that are solving those problems sort in those further reaches of DoorDash to focus very exclusively on that problem set.
+
+**Chris Strahl:**
+
+Instead of you having to think about accessibility for an order management experience, that's already baked into the system. They get to focus on order management. Instead of thinking about what a system for web is doing, the people that are working in native apps can focus on the native app experience. I think that that ability to gain focus is kind of a superpower because of the investment in the build up of this central core that you have.
+
+**Kathryn Gonzalez:**
+
+Totally. And that's something from the very beginning that as we've made the case for this investment in systems, is that there is a lot that can be defined with experts in, for instance, mobile, experts in web, in the building blocks of what our product designers are building with day-to-day.
+
+**Kathryn Gonzalez:**
+
+And we don't need every product designer here at DoorDash to know the intricacies of how do you build natively for iOS and know what is the best patterns for navigation and sort of the accessibility and constraints on tap targets.
+
+**Kathryn Gonzalez:**
+
+Those are all things that us as a group of experts that are centralized in the org can really define once and provide the right guidance, governance, resources for other people to build on top of.
+
+**Kathryn Gonzalez:**
+
+And ultimately, what we want every product designer here to be able to focus on is how do you understand your problem space incredibly well, how do you solve for those challenges and how do you make sure that you are not getting lost in the details of other things that we could already standardize and centralize for you?
+
+**Kathryn Gonzalez:**
+
+And so I think our team really helps to serve that need and we're trying to make sure that the tools that we are building to serve that need continue to layer more and more of those considerations that can be centralized into the system itself.
+
+**Chris Strahl:**
+
+So you sort of think about it as this core that is this common platform. And as much as you can put into that, you want to obviously have it be broadly applicable. So this sort of unopinionated core that then allows people to be more opinionated about an implementation further down the stream.
+
+**Chris Strahl:**
+
+And in that, do you ever find that you're struggling with trying to decide if this is something that belongs at that centralized system level, at that core, or if it belongs more at that downstream level, at that local level inside of the applications themselves?
+
+**Kathryn Gonzalez:**
+
+I think one of the big challenges in what we're trying to do with these local systems today is making that decision. And I think some of the things that we're still trying to figure out is what is the right sort of approach or rule of thumb to be able to make those cases for what should live at what level of elevation.
+
+**Kathryn Gonzalez:**
+
+I think one of the things today that we have seen success on that I think is exciting is with the growth of our team, we've recently gotten to about 22 people in the design infrastructure org, is that we now have dedicated points of contact for these local systems.
+
+**Kathryn Gonzalez:**
+
+Whereas in the past, our staffing was more focused on the centralized system itself and we had to work with individuals in product design that were focused on say our merchant space. And that was something that was not necessarily a full-time contact.
+
+**Kathryn Gonzalez:**
+
+They had other responsibilities to really take on. For us, now to have someone staffed on our team that is a domain expert for that merchant space to be able to be a part of those conversations of where in the system should this live, should this be something that is local first and then is considered for the global design system, that has really helped us kind of navigate those challenges. But there's not really good rule of thumb quite yet for us to really lean on.
+
+**Chris Strahl:**
+
+So presumably this is largely about contribution, like you mentioned, bringing something in locally and then thinking about whether or not that belongs globally, that's contribution to that core system. And so in essence, you've deputized contributors inside of your local groups. Where do those people come from?
+
+**Chris Strahl:**
+
+Are those folks that you identified as key champions inside of these local systems and then said, "Yeah, please come on over to the core team, but you get to kind of still stay with your team." Is these people that are outside the organization? How did you find the right folks that have that domain expertise but also understood the systems concept in a way that makes them great conduits for contribution?
+
+**Kathryn Gonzalez:**
+
+I think we've done a little bit of both in the sense that we still have really great champions that live inside of the product design team. So they're individuals that saw a need, they created their own local libraries for things that they're using day-to-day, even if they weren't necessarily full-time in design systems.
+
+**Kathryn Gonzalez:**
+
+They were folks that we partnered with in the past to take those systems and help make them better, bring our own domain knowledge and how to build systems appropriately and scalably. And we still work with those folks really closely today, they're our internal champions for the system.
+
+**Kathryn Gonzalez:**
+
+But at the same time, we also know that we do need domain experts that are a hundred percent focused on systems work to be able to make sure that these local systems are living up to the standards of what we are doing globally in the design system. And so we've also hired externally to bring these kind of local partners that sit on our team and own these local spaces that collaborate with those internal champions on the product design teams.
+
+**Chris Strahl:**
+
+So what does that look like in terms of shift in role or even things like titling? Because what you have is you have folks that yes, live in the space of design, live in the space of engineering, but it's mostly the interactive space between those things that these folks are building and creating and contributing in the system.
+
+**Chris Strahl:**
+
+And so presumably you need to hire people that have this mix of skills that represents multiple disciplines at multiple different pretty strategic points in the way you roll out this system. How does one go about thinking about who those people are and what those roles are?
+
+**Kathryn Gonzalez:**
+
+I think the thing that is interesting as the team has evolved is that at the very beginning in a lot of ways I was the prototype for the kind of role that I wanted to hire for, which was I was someone that grew up doing both design and engineering very tightly together. And those were both skills that I was pretty proficient at.
+
+**Kathryn Gonzalez:**
+
+And so when we were first growing the team, I think the intention was really to look for people that could be great at both. But as you sort look at the kind of people in our industry that start to specialize, start to really go deep in one area, I think you often will find people that are not really fully at the center and able to contribute at both skills in an equal way, but people that have different kind of mixes of skill and talent across both sides.
+
+**Kathryn Gonzalez:**
+
+And so the way that we've kind of built our roles and organization in the design systems group within design infrastructure here is that there's actually two roles. So we have design systems designers and then design systems engineers. And oftentimes, both sides of that equation, they'll be people that have experience and design as an engineer or have experience coding and prototyping as a designer.
+
+**Kathryn Gonzalez:**
+
+And so we often have people that do live more at that intersection but still are able to kind of leverage the skill that they're strongest at in those kind of separate roles. And so that's how we've kind of thought about it. But those are the two roles that basically sit at the center compared to the very far right of engineering or the very far left of pure design like our product designers.
+
+**Chris Strahl:**
+
+That's really interesting. I think that the inclusion of that sort of diverse set of disciplines, but still at the core, thinking about it as democratization of that capability, that's an interesting approach. So you're hiring people into a design role with the expectation that they're going to make it easier for people that aren't designers to contribute to design.
+
+**Chris Strahl:**
+
+Likewise, you're hiring people in an engineering role with the expectation that they're going to make it easier to build things in a product without being an engineer. And I think that's an interesting sort of mind twist, right? There's a little gymnastics you have to do there to understand as a designer or an engineer, my job is to make it easier for other people to do my job.
+
+**Chris Strahl:**
+
+But I think that's really powerful, right? Because that's how you actually get real democratization. Because you need that person that understands how to craft great design or craft great code and be able to really recognize that and then draw other folks in the organization into that creative process. I think that's really cool.
+
+**Kathryn Gonzalez:**
+
+Yeah. And I think that's one of the things that is really special about our roles and the way that we hire, is that our process actually has a lot of modules that are focused on how do you think about designing for the people in the room, for the other people that you are working with day-to-day.
+
+**Kathryn Gonzalez:**
+
+And in a lot of ways, that makes it so that the kind of level of collaboration, the level of curiosity that you bring to how you work and how the other people you see around you are working, that's a huge part of the kind of success that great design systems designers, great design systems engineers bring to the table.
+
+**Kathryn Gonzalez:**
+
+And so we're really looking for those people that have that level of curiosity and willingness to help the person that's sitting beside them do great work, because those are the folks that often do great at these roles.
+
+**Chris Strahl:**
+
+Awesome. Well, hey, I really appreciate getting to meet you and connect with you at Patterns. Thanks so much for coming on the podcast. It's been a great conversation. Look forward to having you back another time soon.
+
+**Kathryn Gonzalez:**
+
+Awesome. Really glad to be here. Thanks, Chris.
+
+**Chris Strahl:**
+
+That's all for today. This has been another episode of the Design Systems podcast. Thanks for listening. If you have any questions or a topic you'd like to know more about, find us on Twitter at the DS Pod. We'd love to hear from you show ideas, recommendations, questions or comments. As always, this pod is brought to you by Knapsack. You can check us out at Knapsack.cloud. Have a great day.

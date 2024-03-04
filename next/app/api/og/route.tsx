@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/server"
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/app/src/config/site"
+import { cn } from "@/app/src/lib/utils"
 
 export const runtime = "edge"
 

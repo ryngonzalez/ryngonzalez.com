@@ -117,7 +117,7 @@ export default async function Blog({ params }) {
         }}
       />
       <header className="flex flex-col gap-2 mb-8">
-        <h1 className="title font-medium text-6xl font-headline max-w-[650px] text-balance">
+        <h1 className="title font-medium text-4xl md:text-6xl font-headline max-w-[650px] text-balance">
           {post.metadata.title}
         </h1>
         <p className="text-lg text-neutral-600 dark:text-neutral-400 italic">

@@ -22,12 +22,12 @@ export function slugify(str) {
 export function createHeading(level) {
   const baseTextStyle = "font-headline font-light mt-8 mb-4"
   const sizes = [
-    "text-4xl",
-    "text-3xl",
-    "text-2xl",
-    "text-xl",
-    "text-lg",
-    "text-base",
+    "text-3xl md:text-4xl",
+    "text-2xl md:text-3xl",
+    "text-xl md:text-2xl",
+    "text-lg md:text-xl",
+    "text-base md:text-lg",
+    "text-small md:text-base",
   ]
   return ({ children, className, text }: HeadingProps) => {
     const child =

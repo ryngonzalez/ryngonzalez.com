@@ -149,7 +149,9 @@ function Code({ children, ...props }) {
 }
 
 function Video({ className, ...props }) {
-  return <video className={cn("mb-4 mx-auto", className)} {...props} />
+  return (
+    <video className={cn("mb-4 mx-auto", className)} playsInline {...props} />
+  )
 }
 
 let components = {

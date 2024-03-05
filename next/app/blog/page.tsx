@@ -27,8 +27,8 @@ function WritingLink({ post }: { post: Post }) {
       href={`/blog/${post.slug}`}
     >
       <div className="w-full flex flex-col">
-        <div className="flex items-baseline gap-3">
-          <p className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
+        <div className="flex flex-col md:flex-row items-baseline gap-0 md:gap-3">
+          <p className="text-lg md:text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
             {post.metadata.title}
           </p>
           <p className="text-neutral-600 dark:text-neutral-400 font-mono uppercase text-base tracking-wide inline">
@@ -57,11 +57,11 @@ function TalkLink({ post }: { post: Post }) {
             alt={post.metadata.title}
             width={320}
             height={200}
-            className="rounded-lg overflow-hidden mb-4 border-border border"
+            className="rounded-lg overflow-hidden mb-4 border-border border w-full"
           />
         )}
-        <div className="flex flex-col items-baseline gap-3">
-          <p className="text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
+        <div className="flex flex-col items-baseline gap-0 md:gap-3">
+          <p className="text-lg md:text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
             {post.metadata.title}
           </p>
           <p className="text-neutral-600 dark:text-neutral-400 font-mono uppercase text-base tracking-wide inline">
@@ -80,9 +80,9 @@ async function Page() {
 
   return (
     <section className="max-w-2xl mx-auto flex flex-col gap-12">
-      <header className="flex flex-col gap-4 pb-8 leading-relaxed border-b border-border text-lg">
-        <h1 className="font-headline text-6xl mb-2">
-          <span className="block uppercase tracking-wider text-2xl">
+      <header className="flex flex-col gap-4 pb-8 leading-relaxed border-b border-border text-base md:text-lg">
+        <h1 className="font-headline text-4xl md:text-6xl mb-2">
+          <span className="block uppercase tracking-wider text-lg md:text-2xl">
             The Blog:
           </span>
           Writing, Talks, and Podcasts
@@ -103,7 +103,7 @@ async function Page() {
         </p>
       </header>
       <div className="flex flex-col gap-8">
-        <h2 className="text-4xl font-headline">Writing</h2>
+        <h2 className="text-3xl md:text-4xl font-headline">Writing</h2>
         <div className="flex flex-col -ml-4 -mr-4">
           {allBlogs.sort(sortByDate).map((post) => (
             <WritingLink post={post} key={post.slug} />
@@ -112,7 +112,7 @@ async function Page() {
       </div>
       <div className="flex flex-col gap-8">
         <h2 className="text-4xl font-headline">Talks</h2>
-        <div className="grid grid-cols-2 -ml-4 -mr-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 -ml-4 -mr-4">
           {allTalks.sort(sortByDate).map((post) => (
             <TalkLink post={post} key={post.slug} />
           ))}

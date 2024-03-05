@@ -28,11 +28,13 @@ const BitsHeading = createHeading(3)
 export default async function Page() {
   const bits = await getBitsPosts()
   return (
-    <section className="max-w-2xl mx-auto flex flex-col gap-12">
-      <header className="flex flex-col gap-4 pb-8 leading-relaxed border-b border-border text-lg">
-        <h1 className="font-headline text-6xl mb-2">
-          <span className="block uppercase tracking-wider text-2xl">Bits:</span>
-          Learnings, Makings, Lil Threads
+    <section className="max-w-2xl mx-auto flex flex-col gap-6 md:gap-12 px-4">
+      <header className="flex flex-col gap-4 pb-8 leading-relaxed border-b border-border text-base md:text-lg">
+        <h1 className="font-headline text-4xl md:text-6xl mb-2">
+          <span className="block uppercase tracking-wider text-xl md:text-2xl">
+            Bits:
+          </span>
+          Learnings, Makings, Threads
         </h1>
         <p>
           This is a space for the bits, the little things, the experiments, and
@@ -44,11 +46,11 @@ export default async function Page() {
           {bits.map((post) => (
             <article key={post.slug} className="flex flex-col gap-4">
               <BitsHeading
-                className="text-4xl font-headline"
+                className="text-3xl md:text-4xl font-headline"
                 text={post.metadata.title}
               >
                 {post.metadata.title}
-                <span className="font-mono uppercase text-base text-secondary-foreground ml-4">
+                <span className="block md:inline font-mono uppercase text-base text-secondary-foreground ml-0 md:ml-4">
                   {formatDate(post.metadata.publishedDate)}
                 </span>
               </BitsHeading>

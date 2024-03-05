@@ -30,7 +30,7 @@ export const HTML = `<!DOCTYPE html>
       <p>&copy; 2023 Minimal Blog</p>
     </footer>
   </body>
-</html>`;
+</html>`
 
 export const CSS = `:root {
   --main-bg-color: #f3f4f6;
@@ -81,7 +81,7 @@ body {
       font-size: 1.25em;
     }
   }
-}`;
+}`
 
 export const Tailwind = `<!DOCTYPE html>
 <html lang="en">
@@ -115,7 +115,7 @@ export const Tailwind = `<!DOCTYPE html>
       <p>&copy; 2023 Minimal Blog</p>
     </footer>
   </body>
-</html>`;
+</html>`
 
 export const stylexIndex = `<!DOCTYPE html>
 <html lang="en">
@@ -129,7 +129,7 @@ export const stylexIndex = `<!DOCTYPE html>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
-`;
+`
 
 export const stylexViteConfig = `import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
@@ -138,7 +138,7 @@ import { stylexPlugin } from "vite-plugin-stylex-dev";
 export default defineConfig({
   plugins: [react(), stylexPlugin()],
 });
-`;
+`
 
 export const stylexTokens = `import * as stylex from "@stylexjs/stylex";
 
@@ -148,7 +148,7 @@ export const tokens = stylex.defineVars({
   textColor: "#525252",
   fontFamily: 'Arial, sans-serif',
 });
-`;
+`
 
 export const stylexApp = `import React from "react";
 import * as stylex from "@stylexjs/stylex";
@@ -214,4 +214,4 @@ export default function App() {
       </footer>
     </body>
   );
-}`;
+}`

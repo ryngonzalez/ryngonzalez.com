@@ -1,8 +1,8 @@
 const fs = require("fs")
 const path = require("path")
 
-const directoryPath = path.join(__dirname, "public/images")
-
+const directoryPath = path.join(__dirname, "../public/blog/images")
+console.log(`Checking filenames in directory: ${directoryPath}`)
 fs.readdir(directoryPath, function (err, files) {
   if (err) {
     return console.log("Unable to scan directory: " + err)

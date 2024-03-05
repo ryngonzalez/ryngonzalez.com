@@ -8,6 +8,8 @@ import { getRandomNumberInRange } from "@/app/src/lib/getRandomNumberInRange"
 import { useRotationVelocity } from "@/app/src/lib/useRotationVelocity"
 import { cn } from "@/app/src/lib/utils"
 
+import styles from "./styles.module.css"
+
 const MotionImage = motion(
   forwardRef((props: ImageProps, ref: Ref<HTMLImageElement>) => (
     <Image ref={ref} {...props} />
@@ -42,7 +44,12 @@ export const Postcard = ({
       style={{ rotate, x }}
     >
       <div className="tape z-10"></div>
-      <div className="bg-background shadow-lg w-fit max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-4 md:p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[0.5px] after:border-gray-400/50 postcard">
+      <div
+        className={cn(
+          "bg-background shadow-lg w-fit max-w-xs md:max-w-none aspect-[12/8] border border-gray-500/20 grid grid-cols-2 grid-rows-2 p-4 md:p-6 gap-4 after:block after:w-full after:h-full after:absolute after:top-0 after:left-0 after:border-[0.5px] after:border-gray-400/50",
+          styles.postcard
+        )}
+      >
         <Image
           src="/stickers/paperclip.svg"
           alt="paperclip"

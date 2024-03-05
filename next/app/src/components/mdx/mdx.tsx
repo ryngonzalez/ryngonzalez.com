@@ -1,6 +1,9 @@
+import fs from "node:fs/promises"
+import path from "path"
 import Image from "next/image"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
+import { getPlaiceholder } from "plaiceholder"
 import { highlight } from "sugar-high"
 
 import { cn } from "../../lib/utils"
@@ -56,16 +59,37 @@ function CustomLink({ href, className, ...props }) {
   )
 }
 
-function RoundedImage(props) {
-  return (
-    <Image
-      alt={props.alt}
-      className="rounded-lg overflow-hidden border border-red w-full"
-      width="480"
-      height="480"
-      {...props}
-    />
-  )
+async function RoundedImage(props) {
+  try {
+    const file = path.join(__dirname, "../../../../../public", props.src)
+    const buffer = await fs.readFile(file)
+    const {
+      metadata: { height, width },
+      ...plaiceholder
+    } = await getPlaiceholder(buffer)
+
+    return (
+      <Image
+        alt={props.alt}
+        className="rounded-lg overflow-hidden border border-red w-full"
+        width={width || 480}
+        height={height || 480}
+        blurDataURL={plaiceholder.base64}
+        placeholder="blur"
+        {...props}
+      />
+    )
+  } catch (e) {
+    return (
+      <Image
+        alt={props.alt}
+        className="rounded-lg overflow-hidden border-4 border-red-300 w-full"
+        width={480}
+        height={480}
+        {...props}
+      />
+    )
+  }
 }
 
 function Callout(props) {

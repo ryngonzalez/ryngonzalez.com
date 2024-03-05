@@ -2,17 +2,12 @@
 
 import { Ref, forwardRef, useState } from "react"
 import Image, { ImageProps } from "next/image"
-import { useMouse } from "@uidotdev/usehooks"
-import {
-  clamp,
-  motion,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion"
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion"
 
 import { getRandomNumberInRange } from "@/app/src/lib/getRandomNumberInRange"
 import { cn } from "@/app/src/lib/utils"
+
+import styles from "./styles.module.css"
 
 const MotionImage = motion(
   forwardRef((props: ImageProps, ref: Ref<HTMLImageElement>) => (
@@ -74,7 +69,7 @@ export const Photo = ({
       onMouseMove={handleMouse}
       onMouseLeave={resetMouse}
     >
-      <div className="tape z-10"></div>
+      <div className={cn("z-10", styles.tape)}></div>
       <div
         className={cn(
           "relative w-fit h-fit border-[8px] border-background shadow-xl rounded-sm overflow-hidden"

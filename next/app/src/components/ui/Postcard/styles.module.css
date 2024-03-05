@@ -1,0 +1,6 @@
+.postcard {
+  border: 8px solid;
+  border-image: url("/stickers/border.svg");
+  border-image-slice: 6;
+  border-image-repeat: repeat fill;
+}

@@ -1,2 +1,2 @@
 cd next
-node scripts/check-filenames.js
+npx lint-staged

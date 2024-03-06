@@ -181,8 +181,8 @@ function Sticker({
               ? "modal"
               : "default"
             : isDragging
-            ? "dragging"
-            : "default"
+              ? "dragging"
+              : "default"
         }
         onTap={onOpen}
         onHoverStart={onStart}

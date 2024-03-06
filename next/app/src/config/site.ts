@@ -4,8 +4,7 @@ export const siteConfig = {
   navName: "KG",
   subtitle: "Independent Design and Engineering Director",
   name: "Kathryn Gonzalez - Independent Design and Engineering Director",
-  description:
-    `Independent Design and Engineering Director.\nI help companies build products with systems, design engineering, and strategic craft.`,
+  description: `Independent Design and Engineering Director.\nI help companies build products with systems, design engineering, and strategic craft.`,
   mainNav: [
     {
       title: "About",

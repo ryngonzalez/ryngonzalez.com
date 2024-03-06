@@ -60,8 +60,16 @@ function CustomLink({ href, className, ...props }) {
 }
 
 async function RoundedImage(props) {
+  const sharedProps = {
+    alt: props.alt,
+    className: "rounded-lg overflow-hidden w-full",
+    width: props.width || 480,
+    height: props.height || 480,
+    ...props,
+  }
+
   try {
-    const file = path.join(__dirname, "../../../../../public", props.src)
+    const file = path.join(process.cwd(), "public", props.src)
     const buffer = await fs.readFile(file)
     const {
       metadata: { height, width },
@@ -70,25 +78,29 @@ async function RoundedImage(props) {
 
     return (
       <Image
-        alt={props.alt}
-        className="rounded-lg overflow-hidden border border-red w-full"
-        width={width || 480}
-        height={height || 480}
+        {...sharedProps}
         blurDataURL={plaiceholder.base64}
         placeholder="blur"
-        {...props}
+        height={height}
+        width={width}
       />
     )
   } catch (e) {
-    return (
-      <Image
-        alt={props.alt}
-        className="rounded-lg overflow-hidden border-4 border-red-300 w-full"
-        width={480}
-        height={480}
-        {...props}
-      />
-    )
+    if (process.env.NODE_ENV === "development") {
+      return (
+        <>
+          <Image
+            {...sharedProps}
+            className={cn("border-4 border-red-300", sharedProps.className)}
+          />
+          <span className="text-red-900 bg-red-200 rounded-sm p-2">
+            {e.message}
+          </span>
+        </>
+      )
+    } else {
+      return <Image {...sharedProps} />
+    }
   }
 }
 

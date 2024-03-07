@@ -34,7 +34,7 @@
     "react-dom": "^18.2.0",
     "react-loader-spinner": "^6.1.6",
     "react-tweet": "^3.2.0",
-    "sharp": "^0.33.2",
+    "sharp": "^0.32.6",
     "sugar-high": "^0.6.0",
     "tailwind-merge": "^1.13.0",
     "tailwindcss-animate": "^1.0.5",

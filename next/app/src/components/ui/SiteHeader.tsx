@@ -8,6 +8,21 @@ import { HeaderLink } from "./HeaderLink"
 import { NavigationLinks } from "./NavigationLinks"
 
 export function SiteHeader({ showLogo = true }) {
+  const headerLinks = [
+    {
+      href: siteConfig.links.github,
+      icon: <Icons.gitHub className="h-5 w-5 fill-current" />,
+    },
+    {
+      href: siteConfig.links.twitter,
+      icon: <Icons.twitter className="h-5 w-5 fill-current" />,
+    },
+    {
+      href: siteConfig.links.threads,
+      icon: <Icons.threads className="h-5 w-5 fill-current" />,
+    },
+  ]
+
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background">
       <div
@@ -17,27 +32,16 @@ export function SiteHeader({ showLogo = true }) {
         )}
       >
         <ul className={cn("gap-2 md:flex", showLogo ? "hidden" : "flex")}>
-          <HeaderLink
-            href={siteConfig.links.github}
-            target="_blank"
-            className="aspect-square"
-          >
-            <Icons.gitHub className="h-5 w-5 fill-current" />
-          </HeaderLink>
-          <HeaderLink
-            href={siteConfig.links.twitter}
-            target="_blank"
-            className="aspect-square"
-          >
-            <Icons.twitter className="h-5 w-5 fill-current" />
-          </HeaderLink>
-          <HeaderLink
-            href={siteConfig.links.threads}
-            target="_blank"
-            className="aspect-square"
-          >
-            <Icons.threads className="h-5 w-5 fill-current" />
-          </HeaderLink>
+          {headerLinks.map((link, index) => (
+            <HeaderLink
+              key={index}
+              href={link.href}
+              target="_blank"
+              className="aspect-square"
+            >
+              {link.icon}
+            </HeaderLink>
+          ))}
         </ul>
 
         <Link

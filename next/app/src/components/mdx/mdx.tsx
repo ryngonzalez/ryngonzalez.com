@@ -1,6 +1,6 @@
 import fs from "node:fs/promises"
 import path from "path"
-import Image from "next/image"
+import Image, { ImageProps } from "next/image"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getPlaiceholder } from "plaiceholder"
@@ -60,11 +60,12 @@ function CustomLink({ href, className, ...props }) {
 }
 
 async function RoundedImage(props) {
-  const sharedProps = {
+  const sharedProps: ImageProps = {
     alt: props.alt,
     className: "rounded-lg overflow-hidden w-full",
     width: props.width || 480,
     height: props.height || 480,
+    loading: "lazy",
     ...props,
   }
 

@@ -16,3 +16,9 @@ export type PostMetadata = {
   tags?: string
 };
 ```
+
+# Bash one-liner to remove spaces from filenames in directory
+
+```
+for file in *; do mv "$file" "${file// /_}"; done
+```

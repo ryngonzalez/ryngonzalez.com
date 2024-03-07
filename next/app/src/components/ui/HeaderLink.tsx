@@ -22,7 +22,7 @@ export function HeaderLink({
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-2 py-1 px-2 md:py-2 md:px-3 rounded-full text-secondary-foreground transition-colors duration-200",
+        "flex items-center gap-2 py-2 px-3 rounded-full text-secondary-foreground transition-colors duration-200",
         pathname === href
           ? "bg-primary text-primary-foreground"
           : "hover:bg-secondary",

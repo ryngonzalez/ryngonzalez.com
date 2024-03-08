@@ -7,10 +7,10 @@ import { getPlaiceholder } from "plaiceholder"
 import { highlight } from "sugar-high"
 
 import { cn } from "../../lib/utils"
-import { LiveCode } from "../sandpack"
-import { TweetComponent } from "../tweet"
 import { createHeading } from "./createHeading"
+import { LiveCode } from "./sandpack"
 import styles from "./styles.module.css"
+import { TweetComponent } from "./tweet"
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { buttonVariants } from "@/app/src/components/ui/button"
+import { buttonVariants } from "@/app/src/components/ui/Button"
 import { cn } from "@/app/src/lib/utils"
 
 export function SocialButton({

@@ -3,15 +3,8 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
-import {
-  useClickAnyWhere,
-  useDebounceCallback,
-  useElementSize,
-  useMediaQuery,
-  useResizeObserver,
-} from "usehooks-ts"
+import { useClickAnyWhere, useMediaQuery } from "usehooks-ts"
 
-import { Icons } from "@/app/src/components/icons"
 import Avatar from "@/app/src/components/ui/Avatar"
 import { getRandomNumberInRange } from "@/app/src/lib/getRandomNumberInRange"
 import { useElementBoundingRect } from "@/app/src/lib/hooks"
@@ -241,7 +234,7 @@ function StickerHeader({ className }: { className?: string }) {
         variants={container}
         initial="hidden"
         animate="shown"
-        className="grid @lg:flex content-start grid-rows-3 grid-cols-3 gap-[1vw] h-full items-center relative justify-center"
+        className="grid @xl:flex content-start grid-rows-3 grid-cols-3 gap-[1vw] h-full items-center relative justify-center"
       >
         <DotPattern />
         <Sticker

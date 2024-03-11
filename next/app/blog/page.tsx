@@ -81,7 +81,7 @@ async function Page() {
   return (
     <section className="max-w-2xl mx-auto flex flex-col gap-12">
       <header className="flex flex-col gap-4 pb-8 leading-relaxed border-b border-border text-base md:text-lg">
-        <h1 className="font-headline text-4xl md:text-6xl mb-2">
+        <h1 className="font-headline text-5xl md:text-6xl mb-2">
           <span className="block uppercase tracking-wider text-lg md:text-2xl">
             The Blog:
           </span>

@@ -16,17 +16,17 @@ export function Ring({ className }: { className?: string }) {
     >
       <g filter="url(#filter0_ii_271_12)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.6926 50.6711C16.4886 72.3237 22.3422 96.3651 38.3446 109.464C42.8319 113.137 45.1979 119.31 42.7258 124.556V124.556C40.2538 129.801 33.9294 132.118 29.1519 128.831C2.06511 110.195 -7.09487 73.1054 7.69628 41.719C22.4874 10.3325 56.9231 -6.2123 88.5382 2.81518C94.1143 4.4074 96.3531 10.7599 93.8811 16.0055V16.0055C91.409 21.2512 85.1421 23.3559 79.4528 22.2332C59.1642 18.2296 36.8965 29.0185 26.6926 50.6711Z"
           fill="#737373"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.6926 50.6711C16.4886 72.3237 22.3422 96.3651 38.3446 109.464C42.8319 113.137 45.1979 119.31 42.7258 124.556V124.556C40.2538 129.801 33.9294 132.118 29.1519 128.831C2.06511 110.195 -7.09487 73.1054 7.69628 41.719C22.4874 10.3325 56.9231 -6.2123 88.5382 2.81518C94.1143 4.4074 96.3531 10.7599 93.8811 16.0055V16.0055C91.409 21.2512 85.1421 23.3559 79.4528 22.2332C59.1642 18.2296 36.8965 29.0185 26.6926 50.6711Z"
           fill="url(#paint0_radial_271_12)"
-          fill-opacity="0.19"
+          fillOpacity="0.19"
         />
       </g>
       <defs>
@@ -37,7 +37,7 @@ export function Ring({ className }: { className?: string }) {
           width="94.2236"
           height="131.991"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend
@@ -92,7 +92,7 @@ export function Ring({ className }: { className?: string }) {
           gradientTransform="translate(71.5 71) rotate(-154.359) scale(69.3271 72.7563)"
         >
           <stop />
-          <stop offset="0.783643" stop-color="white" />
+          <stop offset="0.783643" stopColor="white" />
           <stop offset="0.914925" />
         </radialGradient>
       </defs>

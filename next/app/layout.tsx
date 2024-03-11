@@ -14,6 +14,8 @@ import {
 } from "@/app/src/lib/fonts"
 import { cn } from "@/app/src/lib/utils"
 
+import { SiteHeader } from "./src/components/ui/SiteHeader"
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://ryngonzalez.com"),
   title: {
@@ -66,7 +68,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
             defaultTheme="light"
           >
             <div className="relative flex min-h-screen flex-col">
-              <div className="flex-1">{children}</div>
+              <SiteHeader />
+              <div className="flex-1 z-0">{children}</div>
               <SiteFooter />
             </div>
             <TailwindIndicator />

@@ -30,7 +30,7 @@ export default async function Page() {
   return (
     <section className="max-w-2xl mx-auto flex flex-col gap-6 md:gap-12 px-4">
       <header className="flex flex-col gap-4 pb-8 leading-relaxed border-b border-border text-base md:text-lg">
-        <h1 className="font-headline text-4xl md:text-6xl mb-2">
+        <h1 className="font-headline text-5xl md:text-6xl mb-2">
           <span className="block uppercase tracking-wider text-xl md:text-2xl">
             Bits:
           </span>

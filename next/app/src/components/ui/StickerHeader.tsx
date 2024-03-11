@@ -241,7 +241,7 @@ function StickerHeader({ className }: { className?: string }) {
         variants={container}
         initial="hidden"
         animate="shown"
-        className="grid @lg:flex content-start grid-rows-3 grid-cols-3 gap-[1vw] h-full items-center relative justify-center"
+        className="grid @xl:flex content-start grid-rows-3 grid-cols-3 gap-[1vw] h-full items-center relative justify-center"
       >
         <DotPattern />
         <Sticker

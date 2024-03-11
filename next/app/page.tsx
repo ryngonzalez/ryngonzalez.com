@@ -10,12 +10,12 @@ import { TestimonialsSection } from "@/app/src/components/ui/TestimonialsSection
 function IndexPage() {
   return (
     <>
-      <header className="mt-8 px-4 md:px-8 flex flex-col-reverse md:flex-row items-start md:items-center gap-10 justify-between w-full md:sticky top-0 z-50 py-4 bg-background">
+      {/* <header className="mt-8 px-4 md:px-8 flex flex-col-reverse md:flex-row items-start md:items-center gap-10 justify-between w-full md:sticky top-0 z-50 py-4 bg-background">
         <h1 className="font-headline text-2xl md:text-[2vw] font-extrabold uppercase tracking-widest">
           Kathryn Gonzalez
         </h1>
         <NavigationLinks className="" />
-      </header>
+      </header> */}
       <section className="w-full flex flex-col items-start gap-6 md:gap-10 pb-4 md:pb-8 m-auto">
         <div className="w-full flex flex-col items-start gap-6 md:gap-10 px-4 md:px-8">
           <PageHeader />
@@ -39,7 +39,7 @@ function IndexPage() {
 function PageHeader() {
   return (
     <header className="w-full flex flex-col items-start gap-6">
-      <h1 className="font-headline text-5xl sm:text-[6vw] md:text-[6.25vw] w-full caps">
+      <h1 className="font-headline text-4xl md:text-7xl w-full caps">
         Independent Design & Engineering Director
       </h1>
       <h2 className="text-1xl md:text-2xl mb-4 md:mb-8 w-full text-balance">

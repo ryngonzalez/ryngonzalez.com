@@ -3,15 +3,8 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { AnimatePresence, motion } from "framer-motion"
-import {
-  useClickAnyWhere,
-  useDebounceCallback,
-  useElementSize,
-  useMediaQuery,
-  useResizeObserver,
-} from "usehooks-ts"
+import { useClickAnyWhere, useMediaQuery } from "usehooks-ts"
 
-import { Icons } from "@/app/src/components/icons"
 import Avatar from "@/app/src/components/ui/Avatar"
 import { getRandomNumberInRange } from "@/app/src/lib/getRandomNumberInRange"
 import { useElementBoundingRect } from "@/app/src/lib/hooks"

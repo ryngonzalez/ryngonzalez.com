@@ -3,6 +3,7 @@ import path from "path"
 import { P } from "@upstash/redis/zmscore-10fd3773"
 import { compileMDX } from "next-mdx-remote/rsc"
 
+import { sleep } from "../lib/sleep"
 import { Post } from "../types/blog/Post"
 import { PostMetadata } from "../types/blog/PostMetadata"
 
@@ -68,7 +69,7 @@ export async function getBitsPosts() {
 }
 
 export async function getAllPosts() {
-  return (await getBlogPosts())
-    .concat(await getTalkPosts())
-    .concat(await getPodcastPosts())
+  return Promise.all([getBlogPosts(), getTalkPosts(), getPodcastPosts()]).then(
+    (posts) => posts.flat()
+  )
 }

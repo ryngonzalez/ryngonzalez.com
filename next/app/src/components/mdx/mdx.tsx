@@ -1,12 +1,15 @@
 import fs from "node:fs/promises"
 import path from "path"
+import { Suspense } from "react"
 import Image, { ImageProps } from "next/image"
 import Link from "next/link"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getPlaiceholder } from "plaiceholder"
 import { highlight } from "sugar-high"
 
+import { sleep } from "../../lib/sleep"
 import { cn } from "../../lib/utils"
+import { Placeholder } from "../ui/Placeholder"
 import { createHeading } from "./createHeading"
 import { LiveCode } from "./sandpack"
 import styles from "./styles.module.css"
@@ -56,6 +59,16 @@ function CustomLink({ href, className, ...props }) {
       rel="noopener noreferrer"
       {...props}
     />
+  )
+}
+
+async function ImageLoader(props) {
+  return (
+    <Suspense
+      fallback={<Placeholder className={cn("h-auto w-full aspect-video")} />}
+    >
+      <RoundedImage {...props} />
+    </Suspense>
   )
 }
 
@@ -198,8 +211,8 @@ let components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
-  Image: RoundedImage,
-  img: RoundedImage,
+  Image: ImageLoader,
+  img: ImageLoader,
   // The following doesn't work with the current version of next-mdx-remote:
   // https://github.com/hashicorp/next-mdx-remote/issues/297
   // iframe: (props) => <iframe className="w-full mb-8" {...props} />,

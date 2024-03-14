@@ -1,6 +1,8 @@
+import { Suspense } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
+import { Placeholder } from "../src/components/ui/Placeholder"
 import { getBlogPosts, getPodcastPosts, getTalkPosts } from "../src/db/blog"
 import { Post } from "../src/types/blog/Post"
 
@@ -73,11 +75,115 @@ function TalkLink({ post }: { post: Post }) {
   )
 }
 
-async function Page() {
-  let allBlogs = await getBlogPosts()
-  let allTalks = await getTalkPosts()
-  let allPodcasts = await getPodcastPosts()
+function SectionContainer({
+  children,
+  title,
+}: {
+  children: React.ReactNode
+  title: string
+}) {
+  return (
+    <section className="flex flex-col gap-8">
+      <h2 className="text-3xl md:text-4xl font-headline">{title}</h2>
+      <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+    </section>
+  )
+}
 
+function StackedLinks({ children }: { children: React.ReactNode }) {
+  const fallback = (
+    <>
+      {Array(4)
+        .fill(null)
+        .map((_, index) => (
+          <Placeholder key={index} className="h-16" />
+        ))}
+    </>
+  )
+  return (
+    <div className="flex flex-col gap-2 -ml-4 -mr-4">
+      <Suspense fallback={fallback}>{children}</Suspense>
+    </div>
+  )
+}
+
+function GridLinks({ children }: { children: React.ReactNode }) {
+  const fallback = (
+    <>
+      {Array(4)
+        .fill(null)
+        .map((_, index) => (
+          <Placeholder key={index} className="h-20" />
+        ))}
+    </>
+  )
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 -ml-4 -mr-4 gap-2">
+      <Suspense fallback={fallback}>{children}</Suspense>
+    </div>
+  )
+}
+
+async function PostsLoader({
+  fetcher,
+  children,
+}: {
+  fetcher: () => Promise<Post[]>
+  children: (data: Post[]) => React.ReactNode
+}) {
+  const data = await fetcher()
+  return <>{children(data)}</>
+}
+
+async function BlogSection() {
+  return (
+    <SectionContainer title="Writing">
+      <StackedLinks>
+        <PostsLoader fetcher={getBlogPosts}>
+          {(data) => {
+            return data
+              .sort(sortByDate)
+              .map((post: Post) => <WritingLink post={post} key={post.slug} />)
+          }}
+        </PostsLoader>
+      </StackedLinks>
+    </SectionContainer>
+  )
+}
+
+async function PodcastSection() {
+  return (
+    <SectionContainer title="Podcasts">
+      <StackedLinks>
+        <PostsLoader fetcher={getPodcastPosts}>
+          {(data) => {
+            return data
+              .sort(sortByDate)
+              .map((post: Post) => <WritingLink post={post} key={post.slug} />)
+          }}
+        </PostsLoader>
+      </StackedLinks>
+    </SectionContainer>
+  )
+}
+
+async function TalkSection() {
+  return (
+    <SectionContainer title="Talks">
+      <GridLinks>
+        <PostsLoader fetcher={getTalkPosts}>
+          {(data) => {
+            return data
+              .sort(sortByDate)
+              .map((post: Post) => <TalkLink post={post} key={post.slug} />)
+          }}
+        </PostsLoader>
+      </GridLinks>
+    </SectionContainer>
+  )
+}
+
+async function Page() {
   return (
     <section className="max-w-2xl mx-auto flex flex-col gap-12">
       <header className="flex flex-col gap-4 pb-8 leading-relaxed border-b border-border text-base md:text-lg">
@@ -102,30 +208,9 @@ async function Page() {
           an email.
         </p>
       </header>
-      <div className="flex flex-col gap-8">
-        <h2 className="text-3xl md:text-4xl font-headline">Writing</h2>
-        <div className="flex flex-col -ml-4 -mr-4">
-          {allBlogs.sort(sortByDate).map((post) => (
-            <WritingLink post={post} key={post.slug} />
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col gap-8">
-        <h2 className="text-4xl font-headline">Talks</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 -ml-4 -mr-4">
-          {allTalks.sort(sortByDate).map((post) => (
-            <TalkLink post={post} key={post.slug} />
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col gap-8">
-        <h2 className="text-4xl font-headline">Podcasts</h2>
-        <div className="flex flex-col -ml-4 -mr-4">
-          {allPodcasts.sort(sortByDate).map((post) => (
-            <WritingLink post={post} key={post.slug} />
-          ))}
-        </div>
-      </div>
+      <BlogSection />
+      <TalkSection />
+      <PodcastSection />
     </section>
   )
 }

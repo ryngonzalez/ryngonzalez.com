@@ -2,6 +2,7 @@ import { Suspense } from "react"
 
 import { createHeading } from "../src/components/mdx/createHeading"
 import { CustomMDX } from "../src/components/mdx/mdx"
+import { Placeholder } from "../src/components/ui/Placeholder"
 import { getBitsPosts } from "../src/db/blog"
 
 function formatDate(dateString: string) {
@@ -54,7 +55,9 @@ export default async function Page() {
                   {formatDate(post.metadata.publishedDate)}
                 </span>
               </BitsHeading>
-              <CustomMDX source={post.content} key={post.slug} />
+              <Suspense fallback={<Placeholder className="h-96" />}>
+                <CustomMDX source={post.content} key={post.slug} />
+              </Suspense>
             </article>
           ))}
         </div>

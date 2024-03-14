@@ -5,6 +5,15 @@ import { getAllPosts } from "app/src/db/blog"
 
 import { CustomMDX } from "@/app/src/components/mdx/mdx"
 import { BlogFooter } from "@/app/src/components/ui/BlogFooter"
+import { Placeholder } from "@/app/src/components/ui/Placeholder"
+
+export const dynamic = "force-static"
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts()
+  console.log(posts.map((post) => post.slug).flat())
+  return posts
+}
 
 function generateOgImage(title: string, date?: string, image?: string) {
   const formattedDate = date ? new Date(date).toLocaleDateString() : ""
@@ -132,7 +141,9 @@ export default async function Blog({ params }) {
         </div>
       </header>
       <article className="prose prose-quoteless prose-neutral dark:prose-invert">
-        <CustomMDX source={post.content} />
+        <Suspense fallback={<Placeholder className="min-h-screen w-full" />}>
+          <CustomMDX source={post.content} />
+        </Suspense>
       </article>
       <BlogFooter relatedPosts={post.relatedPosts} />
     </section>

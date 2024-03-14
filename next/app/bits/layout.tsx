@@ -3,6 +3,7 @@ import { SiteHeader } from "../src/components/ui/SiteHeader"
 interface LayoutProps {
   children: React.ReactNode
 }
+export const dynamic = "force-static"
 
 export default function Layout({ children }: LayoutProps) {
   return (

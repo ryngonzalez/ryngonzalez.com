@@ -18,7 +18,6 @@ const MotionLink = motion(Link)
 export function SiteHeader({ showLogo = true }) {
   const pathname = usePathname()
   const isHome = pathname === "/"
-  console.log(pathname)
   const headerLinks = [
     {
       href: siteConfig.links.github,

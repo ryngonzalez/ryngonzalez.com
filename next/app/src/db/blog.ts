@@ -68,7 +68,7 @@ export async function getBitsPosts() {
 }
 
 export async function getAllPosts() {
-  return (await getBlogPosts())
-    .concat(await getTalkPosts())
-    .concat(await getPodcastPosts())
+  return Promise.all([getBlogPosts(), getTalkPosts(), getPodcastPosts()]).then(
+    (posts) => posts.flat()
+  )
 }

@@ -3,7 +3,6 @@ import path from "path"
 import { P } from "@upstash/redis/zmscore-10fd3773"
 import { compileMDX } from "next-mdx-remote/rsc"
 
-import { sleep } from "../lib/sleep"
 import { Post } from "../types/blog/Post"
 import { PostMetadata } from "../types/blog/PostMetadata"
 

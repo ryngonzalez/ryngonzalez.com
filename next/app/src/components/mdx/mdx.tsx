@@ -7,7 +7,6 @@ import { MDXRemote } from "next-mdx-remote/rsc"
 import { getPlaiceholder } from "plaiceholder"
 import { highlight } from "sugar-high"
 
-import { sleep } from "../../lib/sleep"
 import { cn } from "../../lib/utils"
 import { Placeholder } from "../ui/Placeholder"
 import { createHeading } from "./createHeading"

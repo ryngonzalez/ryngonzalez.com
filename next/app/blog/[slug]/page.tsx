@@ -7,6 +7,14 @@ import { CustomMDX } from "@/app/src/components/mdx/mdx"
 import { BlogFooter } from "@/app/src/components/ui/BlogFooter"
 import { Placeholder } from "@/app/src/components/ui/Placeholder"
 
+export const dynamic = "force-static"
+
+export async function generateStaticParams() {
+  const posts = await getAllPosts()
+  console.log(posts.map((post) => post.slug).flat())
+  return posts
+}
+
 function generateOgImage(title: string, date?: string, image?: string) {
   const formattedDate = date ? new Date(date).toLocaleDateString() : ""
   const parts = [

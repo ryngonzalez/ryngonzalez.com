@@ -3,7 +3,12 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { Placeholder } from "../src/components/ui/Placeholder"
-import { getBlogPosts, getPodcastPosts, getTalkPosts } from "../src/db/blog"
+import {
+  getAllPosts,
+  getBlogPosts,
+  getPodcastPosts,
+  getTalkPosts,
+} from "../src/db/blog"
 import { Post } from "../src/types/blog/Post"
 
 function sortByDate(a: Post, b: Post): number {

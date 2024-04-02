@@ -11,7 +11,6 @@ export const dynamic = "force-static"
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
-  console.log(posts.map((post) => post.slug).flat())
   return posts
 }
 

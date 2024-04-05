@@ -1,0 +1,141 @@
+---
+title: The Attributes of a Design Engineer
+subtitle: My definition of design engineering after building the practice at DoorDash.
+publishedDate: 2024-04-02 PST
+tags: Design Systems,Engineering,Design Engineering
+---
+
+_Design Engineering seems to be having a moment._
+
+There's been recent posts [like Vercel's](https://vercel.com/blog/design-engineering-at-vercel) that talk about their design engineering practice, the [post by David Hoang](https://www.proofofconcept.pub/p/design-engineering?r=g537u&utm_campaign=post&utm_medium=web) speaking to what the role is and why it will be critical in the coming decade, and [countless](https://twitter.com/rauchg/status/1773820378349232169) [Twitter](https://twitter.com/zhayitong/status/1775221364829688232) [posts](https://twitter.com/jsngr/status/1774502125491356012) [expanding](https://twitter.com/jsngr/status/1757170789193744766) [on](https://twitter.com/requestmethod/status/1774816323597406498) [all](https://twitter.com/Mappletons/status/1766154766210502812) of these ideas.[^1]
+
+As someone that has built a career in software as both a design engineer as well as a leader building organizations centered around that work, I have a unique perspective on the role. So, I'm going to share a more personal, raw explanation of this role that I've seen over the last decade, particularly from my experience as a practicioner earlier in my tenure — and why it's becoming increasingly critical to the way we build software in this moment.
+
+This is the first in a series of posts I'm writing on this topic.[^2]
+
+---
+
+# What Makes a Design Engineer?
+
+<Figure
+  src="/blog/images/on-design-engineering/new-role.png"
+  caption="Officially becoming a design engineer (aka design technologist) at DoorDash in 2017. CEO approved!"
+/>
+
+For many people, design engineering can be narrowed in by the _tools_ that they use — are they a designer that knows how to sling some React? Or are they an engineer that has an eye for design and is comfortable in Figma? But after being in this role for the last decade, the best way I would define this practice to focus on the high-level attributes and outcomes of what being a design engineer entails when building software:
+
+<BigBlockQuote>
+  Design engineering is living at the intersection of those practices, and using
+  a broad understanding of both sides to [build with significant
+  autonomy](#build-with-significant-autonomy), [practice and teach great
+  software craft](#practice-and-teach-great-software-craft), and [elevate the
+  final fidelity of what's made](#elevate-the-final-fidelity-of-whats-made) from
+  start-to-end.
+</BigBlockQuote>
+
+With these attributes for a design engineer, the practice can manifest in different ways and types of roles within an organization that builds software — be it roles focused on **design systems/infrastructure**, ones focused on **prototyping new ideas**, or ones focused on **building and shipping products/experiences with craft at its core**. All of these variations on what a design engineer is I've been lucky to experience in my career. I'll write more about these roles and distinctions in detail with another post in the near future.[^3]
+
+So, what follows is how I've seen those 3 fundamental attributes of design engineering applied to my work and the work of others over the last decade, and why these attributes are core to how I think of design engineers.
+
+# Build With Significant Autonomy
+
+I like to say that Design Engineering at DoorDash started as a recognition that design and engineering needed to live together in one role, to be able to build exceptional product at the highest quality. That it was a very intentional, specific decision — "We're building a design engineering team!"
+
+In truth, it started because they hired me as their first product designer, and quickly, I made it known that I didn't see the scope of my role being just a person who lived in Sketch (pre-Figma). I saw designing as just one step making software, and getting that intention in my designs to be real as an integral part of that process. I'd always treated my career that way—before DoorDash I had worked as both a designer and engineer at a few different companies and agencies. I had seen the value of that work at the intersection, and I was intent on bringing that to DoorDash because of the mindset I had about building software:
+
+<BigBlockQuote>
+  In my mind, my responsibility was the full ownership of what we shipped — that
+  the final outcome, not the design deliverable, was the thing I cared about
+  most.
+</BigBlockQuote>
+
+When I started, DoorDash didn't have any full-time product designers _and_ we also didn't have full-time frontend engineers. It was just a brand designer, an intern, a cofounder filling the gaps from the design side, and a bunch of early stage full-stack, backend-leaning engineers building on the frontend. Because of where we were as an organization, I spent a lot of time filling that gap for both design and engineering.
+
+I worked on both design and engineering on some projects, helping define what we wanted to do from the design and product side, and then building and launching it from end to end—things like our internal menu editor, the web version of our consumer facing site, and even our first Merchant tools. I shipped things that every person who used our products would see as their first impression of the product, and I made sure that impression was beautiful, designing and crafting it to my exact standards:
+
+<Figure
+  src="/blog/images/on-design-engineering/marketing-page.gif"
+  caption="DoorDash.com circa 2017 — designed and built by me."
+/>
+
+For both myself and the leaders that relied on me, my autonomy was a strength that we leaned on throughout my time at DoorDash—both as an IC shipping things day to day, but also as a leader that didn't have other examples of people like myself both in the company (or many outside of it) to learn from and emulate. Startups are highly motivated to hire people who can act as an owner, end to end, of the things they produce and design engineers are strong examples of how that mindset manifests in a practice.
+
+# Practice and Teach Great Software Craft
+
+Great design engineers are obsessed with understanding the materials of software, all the specific affordances of the medium, and the tools you use to shape them. In my experience this obsession comes from the drive to make something that has both beauty and intentionality paired with the technical approach that design engineers develop as they strive for independence in building that software. That obsession made me the kind of person that believed this:
+
+<BigBlockQuote>
+  End to end craft matters — if I really care about what I'm building, how it
+  manifests in all levels of design and code, is something I should deeply
+  understand and help others understand.
+</BigBlockQuote>
+
+With this, you get a lot of these design engineers — aka "software makers" — that are strong at both the technical and the creative. Strong visual design and the specifics of how to render that beautiful design in both a design tool and in code come easily to great design engineers.
+
+They iterate on their skillset constantly to better understand how to achieve the full-breadth of their aims. They take a leading edge approach to learn tools that others may find too intimidating technically (ex. how to apply shaders, 3D materials, physics-based animations to achieve a design) or too "wasteful" or "unecessary" to those that were focused on getting _anything_ that worked out the door, but not the _right_ thing executed _exceptionally well_.
+
+Back in the early days of DoorDash, I often took on the intersectional challenges that my focus on craft allowed me to do well. Projects that were harder to to as a non-technical designer at the time — designing micro-interactions, animations, and other prototypes with tools like Principle, Framer, and straight code.
+
+<div className="relative">
+  <Image
+    className="absolute h-[65%] w-auto right-0 top-1/2 -translate-y-1/2 -mt-4"
+    src="/blog/images/on-design-engineering/prototype.gif"
+  />
+  <Figure
+    src="/blog/images/on-design-engineering/prototyping.png"
+    caption="Prototyping micro-interactions with Principle, back when tools beyond inVision were uncommon."
+  />
+</div>
+
+Alongside bringing craft to what I did myself, I also took on other projects that were meant to help others elevate their work and make what we shipped great. In this realm, I focused first on improving the technical infrastructure of what we were building — I migrated us to React and built the frontend infrastructure that allowed us to ship our UI code with more safety and speed, back in 2015 when React was young and our full-stack engineers had been maintaining projects in Backbone, Vanilla JS, Angular 1, of varying levels of quality and consistency.
+
+<Figure
+  src="/blog/images/on-design-engineering/building-interfaces.png"
+  caption="Infrastructure and architecture projects I took on to elevate the quality of what we were building."
+/>
+
+I had some deeper experience in the past building mobile apps with a web based-stack (from my time at Fetchnotes), and from that experience had learned the intricacies of building great interfaces that felt fluid and high-craft with a medium that didn't make that easy, especially at the time. So I did a lot of sharing of that knowledge with the full-stack engineers in our organization, while also helping hire other frontend engineers with that same knowledge and attention to detail for the specifics of what it takes to build great interfaces.
+
+# Elevate The Final Fidelity of What's Made
+
+One of the unique aspects about design engineering is that you've got the potential to have much of the full process of building software contained in one person. That's a uniquely special place to be — you can take an idea of what you're building, and turn that into a reality at a fidelity and efficiency that's hard to achieve when you have to translate that vision between different people and roles[^4].
+
+This provides some practical advantages to an _individual_ design engineer — you can try ideas for yourself, you can build and explore ideas for others that is a more faithful rendering of the original ideas, and you can work more quickly to give what you build a deeper attention to detail than if you had to work with a team of people even see it as realistically as possible.
+
+Some of my favorite projects throughout my time at DoorDash was when we were exploring completely new product areas or difficult ideas that we couldn't express with a static set of designs, or that needed feedback that could only be gathered from a real experience. This is what I learned in my work prototyping over the years:
+
+<BigBlockQuote>
+  Selling a vision to customers, or other people in your company, sometimes
+  requires a magic trick — something that feels like you pulled it from the
+  future, even if under the hood it's not quite real.
+</BigBlockQuote>
+
+Equally useful is the fact that design engineers, in understanding how to translate between the two sides, are often great at building _infrastructure that increases the fidelity and quality of the work others do_. They build design systems, tools, and shared language that helps bridge the gap between the other designers and engineers around them.
+
+<Figure
+  src="/blog/images/on-design-engineering/systems.png"
+  caption="DoorDash's design systems that I built alongside our Design Infrastructure org."
+/>
+
+Ultimately, this ability is part of the reason why design engineers are most frequently found at large companies in design infrastructure and systems teams — they are great at elevating impact of the practice of design engineering across a large scope, even if the scale of the of the team itself is limited.
+
+At DoorDash, this function of infrastructure was what I found the most value in for what we needed as the company grew — we were a leading system by the time I left, and it was because of the value that we brought to the individual engineers and designers at the company in building to the quality that was needed. We were a trusted shared resource that our leadership leveraged again and again to bring the vision that we designed to fruition at a scale that was difficult to manage otherwise.
+
+# In Summary
+
+Truthfully, design engineering has existed in many forms over many years — creative technologists, Flash developers, design technologists, UX engineers: the list goes on ad infinitum.[^5] Each has come with variations on the tools, on the broad scope, and on the specifics of what this role entails given the needs and context of the industry at the time. But with every iteration, some of the core aspects of what make these people different from a designer or engineer has remained the same — and the reason why I wanted to focus on these attributes today. I hope that focus makes the definition of a design engineer for you more clear, especially as it evolves in the future.
+
+Still there's so much to say about design engineering, as so much is yet to be defined in an industry-standard way. I'm looking forward to writing more posts on this topic in the coming months, covering more insights gathered from my experience, and delving into design engineering and all its facets.
+
+[^1]: My favorite post is probably this one from [@tarngerine](https://twitter.com/tarngerine/status/1776267705487626468).
+[^2]:
+    Let me know what other topics you want me to cover by shooting me a message
+    over email at [kathryn@makeshiftlabs.io](mailto:kathryn@makeshiftlabs.io).
+
+[^3]: I think the more surface-level aspects of the role have been covered well in other posts, but I expect to write about this again in a more fine-grained post soon.
+[^4]:
+    Sidenote: This is also why I believe design engineers are great candidates to be
+    founders — their ability to bring a clarity of vision to a well-executed outcome
+    is something that directly translates to a core ingredient of a successful startup.
+
+[^5]: Shoutout to my friend [@ohwhen](https://twitter.com/ohwhen) who's been [beating this drum](https://twitter.com/ohwhen/status/1774127437632213092) [for a while now](https://twitter.com/ohwhen/status/1768064858916815189).

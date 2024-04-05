@@ -85,3 +85,11 @@
 
 @layer components {
 }
+
+html {
+  /* 
+  Fixes anchor links positioning target elements behind a fixed navbar: 
+  https://getpublii.com/blog/one-line-css-solution-to-prevent-anchor-links-from-scrolling-behind-a-sticky-header.html 
+  */
+  scroll-padding-top: 6rem;
+}

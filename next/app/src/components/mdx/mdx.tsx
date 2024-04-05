@@ -3,13 +3,16 @@ import path from "path"
 import { Suspense } from "react"
 import Image, { ImageProps } from "next/image"
 import Link from "next/link"
+import { Quote } from "lucide-react"
 import { MDXRemote } from "next-mdx-remote/rsc"
 import { getPlaiceholder } from "plaiceholder"
+import remarkGfm from "remark-gfm"
 import { highlight } from "sugar-high"
 
 import { cn } from "../../lib/utils"
 import { Placeholder } from "../ui/Placeholder"
 import { createHeading } from "./createHeading"
+import { extractText } from "./extractText"
 import { LiveCode } from "./sandpack"
 import styles from "./styles.module.css"
 import { TweetComponent } from "./tweet"
@@ -33,6 +36,38 @@ function Table({ data }) {
       </thead>
       <tbody>{rows}</tbody>
     </table>
+  )
+}
+
+export default function BigBlockQuote({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  const elementText = extractText(children)
+  return (
+    <blockquote className="font-serif text-3xl font-bold leading-[1.3] mb-8 relative">
+      <span className="inline-block text-6xl absolute -left-[1ch]">
+        <Quote
+          size={24}
+          fill="currentColor"
+          stroke="transparent"
+          className="scale-x-[-1]"
+        />
+      </span>
+      {elementText}
+    </blockquote>
+  )
+}
+
+export function Figure({ caption, src }: { caption: string; src: string }) {
+  return (
+    <figure className="">
+      <ImageLoader src={src} />
+      <figcaption className="italic text-sm text-gray-500 mb-8 mt-2 w-full">
+        {caption}
+      </figcaption>
+    </figure>
   )
 }
 
@@ -212,6 +247,7 @@ let components = {
   h6: createHeading(6),
   Image: ImageLoader,
   img: ImageLoader,
+  Figure: Figure,
   // The following doesn't work with the current version of next-mdx-remote:
   // https://github.com/hashicorp/next-mdx-remote/issues/297
   // iframe: (props) => <iframe className="w-full mb-8" {...props} />,
@@ -221,6 +257,7 @@ let components = {
   ul: (props) => <ol className="list-disc list-outside mb-8" {...props} />,
   ol: (props) => <ol className="list-decimal list-outside mb-8" {...props} />,
   li: (props) => <li className="mb-2" {...props} />,
+  BigBlockQuote: BigBlockQuote,
   blockquote: (props) => (
     <blockquote
       className="border-l-4 border-neutral-200 dark:border-neutral-700 pl-4 italic my-4"
@@ -244,6 +281,9 @@ export async function CustomMDX(props) {
       components={{ ...components, ...(props.components || {}) }}
       className={styles.mdxContainer}
       options={{
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
         scope: {
           cn,
           styles,

@@ -1,5 +1,6 @@
 {
   "[mdx]": {
-    "editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "prettier.printWidth": 400
   }
 }

@@ -35,14 +35,17 @@ export function createHeading(level) {
     let slug = slugify(text || child || "")
     return React.createElement(
       `h${level}`,
-      { id: slug, className: cn(baseTextStyle, sizes[level - 1], className) },
+      {
+        id: slug,
+        className: cn(baseTextStyle, sizes[level - 1], className, "group"),
+      },
       [
         React.createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
           className: cn(
             "anchor",
-            "no-underline -ml-[calc(2ch_+_8px)] pr-2 opacity-20 group-hover:opacity-100"
+            "no-underline -ml-[calc(2ch_+_8px)] pr-2 opacity-[0.01] transition group-hover:opacity-40"
           ),
           children: "#",
         }),

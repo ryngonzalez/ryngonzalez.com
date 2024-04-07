@@ -12,7 +12,7 @@ export default function SiteFooter() {
           <h1 className="text-left font-headline col-span-full uppercase font-bold tracking-widest text-2xl">
             Let's Work Together{" "}
             <MessageCircleIcon
-              className="inline align-top fill-primary-foreground"
+              className="inline align-baseline -mb-1 fill-primary-foreground"
               size={24}
             />
           </h1>
@@ -51,8 +51,9 @@ export default function SiteFooter() {
           </div>
         </div>
         <div className="w-full grid content-start grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 border-t pt-8 md:pt-0 md:border-t-0 md:border-l border-border/10">
-          <h1 className="font-headline text-primary-foreground col-span-full text-left uppercase font-bold tracking-widest text-2xl mb-4">
-            Elsewhere <ArrowUpRight className="inline align-top" size={24} />
+          <h1 className="font-headline text-primary-foreground col-span-full text-center uppercase font-bold tracking-widest text-2xl mb-4">
+            Elsewhere{" "}
+            <ArrowUpRight className="inline align-baseline -mb-1" size={24} />
           </h1>
           <SocialButton href={siteConfig.links.email}>
             <Icons.mail className="h-5 w-5 stroke-current" />

@@ -46,8 +46,8 @@ export default function BigBlockQuote({
 }) {
   const elementText = extractText(children)
   return (
-    <blockquote className="font-serif text-3xl font-bold leading-[1.3] mb-8 relative">
-      <span className="inline-block text-6xl absolute -left-[1ch]">
+    <blockquote className="font-serif md:text-3xl text-2xl font-bold leading-[1.3] mb-8 relative">
+      <span className="block md:inline-block text-6xl mb-4 md:mb-0 md:absolute md:-left-[1ch]">
         <Quote
           size={24}
           fill="currentColor"

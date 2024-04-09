@@ -1,0 +1,6 @@
+{
+  "[mdx]": {
+    "editor.wordWrap": "on",
+    "prettier.printWidth": 400
+  }
+}

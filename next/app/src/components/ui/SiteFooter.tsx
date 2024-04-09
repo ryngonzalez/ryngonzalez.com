@@ -6,19 +6,19 @@ import { siteConfig } from "@/app/src/config/site"
 
 export default function SiteFooter() {
   return (
-    <footer className="w-full font-sans text-primary text-center text-sm px-4 pb-4">
+    <footer className="w-full font-sans text-primary text-center text-sm px-4 pb-6">
       <div className="w-full rounded-3xl bg-primary grid md:grid-cols-2 gap-6 md:gap-0 p-6 sm:p-8">
-        <div className="w-full grid content-start text-sm sm:text-base grid-cols-2 px-4 md:px-8 md:grid-cols-5 gap-4 mt-6 text-primary-foreground">
+        <div className="w-full grid content-start text-sm sm:text-base grid-cols-2 px-4 md:px-8 md:grid-cols-5 gap-4 text-primary-foreground">
           <h1 className="text-left font-headline col-span-full uppercase font-bold tracking-widest text-2xl">
-            Let's Chat{" "}
+            Let's Work Together{" "}
             <MessageCircleIcon
-              className="inline align-top fill-primary-foreground"
+              className="inline align-baseline -mb-1 fill-primary-foreground"
               size={24}
             />
           </h1>
-          <div className="col-span-full text-left">
+          <div className="col-span-full text-left text-sm">
             <p>
-              <span className="italic">Interested in working together?</span>
+              <span className="italic">Interested in chatting?</span>
             </p>
             <ul className="list-disc pl-4 py-2">
               <li className="list-item">Need help with a project?</li>
@@ -50,9 +50,10 @@ export default function SiteFooter() {
             </p>
           </div>
         </div>
-        <div className="w-full grid content-start grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 border-t pt-8 md:pt-0 md:border-t-0 md:border-l border-border/10">
-          <h1 className="font-headline text-primary-foreground col-span-full uppercase font-bold tracking-widest text-2xl mb-4">
-            Elsewhere <ArrowUpRight className="inline align-top" size={24} />
+        <div className="w-full grid content-start grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 border-t pt-8 md:pt-0 md:border-t-0 md:border-l border-border/10">
+          <h1 className="font-headline text-primary-foreground col-span-full text-center uppercase font-bold tracking-widest text-2xl mb-4">
+            Elsewhere{" "}
+            <ArrowUpRight className="inline align-baseline -mb-1" size={24} />
           </h1>
           <SocialButton href={siteConfig.links.email}>
             <Icons.mail className="h-5 w-5 stroke-current" />

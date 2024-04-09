@@ -88,6 +88,7 @@ function formatDate(date: string) {
     month: "long",
     day: "numeric",
     year: "numeric",
+    timeZone: "America/Los_Angeles",
   })
 
   return `${fullDate} (${formattedDate})`

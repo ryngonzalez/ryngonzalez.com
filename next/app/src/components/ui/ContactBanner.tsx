@@ -20,7 +20,9 @@ export function ContactBanner() {
         with details.
       </p>
       <Marquee className="mt-4">
-        <span className="whitespace-nowrap uppercase">Available Q2 2024</span>
+        <span className="whitespace-nowrap uppercase">
+          Email me for availability
+        </span>
       </Marquee>
     </div>
   )
